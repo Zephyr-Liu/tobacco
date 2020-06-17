@@ -6,4 +6,5 @@ package com.xr.service;
  * @Description
  */
 public interface SysPostService {
+
 }

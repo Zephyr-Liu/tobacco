@@ -6,7 +6,7 @@
     <!--@Table Party_Position_Risk-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="risk_id" jdbcType="INTEGER" property="riskId" />
-    <result column="risk_yaers" jdbcType="TIMESTAMP" property="riskYaers" />
+    <result column="risk_years" jdbcType="TIMESTAMP" property="riskYears" />
     <result column="dept_id" jdbcType="INTEGER" property="deptId" />
     <result column="joc_id" jdbcType="INTEGER" property="jocId" />
     <result column="risk_project" jdbcType="CHAR" property="riskProject" />
@@ -83,8 +83,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, risk_id, risk_yaers, dept_id, joc_id, risk_project, risk_describe, risk_may_value,
-    risk_result_value, risk_integrity_value, risk_grade, prevention, create_date, create_id,
+    id, risk_id, risk_years, dept_id, joc_id, risk_project, risk_describe, risk_may_value, 
+    risk_result_value, risk_integrity_value, risk_grade, prevention, create_date, create_id, 
     create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyPositionRiskExample" resultMap="BaseResultMap">
@@ -104,7 +104,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select
+    select 
     <include refid="Base_Column_List" />
     from Party_Position_Risk
     where id = #{id,jdbcType=INTEGER}
@@ -123,17 +123,17 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyPositionRisk">
     <!--@mbg.generated-->
-    insert into Party_Position_Risk (id, risk_id, risk_yaers,
-      dept_id, joc_id, risk_project,
-      risk_describe, risk_may_value, risk_result_value,
-      risk_integrity_value, risk_grade, prevention,
-      create_date, create_id, create_name,
+    insert into Party_Position_Risk (id, risk_id, risk_years, 
+      dept_id, joc_id, risk_project, 
+      risk_describe, risk_may_value, risk_result_value, 
+      risk_integrity_value, risk_grade, prevention, 
+      create_date, create_id, create_name, 
       `status`)
-    values (#{id,jdbcType=INTEGER}, #{riskId,jdbcType=INTEGER}, #{riskYaers,jdbcType=TIMESTAMP},
-      #{deptId,jdbcType=INTEGER}, #{jocId,jdbcType=INTEGER}, #{riskProject,jdbcType=CHAR},
-      #{riskDescribe,jdbcType=VARCHAR}, #{riskMayValue,jdbcType=VARCHAR}, #{riskResultValue,jdbcType=INTEGER},
-      #{riskIntegrityValue,jdbcType=INTEGER}, #{riskGrade,jdbcType=INTEGER}, #{prevention,jdbcType=TINYINT},
-      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR},
+    values (#{id,jdbcType=INTEGER}, #{riskId,jdbcType=INTEGER}, #{riskYears,jdbcType=TIMESTAMP}, 
+      #{deptId,jdbcType=INTEGER}, #{jocId,jdbcType=INTEGER}, #{riskProject,jdbcType=CHAR}, 
+      #{riskDescribe,jdbcType=VARCHAR}, #{riskMayValue,jdbcType=VARCHAR}, #{riskResultValue,jdbcType=INTEGER}, 
+      #{riskIntegrityValue,jdbcType=INTEGER}, #{riskGrade,jdbcType=INTEGER}, #{prevention,jdbcType=TINYINT}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xr.model.PartyPositionRisk">
@@ -146,8 +146,8 @@
       <if test="riskId != null">
         risk_id,
       </if>
-      <if test="riskYaers != null">
-        risk_yaers,
+      <if test="riskYears != null">
+        risk_years,
       </if>
       <if test="deptId != null">
         dept_id,
@@ -196,8 +196,8 @@
       <if test="riskId != null">
         #{riskId,jdbcType=INTEGER},
       </if>
-      <if test="riskYaers != null">
-        #{riskYaers,jdbcType=TIMESTAMP},
+      <if test="riskYears != null">
+        #{riskYears,jdbcType=TIMESTAMP},
       </if>
       <if test="deptId != null">
         #{deptId,jdbcType=INTEGER},
@@ -257,8 +257,8 @@
       <if test="record.riskId != null">
         risk_id = #{record.riskId,jdbcType=INTEGER},
       </if>
-      <if test="record.riskYaers != null">
-        risk_yaers = #{record.riskYaers,jdbcType=TIMESTAMP},
+      <if test="record.riskYears != null">
+        risk_years = #{record.riskYears,jdbcType=TIMESTAMP},
       </if>
       <if test="record.deptId != null">
         dept_id = #{record.deptId,jdbcType=INTEGER},
@@ -309,7 +309,7 @@
     update Party_Position_Risk
     set id = #{record.id,jdbcType=INTEGER},
       risk_id = #{record.riskId,jdbcType=INTEGER},
-      risk_yaers = #{record.riskYaers,jdbcType=TIMESTAMP},
+      risk_years = #{record.riskYears,jdbcType=TIMESTAMP},
       dept_id = #{record.deptId,jdbcType=INTEGER},
       joc_id = #{record.jocId,jdbcType=INTEGER},
       risk_project = #{record.riskProject,jdbcType=CHAR},
@@ -334,8 +334,8 @@
       <if test="riskId != null">
         risk_id = #{riskId,jdbcType=INTEGER},
       </if>
-      <if test="riskYaers != null">
-        risk_yaers = #{riskYaers,jdbcType=TIMESTAMP},
+      <if test="riskYears != null">
+        risk_years = #{riskYears,jdbcType=TIMESTAMP},
       </if>
       <if test="deptId != null">
         dept_id = #{deptId,jdbcType=INTEGER},
@@ -383,7 +383,7 @@
     <!--@mbg.generated-->
     update Party_Position_Risk
     set risk_id = #{riskId,jdbcType=INTEGER},
-      risk_yaers = #{riskYaers,jdbcType=TIMESTAMP},
+      risk_years = #{riskYears,jdbcType=TIMESTAMP},
       dept_id = #{deptId,jdbcType=INTEGER},
       joc_id = #{jocId,jdbcType=INTEGER},
       risk_project = #{riskProject,jdbcType=CHAR},

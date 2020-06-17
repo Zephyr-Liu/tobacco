@@ -94,7 +94,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select
+    select 
     <include refid="Base_Column_List" />
     from Party_Data_Collection
     where id = #{id,jdbcType=INTEGER}
@@ -113,11 +113,11 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyDataCollection">
     <!--@mbg.generated-->
-    insert into Party_Data_Collection (id, datum_title, file_name,
-      `file`, create_date, create_proson,
+    insert into Party_Data_Collection (id, datum_title, file_name, 
+      `file`, create_date, create_proson, 
       create_name, `status`)
-    values (#{id,jdbcType=INTEGER}, #{datumTitle,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR},
-      #{file,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createProson,jdbcType=INTEGER},
+    values (#{id,jdbcType=INTEGER}, #{datumTitle,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{file,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createProson,jdbcType=INTEGER}, 
       #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xr.model.PartyDataCollection">

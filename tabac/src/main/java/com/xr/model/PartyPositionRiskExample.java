@@ -225,63 +225,63 @@ public class PartyPositionRiskExample {
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersIsNull() {
-            addCriterion("risk_yaers is null");
+        public Criteria andRiskYearsIsNull() {
+            addCriterion("risk_years is null");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersIsNotNull() {
-            addCriterion("risk_yaers is not null");
+        public Criteria andRiskYearsIsNotNull() {
+            addCriterion("risk_years is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersEqualTo(Date value) {
-            addCriterion("risk_yaers =", value, "riskYaers");
+        public Criteria andRiskYearsEqualTo(Date value) {
+            addCriterion("risk_years =", value, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersNotEqualTo(Date value) {
-            addCriterion("risk_yaers <>", value, "riskYaers");
+        public Criteria andRiskYearsNotEqualTo(Date value) {
+            addCriterion("risk_years <>", value, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersGreaterThan(Date value) {
-            addCriterion("risk_yaers >", value, "riskYaers");
+        public Criteria andRiskYearsGreaterThan(Date value) {
+            addCriterion("risk_years >", value, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersGreaterThanOrEqualTo(Date value) {
-            addCriterion("risk_yaers >=", value, "riskYaers");
+        public Criteria andRiskYearsGreaterThanOrEqualTo(Date value) {
+            addCriterion("risk_years >=", value, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersLessThan(Date value) {
-            addCriterion("risk_yaers <", value, "riskYaers");
+        public Criteria andRiskYearsLessThan(Date value) {
+            addCriterion("risk_years <", value, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersLessThanOrEqualTo(Date value) {
-            addCriterion("risk_yaers <=", value, "riskYaers");
+        public Criteria andRiskYearsLessThanOrEqualTo(Date value) {
+            addCriterion("risk_years <=", value, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersIn(List<Date> values) {
-            addCriterion("risk_yaers in", values, "riskYaers");
+        public Criteria andRiskYearsIn(List<Date> values) {
+            addCriterion("risk_years in", values, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersNotIn(List<Date> values) {
-            addCriterion("risk_yaers not in", values, "riskYaers");
+        public Criteria andRiskYearsNotIn(List<Date> values) {
+            addCriterion("risk_years not in", values, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersBetween(Date value1, Date value2) {
-            addCriterion("risk_yaers between", value1, value2, "riskYaers");
+        public Criteria andRiskYearsBetween(Date value1, Date value2) {
+            addCriterion("risk_years between", value1, value2, "riskYears");
             return (Criteria) this;
         }
 
-        public Criteria andRiskYaersNotBetween(Date value1, Date value2) {
-            addCriterion("risk_yaers not between", value1, value2, "riskYaers");
+        public Criteria andRiskYearsNotBetween(Date value1, Date value2) {
+            addCriterion("risk_years not between", value1, value2, "riskYears");
             return (Criteria) this;
         }
 

@@ -1,9 +1,11 @@
 package com.xr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @ApiModel(value="com-xr-model-SysJob")
 @Data
@@ -18,7 +20,7 @@ public class SysJob {
     private String jobId;
 
     /**
-    * 岗位名称	
+    * 岗位名称
     */
     @ApiModelProperty(value="岗位名称	")
     private String jobName;
@@ -39,12 +41,14 @@ public class SysJob {
     * 创建时间	系统当前时间
     */
     @ApiModelProperty(value="创建时间	系统当前时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date createTime;
 
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="登陆人id")
     private String createId;
 
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="登陆人姓名")
     private String createName;
 
     /**

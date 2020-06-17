@@ -12,7 +12,6 @@ public interface PartyDialogueMapper {
 
     /**
      * delete by primary key
-     *
      * @param id primaryKey
      * @return deleteCount
      */
@@ -20,7 +19,6 @@ public interface PartyDialogueMapper {
 
     /**
      * insert record to table
-     *
      * @param record the record
      * @return insert count
      */
@@ -28,7 +26,6 @@ public interface PartyDialogueMapper {
 
     /**
      * insert record to table selective
-     *
      * @param record the record
      * @return insert count
      */
@@ -38,7 +35,6 @@ public interface PartyDialogueMapper {
 
     /**
      * select by primary key
-     *
      * @param id primary key
      * @return object by primary key
      */
@@ -50,7 +46,6 @@ public interface PartyDialogueMapper {
 
     /**
      * update record selective
-     *
      * @param record the updated record
      * @return update count
      */
@@ -58,7 +53,6 @@ public interface PartyDialogueMapper {
 
     /**
      * update record
-     *
      * @param record the updated record
      * @return update count
      */

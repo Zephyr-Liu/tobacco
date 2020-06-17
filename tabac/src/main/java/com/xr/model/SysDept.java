@@ -2,7 +2,11 @@ package com.xr.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 @ApiModel(value="com-xr-model-SysDept")
@@ -67,4 +71,9 @@ public class SysDept {
     */
     @ApiModelProperty(value="是否删除   -1：已删除    0：正常")
     private Byte status;
+
+    /**
+     * 部门下的部门子集
+     */
+    private List<SysDept> items = new ArrayList<>();
 }

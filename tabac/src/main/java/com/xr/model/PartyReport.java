@@ -1,9 +1,11 @@
 package com.xr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 通过系统实现系统内部在线信访举报，可以登录实名举报，也可以匿名举报，对信访举报进行处理。匿名举报处理结果不公开，实名举报
@@ -27,6 +29,8 @@ public class PartyReport {
      * 信访时间	默认为填写的时间
      */
     @ApiModelProperty(value = "信访时间	默认为填写的时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date petitionDate;
 
     /**
@@ -87,6 +91,8 @@ public class PartyReport {
      * 监察科部门意见签署时间	纪检监察科科长签署意见的时间
      */
     @ApiModelProperty(value = "监察科部门意见签署时间	纪检监察科科长签署意见的时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date monitorOpinioDete;
 
     /**
@@ -99,6 +105,8 @@ public class PartyReport {
      * 纪检组长签署时间	纪检组长签署时间
      */
     @ApiModelProperty(value = "纪检组长签署时间	纪检组长签署时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date isciplineInspectionOpinio;
 
     /**
@@ -111,6 +119,8 @@ public class PartyReport {
      * 局领导签署时间	局领导签署时间
      */
     @ApiModelProperty(value = "局领导签署时间	局领导签署时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date bureauOpinioDate;
 
     /**
@@ -123,6 +133,8 @@ public class PartyReport {
      * 转办意见签署时间
      */
     @ApiModelProperty(value = "转办意见签署时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date transitResultDate;
 
     /**
@@ -135,12 +147,16 @@ public class PartyReport {
      * 监察科自办时间
      */
     @ApiModelProperty(value = "监察科自办时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date selfDate;
 
     /**
      * 系统当前时间
      */
     @ApiModelProperty(value = "系统当前时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date createDate;
 
     /**

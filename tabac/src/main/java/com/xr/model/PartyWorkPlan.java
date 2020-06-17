@@ -1,9 +1,11 @@
 package com.xr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 填写工作计划
@@ -33,6 +35,8 @@ public class PartyWorkPlan {
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date createDate;
 
     /**

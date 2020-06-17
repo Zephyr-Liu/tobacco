@@ -1,9 +1,11 @@
 package com.xr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 需要提供部门汇总图，所有部门都显示，显示每个部门的一级风险数、二级风险数、三级风险数，点击部门显示该部门所有的风险信息。
@@ -45,6 +47,8 @@ public class PartyRiskAssessment {
      * 创建时间	系统当前时间
      */
     @ApiModelProperty(value = "创建时间	系统当前时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date createDate;
 
     /**
