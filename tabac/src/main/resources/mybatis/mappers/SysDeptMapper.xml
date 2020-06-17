@@ -4,14 +4,14 @@
   <resultMap id="BaseResultMap" type="com.xr.model.SysDept">
     <!--@mbg.generated-->
     <!--@Table sys_dept-->
-    <id column="id" jdbcType="BIGINT" property="id" />
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="dept_id" jdbcType="VARCHAR" property="deptId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="principal" jdbcType="VARCHAR" property="principal" />
-    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
-    <result column="manager" jdbcType="VARCHAR" property="manager" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="duty_proson" jdbcType="VARCHAR" property="dutyProson" />
+    <result column="parent_dept_id" jdbcType="BIGINT" property="parentDeptId" />
+    <result column="in_charge_lead" jdbcType="VARCHAR" property="inChargeLead" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="creat_id" jdbcType="INTEGER" property="creatId" />
     <result column="create_name" jdbcType="VARCHAR" property="createName" />
     <result column="status" jdbcType="TINYINT" property="status" />
   </resultMap>
@@ -77,8 +77,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, dept_id, `name`, principal, parent_id, manager, create_time, creator, create_name, 
-    `status`
+    id, dept_id, dept_name, duty_proson, parent_dept_id, in_charge_lead, create_time, 
+    creat_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.SysDeptExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -95,17 +95,17 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
     from sys_dept
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
     delete from sys_dept
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.xr.model.SysDeptExample">
     <!--@mbg.generated-->
@@ -116,13 +116,13 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysDept" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into sys_dept (dept_id, `name`, principal, 
-      parent_id, manager, create_time, 
-      creator, create_name, `status`
+    insert into sys_dept (dept_id, dept_name, duty_proson, 
+      parent_dept_id, in_charge_lead, create_time, 
+      creat_id, create_name, `status`
       )
-    values (#{deptId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{principal,jdbcType=VARCHAR}, 
-      #{parentId,jdbcType=BIGINT}, #{manager,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{creator,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{dutyProson,jdbcType=VARCHAR}, 
+      #{parentDeptId,jdbcType=BIGINT}, #{inChargeLead,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{creatId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
       )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysDept" useGeneratedKeys="true">
@@ -132,23 +132,23 @@
       <if test="deptId != null">
         dept_id,
       </if>
-      <if test="name != null">
-        `name`,
+      <if test="deptName != null">
+        dept_name,
       </if>
-      <if test="principal != null">
-        principal,
+      <if test="dutyProson != null">
+        duty_proson,
       </if>
-      <if test="parentId != null">
-        parent_id,
+      <if test="parentDeptId != null">
+        parent_dept_id,
       </if>
-      <if test="manager != null">
-        manager,
+      <if test="inChargeLead != null">
+        in_charge_lead,
       </if>
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="creator != null">
-        creator,
+      <if test="creatId != null">
+        creat_id,
       </if>
       <if test="createName != null">
         create_name,
@@ -161,23 +161,23 @@
       <if test="deptId != null">
         #{deptId,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
       </if>
-      <if test="principal != null">
-        #{principal,jdbcType=VARCHAR},
+      <if test="dutyProson != null">
+        #{dutyProson,jdbcType=VARCHAR},
       </if>
-      <if test="parentId != null">
-        #{parentId,jdbcType=BIGINT},
+      <if test="parentDeptId != null">
+        #{parentDeptId,jdbcType=BIGINT},
       </if>
-      <if test="manager != null">
-        #{manager,jdbcType=VARCHAR},
+      <if test="inChargeLead != null">
+        #{inChargeLead,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="creator != null">
-        #{creator,jdbcType=INTEGER},
+      <if test="creatId != null">
+        #{creatId,jdbcType=INTEGER},
       </if>
       <if test="createName != null">
         #{createName,jdbcType=VARCHAR},
@@ -199,28 +199,28 @@
     update sys_dept
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=BIGINT},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.deptId != null">
         dept_id = #{record.deptId,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
+      <if test="record.deptName != null">
+        dept_name = #{record.deptName,jdbcType=VARCHAR},
       </if>
-      <if test="record.principal != null">
-        principal = #{record.principal,jdbcType=VARCHAR},
+      <if test="record.dutyProson != null">
+        duty_proson = #{record.dutyProson,jdbcType=VARCHAR},
       </if>
-      <if test="record.parentId != null">
-        parent_id = #{record.parentId,jdbcType=BIGINT},
+      <if test="record.parentDeptId != null">
+        parent_dept_id = #{record.parentDeptId,jdbcType=BIGINT},
       </if>
-      <if test="record.manager != null">
-        manager = #{record.manager,jdbcType=VARCHAR},
+      <if test="record.inChargeLead != null">
+        in_charge_lead = #{record.inChargeLead,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.creator != null">
-        creator = #{record.creator,jdbcType=INTEGER},
+      <if test="record.creatId != null">
+        creat_id = #{record.creatId,jdbcType=INTEGER},
       </if>
       <if test="record.createName != null">
         create_name = #{record.createName,jdbcType=VARCHAR},
@@ -236,14 +236,14 @@
   <update id="updateByExample" parameterType="map">
     <!--@mbg.generated-->
     update sys_dept
-    set id = #{record.id,jdbcType=BIGINT},
+    set id = #{record.id,jdbcType=INTEGER},
       dept_id = #{record.deptId,jdbcType=VARCHAR},
-      `name` = #{record.name,jdbcType=VARCHAR},
-      principal = #{record.principal,jdbcType=VARCHAR},
-      parent_id = #{record.parentId,jdbcType=BIGINT},
-      manager = #{record.manager,jdbcType=VARCHAR},
+      dept_name = #{record.deptName,jdbcType=VARCHAR},
+      duty_proson = #{record.dutyProson,jdbcType=VARCHAR},
+      parent_dept_id = #{record.parentDeptId,jdbcType=BIGINT},
+      in_charge_lead = #{record.inChargeLead,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      creator = #{record.creator,jdbcType=INTEGER},
+      creat_id = #{record.creatId,jdbcType=INTEGER},
       create_name = #{record.createName,jdbcType=VARCHAR},
       `status` = #{record.status,jdbcType=TINYINT}
     <if test="_parameter != null">
@@ -257,23 +257,23 @@
       <if test="deptId != null">
         dept_id = #{deptId,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
       </if>
-      <if test="principal != null">
-        principal = #{principal,jdbcType=VARCHAR},
+      <if test="dutyProson != null">
+        duty_proson = #{dutyProson,jdbcType=VARCHAR},
       </if>
-      <if test="parentId != null">
-        parent_id = #{parentId,jdbcType=BIGINT},
+      <if test="parentDeptId != null">
+        parent_dept_id = #{parentDeptId,jdbcType=BIGINT},
       </if>
-      <if test="manager != null">
-        manager = #{manager,jdbcType=VARCHAR},
+      <if test="inChargeLead != null">
+        in_charge_lead = #{inChargeLead,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="creator != null">
-        creator = #{creator,jdbcType=INTEGER},
+      <if test="creatId != null">
+        creat_id = #{creatId,jdbcType=INTEGER},
       </if>
       <if test="createName != null">
         create_name = #{createName,jdbcType=VARCHAR},
@@ -282,20 +282,20 @@
         `status` = #{status,jdbcType=TINYINT},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xr.model.SysDept">
     <!--@mbg.generated-->
     update sys_dept
     set dept_id = #{deptId,jdbcType=VARCHAR},
-      `name` = #{name,jdbcType=VARCHAR},
-      principal = #{principal,jdbcType=VARCHAR},
-      parent_id = #{parentId,jdbcType=BIGINT},
-      manager = #{manager,jdbcType=VARCHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      duty_proson = #{dutyProson,jdbcType=VARCHAR},
+      parent_dept_id = #{parentDeptId,jdbcType=BIGINT},
+      in_charge_lead = #{inChargeLead,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      creator = #{creator,jdbcType=INTEGER},
+      creat_id = #{creatId,jdbcType=INTEGER},
       create_name = #{createName,jdbcType=VARCHAR},
       `status` = #{status,jdbcType=TINYINT}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -77,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, info_title, `source`, info_type, info_content, info_issue_date, create_date, 
+    id, info_title, `source`, info_type, info_content, info_issue_date, create_date,
     create_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyInformationExample" resultMap="BaseResultMap">
@@ -97,7 +97,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Information
     where id = #{id,jdbcType=INTEGER}
@@ -116,13 +116,13 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyInformation">
     <!--@mbg.generated-->
-    insert into Party_Information (id, info_title, `source`, 
-      info_type, info_content, info_issue_date, 
-      create_date, create_id, create_name, 
+    insert into Party_Information (id, info_title, `source`,
+      info_type, info_content, info_issue_date,
+      create_date, create_id, create_name,
       `status`)
-    values (#{id,jdbcType=INTEGER}, #{infoTitle,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
-      #{infoType,jdbcType=TINYINT}, #{infoContent,jdbcType=VARCHAR}, #{infoIssueDate,jdbcType=TIMESTAMP}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{infoTitle,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR},
+      #{infoType,jdbcType=TINYINT}, #{infoContent,jdbcType=VARCHAR}, #{infoIssueDate,jdbcType=TIMESTAMP},
+      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR},
       #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xr.model.PartyInformation">

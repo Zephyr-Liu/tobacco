@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xr.mapper.SysJocMapper">
-  <resultMap id="BaseResultMap" type="com.xr.model.SysJoc">
+<mapper namespace="com.xr.mapper.SysJobMapper">
+  <resultMap id="BaseResultMap" type="com.xr.model.SysJob">
     <!--@mbg.generated-->
-    <!--@Table sys_joc-->
+    <!--@Table sys_job-->
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="position_id" jdbcType="VARCHAR" property="positionId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="emp_name_id" jdbcType="VARCHAR" property="empNameId" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="job_id" jdbcType="VARCHAR" property="jobId" />
+    <result column="job_name" jdbcType="VARCHAR" property="jobName" />
+    <result column="emp_in_dept_id" jdbcType="VARCHAR" property="empInDeptId" />
+    <result column="job_desc" jdbcType="VARCHAR" property="jobDesc" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_id" jdbcType="VARCHAR" property="createId" />
     <result column="create_name" jdbcType="VARCHAR" property="createName" />
-    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="status" jdbcType="TINYINT" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -76,17 +76,17 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, position_id, `name`, emp_name_id, `desc`, create_time, creator, create_name, 
+    id, job_id, job_name, emp_in_dept_id, job_desc, create_time, create_id, create_name, 
     `status`
   </sql>
-  <select id="selectByExample" parameterType="com.xr.model.SysJocExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xr.model.SysJobExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from sys_joc
+    from sys_job
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -98,51 +98,51 @@
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
-    from sys_joc
+    from sys_job
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
-    delete from sys_joc
+    delete from sys_job
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xr.model.SysJocExample">
+  <delete id="deleteByExample" parameterType="com.xr.model.SysJobExample">
     <!--@mbg.generated-->
-    delete from sys_joc
+    delete from sys_job
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysJoc" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysJob" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into sys_joc (position_id, `name`, emp_name_id, 
-      `desc`, create_time, creator, 
+    insert into sys_job (job_id, job_name, emp_in_dept_id, 
+      job_desc, create_time, create_id, 
       create_name, `status`)
-    values (#{positionId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{empNameId,jdbcType=VARCHAR}, 
-      #{desc,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
-      #{createName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
+    values (#{jobId,jdbcType=VARCHAR}, #{jobName,jdbcType=VARCHAR}, #{empInDeptId,jdbcType=VARCHAR}, 
+      #{jobDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=VARCHAR}, 
+      #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysJoc" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysJob" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into sys_joc
+    insert into sys_job
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="positionId != null">
-        position_id,
+      <if test="jobId != null">
+        job_id,
       </if>
-      <if test="name != null">
-        `name`,
+      <if test="jobName != null">
+        job_name,
       </if>
-      <if test="empNameId != null">
-        emp_name_id,
+      <if test="empInDeptId != null">
+        emp_in_dept_id,
       </if>
-      <if test="desc != null">
-        `desc`,
+      <if test="jobDesc != null">
+        job_desc,
       </if>
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="creator != null">
-        creator,
+      <if test="createId != null">
+        create_id,
       </if>
       <if test="createName != null">
         create_name,
@@ -152,69 +152,69 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="positionId != null">
-        #{positionId,jdbcType=VARCHAR},
+      <if test="jobId != null">
+        #{jobId,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="jobName != null">
+        #{jobName,jdbcType=VARCHAR},
       </if>
-      <if test="empNameId != null">
-        #{empNameId,jdbcType=VARCHAR},
+      <if test="empInDeptId != null">
+        #{empInDeptId,jdbcType=VARCHAR},
       </if>
-      <if test="desc != null">
-        #{desc,jdbcType=VARCHAR},
+      <if test="jobDesc != null">
+        #{jobDesc,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="creator != null">
-        #{creator,jdbcType=VARCHAR},
+      <if test="createId != null">
+        #{createId,jdbcType=VARCHAR},
       </if>
       <if test="createName != null">
         #{createName,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        #{status,jdbcType=INTEGER},
+        #{status,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xr.model.SysJocExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.xr.model.SysJobExample" resultType="java.lang.Long">
     <!--@mbg.generated-->
-    select count(*) from sys_joc
+    select count(*) from sys_job
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--@mbg.generated-->
-    update sys_joc
+    update sys_job
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.positionId != null">
-        position_id = #{record.positionId,jdbcType=VARCHAR},
+      <if test="record.jobId != null">
+        job_id = #{record.jobId,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
+      <if test="record.jobName != null">
+        job_name = #{record.jobName,jdbcType=VARCHAR},
       </if>
-      <if test="record.empNameId != null">
-        emp_name_id = #{record.empNameId,jdbcType=VARCHAR},
+      <if test="record.empInDeptId != null">
+        emp_in_dept_id = #{record.empInDeptId,jdbcType=VARCHAR},
       </if>
-      <if test="record.desc != null">
-        `desc` = #{record.desc,jdbcType=VARCHAR},
+      <if test="record.jobDesc != null">
+        job_desc = #{record.jobDesc,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.creator != null">
-        creator = #{record.creator,jdbcType=VARCHAR},
+      <if test="record.createId != null">
+        create_id = #{record.createId,jdbcType=VARCHAR},
       </if>
       <if test="record.createName != null">
         create_name = #{record.createName,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null">
-        `status` = #{record.status,jdbcType=INTEGER},
+        `status` = #{record.status,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -223,62 +223,62 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--@mbg.generated-->
-    update sys_joc
+    update sys_job
     set id = #{record.id,jdbcType=INTEGER},
-      position_id = #{record.positionId,jdbcType=VARCHAR},
-      `name` = #{record.name,jdbcType=VARCHAR},
-      emp_name_id = #{record.empNameId,jdbcType=VARCHAR},
-      `desc` = #{record.desc,jdbcType=VARCHAR},
+      job_id = #{record.jobId,jdbcType=VARCHAR},
+      job_name = #{record.jobName,jdbcType=VARCHAR},
+      emp_in_dept_id = #{record.empInDeptId,jdbcType=VARCHAR},
+      job_desc = #{record.jobDesc,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      creator = #{record.creator,jdbcType=VARCHAR},
+      create_id = #{record.createId,jdbcType=VARCHAR},
       create_name = #{record.createName,jdbcType=VARCHAR},
-      `status` = #{record.status,jdbcType=INTEGER}
+      `status` = #{record.status,jdbcType=TINYINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xr.model.SysJoc">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.model.SysJob">
     <!--@mbg.generated-->
-    update sys_joc
+    update sys_job
     <set>
-      <if test="positionId != null">
-        position_id = #{positionId,jdbcType=VARCHAR},
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+      <if test="jobName != null">
+        job_name = #{jobName,jdbcType=VARCHAR},
       </if>
-      <if test="empNameId != null">
-        emp_name_id = #{empNameId,jdbcType=VARCHAR},
+      <if test="empInDeptId != null">
+        emp_in_dept_id = #{empInDeptId,jdbcType=VARCHAR},
       </if>
-      <if test="desc != null">
-        `desc` = #{desc,jdbcType=VARCHAR},
+      <if test="jobDesc != null">
+        job_desc = #{jobDesc,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="creator != null">
-        creator = #{creator,jdbcType=VARCHAR},
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=VARCHAR},
       </if>
       <if test="createName != null">
         create_name = #{createName,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        `status` = #{status,jdbcType=INTEGER},
+        `status` = #{status,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xr.model.SysJoc">
+  <update id="updateByPrimaryKey" parameterType="com.xr.model.SysJob">
     <!--@mbg.generated-->
-    update sys_joc
-    set position_id = #{positionId,jdbcType=VARCHAR},
-      `name` = #{name,jdbcType=VARCHAR},
-      emp_name_id = #{empNameId,jdbcType=VARCHAR},
-      `desc` = #{desc,jdbcType=VARCHAR},
+    update sys_job
+    set job_id = #{jobId,jdbcType=VARCHAR},
+      job_name = #{jobName,jdbcType=VARCHAR},
+      emp_in_dept_id = #{empInDeptId,jdbcType=VARCHAR},
+      job_desc = #{jobDesc,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      creator = #{creator,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=VARCHAR},
       create_name = #{createName,jdbcType=VARCHAR},
-      `status` = #{status,jdbcType=INTEGER}
+      `status` = #{status,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -93,7 +93,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_lnStiutional_Process
     where id = #{id,jdbcType=BIGINT}
@@ -112,10 +112,10 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyLnStiutionalProcess" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into Party_lnStiutional_Process (title, content, createtime, 
+    insert into Party_lnStiutional_Process (title, content, createtime,
       createname, createusername, `status`
       )
-    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
       #{createname,jdbcType=VARCHAR}, #{createusername,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
       )
   </insert>

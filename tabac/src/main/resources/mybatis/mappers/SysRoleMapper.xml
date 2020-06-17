@@ -94,7 +94,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_role
     where id = #{id,jdbcType=BIGINT}
@@ -113,11 +113,11 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysRole" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into sys_role (`name`, remark, create_by, 
-      create_time, last_update_by, last_update_time, 
+    insert into sys_role (`name`, remark, create_by,
+      create_time, last_update_by, last_update_time,
       del_flag)
-    values (#{name,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
+    values (#{name,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP},
       #{delFlag,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysRole" useGeneratedKeys="true">

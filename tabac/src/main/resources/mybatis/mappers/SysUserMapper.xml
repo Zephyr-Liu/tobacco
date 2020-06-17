@@ -82,7 +82,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, username, `password`, salt, email, mobile, `status`, dept_id, create_by, create_time, 
+    id, username, `password`, salt, email, mobile, `status`, dept_id, create_by, create_time,
     last_update_by, last_update_time, del_flag, introduction, avatar
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.SysUserExample" resultMap="BaseResultMap">
@@ -102,7 +102,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_user
     where id = #{id,jdbcType=BIGINT}
@@ -121,15 +121,15 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysUser" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into sys_user (username, `password`, salt, 
-      email, mobile, `status`, 
-      dept_id, create_by, create_time, 
-      last_update_by, last_update_time, del_flag, 
+    insert into sys_user (username, `password`, salt,
+      email, mobile, `status`,
+      dept_id, create_by, create_time,
+      last_update_by, last_update_time, del_flag,
       introduction, avatar)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
-      #{deptId,jdbcType=BIGINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=TINYINT}, 
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT},
+      #{deptId,jdbcType=BIGINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=TINYINT},
       #{introduction,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysUser" useGeneratedKeys="true">
@@ -375,4 +375,60 @@
       avatar = #{avatar,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+<resultMap id="userAndRoleAndMenuResultMap" type="com.xr.model.SysUser">
+  <id column="uid" property="id" />
+  <result column="username" property="username" />
+  <result column="password" property="password" />
+  <result column="salt" property="salt" />
+  <result column="email" property="email" />
+  <result column="mobile" property="mobile" />
+  <result column="status" property="status" />
+  <result column="dept_id" property="deptId" />
+  <result column="udelFlag" property="delFlag" />
+  <result column="introduction" property="introduction" />
+  <result column="avatar" property="avatar" />
+<!--  用户与角色的一对多关系-->
+  <collection ofType="com.xr.model.SysRole" property="roles">
+    <id column="rid" property="id" />
+    <result column="rname" property="name" />
+    <result column="remark" property="remark" />
+<!--    角色与权限的一对多-->
+    <collection ofType="com.xr.model.SysMenu" property="menus">
+      <id column="mid" property="id" />
+      <result column="mname" property="name" />
+      <result column="parent_id" property="parentId" />
+      <result column="url" property="url" />
+      <result column="perms" property="perms" />
+      <result column="type" property="type" />
+      <result column="icon" property="icon" />
+      <result column="order_num" property="orderNum" />
+    </collection>
+  </collection>
+</resultMap>
+
+
+<!--  根据用户名查询角色和觉角色对应的权限-->
+  <select id="findUserByNameAndRoleAndMenu" parameterType="string" resultMap="userAndRoleAndMenuResultMap">
+   select u.id uid,introduction,avatar,username,password,salt,email,mobile,status,dept_id,u.del_flag udelFlag
+    ,r.id rid,r.name rname,r.remark
+    ,m.id mid,m.name mname,m.parent_id,m.url,m.perms,m.type,m.icon,m.order_num
+    from sys_user u
+    INNER JOIN sys_user_role ur
+    ON u.id = ur.user_id
+    INNER JOIN sys_role r
+    ON ur.role_id = r.id
+    INNER JOIN sys_role_menu rm
+    ON r.id = rm.role_id
+    INNER JOIN sys_menu m
+    ON m.id = rm.menu_id
+    where username=#{username} and u.del_flag=0 and r.del_flag=0 and m.del_flag=0
+  </select>
+<!-- 根据用户名查询角色集合 -->
+  <select id="findUserRoles" parameterType="string" resultType="string">
+    SELECT r.name from sys_user u,sys_role r,sys_user_role ur
+    where r.id = ur.role_id and u.username=#{username} and ur.user_id=u.id
+  </select>
+
+
 </mapper>

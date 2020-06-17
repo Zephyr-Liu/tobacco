@@ -78,7 +78,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, responsibility_id, duty_type, duty_title, duty_content, dept, annex, create_date, 
+    id, responsibility_id, duty_type, duty_title, duty_content, dept, annex, create_date,
     create_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartySupervisionResponsibilityExample" resultMap="BaseResultMap">
@@ -98,7 +98,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Supervision_Responsibility
     where id = #{id,jdbcType=INTEGER}
@@ -117,13 +117,13 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartySupervisionResponsibility">
     <!--@mbg.generated-->
-    insert into Party_Supervision_Responsibility (id, responsibility_id, duty_type, 
-      duty_title, duty_content, dept, 
-      annex, create_date, create_id, 
+    insert into Party_Supervision_Responsibility (id, responsibility_id, duty_type,
+      duty_title, duty_content, dept,
+      annex, create_date, create_id,
       create_name, `status`)
-    values (#{id,jdbcType=INTEGER}, #{responsibilityId,jdbcType=INTEGER}, #{dutyType,jdbcType=TINYINT}, 
-      #{dutyTitle,jdbcType=VARCHAR}, #{dutyContent,jdbcType=VARCHAR}, #{dept,jdbcType=INTEGER}, 
-      #{annex,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{responsibilityId,jdbcType=INTEGER}, #{dutyType,jdbcType=TINYINT},
+      #{dutyTitle,jdbcType=VARCHAR}, #{dutyContent,jdbcType=VARCHAR}, #{dept,jdbcType=INTEGER},
+      #{annex,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=VARCHAR},
       #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xr.model.PartySupervisionResponsibility">

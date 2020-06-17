@@ -82,8 +82,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, other_side_name, other_side_dept, other_side_face, other_side_joc, talk_type, 
-    talk_date, talk_site, record_proson, talk_outline, talk_content, create_date, create_id, 
+    id, other_side_name, other_side_dept, other_side_face, other_side_joc, talk_type,
+    talk_date, talk_site, record_proson, talk_outline, talk_content, create_date, create_id,
     create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyDialogueExample" resultMap="BaseResultMap">
@@ -103,7 +103,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Dialogue
     where id = #{id,jdbcType=INTEGER}
@@ -122,16 +122,16 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyDialogue">
     <!--@mbg.generated-->
-    insert into Party_Dialogue (id, other_side_name, other_side_dept, 
-      other_side_face, other_side_joc, talk_type, 
-      talk_date, talk_site, record_proson, 
-      talk_outline, talk_content, create_date, 
+    insert into Party_Dialogue (id, other_side_name, other_side_dept,
+      other_side_face, other_side_joc, talk_type,
+      talk_date, talk_site, record_proson,
+      talk_outline, talk_content, create_date,
       create_id, create_name, `status`
       )
-    values (#{id,jdbcType=INTEGER}, #{otherSideName,jdbcType=VARCHAR}, #{otherSideDept,jdbcType=INTEGER}, 
-      #{otherSideFace,jdbcType=VARCHAR}, #{otherSideJoc,jdbcType=VARCHAR}, #{talkType,jdbcType=TINYINT}, 
-      #{talkDate,jdbcType=TIMESTAMP}, #{talkSite,jdbcType=VARCHAR}, #{recordProson,jdbcType=VARCHAR}, 
-      #{talkOutline,jdbcType=VARCHAR}, #{talkContent,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{otherSideName,jdbcType=VARCHAR}, #{otherSideDept,jdbcType=INTEGER},
+      #{otherSideFace,jdbcType=VARCHAR}, #{otherSideJoc,jdbcType=VARCHAR}, #{talkType,jdbcType=TINYINT},
+      #{talkDate,jdbcType=TIMESTAMP}, #{talkSite,jdbcType=VARCHAR}, #{recordProson,jdbcType=VARCHAR},
+      #{talkOutline,jdbcType=VARCHAR}, #{talkContent,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
       #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
       )
   </insert>

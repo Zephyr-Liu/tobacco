@@ -5,12 +5,12 @@
     <!--@mbg.generated-->
     <!--@Table Party_Discipline_Report-->
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="reporttype" jdbcType="VARCHAR" property="reporttype" />
-    <result column="reportfile" jdbcType="VARCHAR" property="reportfile" />
-    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="cid" jdbcType="INTEGER" property="cid" />
-    <result column="cname" jdbcType="VARCHAR" property="cname" />
-    <result column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="report_type" jdbcType="VARCHAR" property="reportType" />
+    <result column="report_file" jdbcType="VARCHAR" property="reportFile" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="login_id" jdbcType="INTEGER" property="loginId" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -74,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, reporttype, reportfile, createtime, cid, cname, sid
+    id, report_type, report_file, create_time, login_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyDisciplineReportExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -112,52 +112,54 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyDisciplineReport" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into Party_Discipline_Report (reporttype, reportfile, createtime, 
-      cid, cname, sid)
-    values (#{reporttype,jdbcType=VARCHAR}, #{reportfile,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{sid,jdbcType=INTEGER})
+    insert into Party_Discipline_Report (report_type, report_file, create_time, 
+      login_id, create_name, `status`
+      )
+    values (#{reportType,jdbcType=VARCHAR}, #{reportFile,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{loginId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=BOOLEAN}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyDisciplineReport" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into Party_Discipline_Report
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="reporttype != null">
-        reporttype,
+      <if test="reportType != null">
+        report_type,
       </if>
-      <if test="reportfile != null">
-        reportfile,
+      <if test="reportFile != null">
+        report_file,
       </if>
-      <if test="createtime != null">
-        createtime,
+      <if test="createTime != null">
+        create_time,
       </if>
-      <if test="cid != null">
-        cid,
+      <if test="loginId != null">
+        login_id,
       </if>
-      <if test="cname != null">
-        cname,
+      <if test="createName != null">
+        create_name,
       </if>
-      <if test="sid != null">
-        sid,
+      <if test="status != null">
+        `status`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="reporttype != null">
-        #{reporttype,jdbcType=VARCHAR},
+      <if test="reportType != null">
+        #{reportType,jdbcType=VARCHAR},
       </if>
-      <if test="reportfile != null">
-        #{reportfile,jdbcType=VARCHAR},
+      <if test="reportFile != null">
+        #{reportFile,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
+      <if test="loginId != null">
+        #{loginId,jdbcType=INTEGER},
       </if>
-      <if test="cname != null">
-        #{cname,jdbcType=VARCHAR},
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
       </if>
-      <if test="sid != null">
-        #{sid,jdbcType=INTEGER},
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
       </if>
     </trim>
   </insert>
@@ -175,23 +177,23 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.reporttype != null">
-        reporttype = #{record.reporttype,jdbcType=VARCHAR},
+      <if test="record.reportType != null">
+        report_type = #{record.reportType,jdbcType=VARCHAR},
       </if>
-      <if test="record.reportfile != null">
-        reportfile = #{record.reportfile,jdbcType=VARCHAR},
+      <if test="record.reportFile != null">
+        report_file = #{record.reportFile,jdbcType=VARCHAR},
       </if>
-      <if test="record.createtime != null">
-        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.cid != null">
-        cid = #{record.cid,jdbcType=INTEGER},
+      <if test="record.loginId != null">
+        login_id = #{record.loginId,jdbcType=INTEGER},
       </if>
-      <if test="record.cname != null">
-        cname = #{record.cname,jdbcType=VARCHAR},
+      <if test="record.createName != null">
+        create_name = #{record.createName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sid != null">
-        sid = #{record.sid,jdbcType=INTEGER},
+      <if test="record.status != null">
+        `status` = #{record.status,jdbcType=BOOLEAN},
       </if>
     </set>
     <if test="_parameter != null">
@@ -202,12 +204,12 @@
     <!--@mbg.generated-->
     update Party_Discipline_Report
     set id = #{record.id,jdbcType=INTEGER},
-      reporttype = #{record.reporttype,jdbcType=VARCHAR},
-      reportfile = #{record.reportfile,jdbcType=VARCHAR},
-      createtime = #{record.createtime,jdbcType=TIMESTAMP},
-      cid = #{record.cid,jdbcType=INTEGER},
-      cname = #{record.cname,jdbcType=VARCHAR},
-      sid = #{record.sid,jdbcType=INTEGER}
+      report_type = #{record.reportType,jdbcType=VARCHAR},
+      report_file = #{record.reportFile,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      login_id = #{record.loginId,jdbcType=INTEGER},
+      create_name = #{record.createName,jdbcType=VARCHAR},
+      `status` = #{record.status,jdbcType=BOOLEAN}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -216,23 +218,23 @@
     <!--@mbg.generated-->
     update Party_Discipline_Report
     <set>
-      <if test="reporttype != null">
-        reporttype = #{reporttype,jdbcType=VARCHAR},
+      <if test="reportType != null">
+        report_type = #{reportType,jdbcType=VARCHAR},
       </if>
-      <if test="reportfile != null">
-        reportfile = #{reportfile,jdbcType=VARCHAR},
+      <if test="reportFile != null">
+        report_file = #{reportFile,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null">
-        createtime = #{createtime,jdbcType=TIMESTAMP},
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="cid != null">
-        cid = #{cid,jdbcType=INTEGER},
+      <if test="loginId != null">
+        login_id = #{loginId,jdbcType=INTEGER},
       </if>
-      <if test="cname != null">
-        cname = #{cname,jdbcType=VARCHAR},
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
       </if>
-      <if test="sid != null">
-        sid = #{sid,jdbcType=INTEGER},
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -240,12 +242,12 @@
   <update id="updateByPrimaryKey" parameterType="com.xr.model.PartyDisciplineReport">
     <!--@mbg.generated-->
     update Party_Discipline_Report
-    set reporttype = #{reporttype,jdbcType=VARCHAR},
-      reportfile = #{reportfile,jdbcType=VARCHAR},
-      createtime = #{createtime,jdbcType=TIMESTAMP},
-      cid = #{cid,jdbcType=INTEGER},
-      cname = #{cname,jdbcType=VARCHAR},
-      sid = #{sid,jdbcType=INTEGER}
+    set report_type = #{reportType,jdbcType=VARCHAR},
+      report_file = #{reportFile,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      login_id = #{loginId,jdbcType=INTEGER},
+      create_name = #{createName,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=BOOLEAN}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

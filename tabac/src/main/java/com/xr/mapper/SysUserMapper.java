@@ -3,8 +3,11 @@ package com.xr.mapper;
 import com.xr.model.SysUser;
 import com.xr.model.SysUserExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysUserMapper {
     long countByExample(SysUserExample example);
 
@@ -63,4 +66,22 @@ public interface SysUserMapper {
      * @return update count
      */
     int updateByPrimaryKey(SysUser record);
+
+    /**
+     * 根据用户名查询用户角色和权限
+     *
+     * @param username 用户名
+     * @return
+     */
+    List<SysUser> findUserByNameAndRoleAndMenu(String username);
+
+    /**
+     * 根据用户名查询角色集合
+     *
+     * @param username
+     * @return
+     */
+    List<String> findUserRoles(String username);
+
+
 }

@@ -94,7 +94,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Early_Warning
     where id = #{id,jdbcType=INTEGER}
@@ -113,11 +113,11 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyEarlyWarning" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into Party_Early_Warning (title, content, contributor, 
-      creationtime, registerid, creatorname, 
+    insert into Party_Early_Warning (title, content, contributor,
+      creationtime, registerid, creatorname,
       `state`)
-    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{contributor,jdbcType=VARCHAR}, 
-      #{creationtime,jdbcType=TIMESTAMP}, #{registerid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, 
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{contributor,jdbcType=VARCHAR},
+      #{creationtime,jdbcType=TIMESTAMP}, #{registerid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR},
       #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyEarlyWarning" useGeneratedKeys="true">

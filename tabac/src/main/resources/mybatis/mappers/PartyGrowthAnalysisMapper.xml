@@ -78,7 +78,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, tilte, content, createtime, deptid, postid, riskid, `result`, loginid, createname, 
+    id, tilte, content, createtime, deptid, postid, riskid, `result`, loginid, createname,
     `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyGrowthAnalysisExample" resultMap="BaseResultMap">
@@ -98,7 +98,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Growth_Analysis
     where id = #{id,jdbcType=INTEGER}
@@ -117,13 +117,13 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyGrowthAnalysis" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into Party_Growth_Analysis (tilte, content, createtime, 
-      deptid, postid, riskid, 
-      `result`, loginid, createname, 
+    insert into Party_Growth_Analysis (tilte, content, createtime,
+      deptid, postid, riskid,
+      `result`, loginid, createname,
       `status`)
-    values (#{tilte,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{deptid,jdbcType=BIGINT}, #{postid,jdbcType=BIGINT}, #{riskid,jdbcType=BIGINT}, 
-      #{result,jdbcType=VARCHAR}, #{loginid,jdbcType=BIGINT}, #{createname,jdbcType=VARCHAR}, 
+    values (#{tilte,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+      #{deptid,jdbcType=BIGINT}, #{postid,jdbcType=BIGINT}, #{riskid,jdbcType=BIGINT},
+      #{result,jdbcType=VARCHAR}, #{loginid,jdbcType=BIGINT}, #{createname,jdbcType=VARCHAR},
       #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyGrowthAnalysis" useGeneratedKeys="true">

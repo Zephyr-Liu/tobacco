@@ -74,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, work_deployment_title, work_deployment_content, create_date, create_id, create_name, 
+    id, work_deployment_title, work_deployment_content, create_date, create_id, create_name,
     `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyWorkArrangementExample" resultMap="BaseResultMap">
@@ -101,11 +101,11 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyWorkArrangement">
     <!--@mbg.generated-->
-    insert into Party_Work_Arrangement (id, work_deployment_title, work_deployment_content, 
-      create_date, create_id, create_name, 
+    insert into Party_Work_Arrangement (id, work_deployment_title, work_deployment_content,
+      create_date, create_id, create_name,
       `status`)
-    values (#{id,jdbcType=INTEGER}, #{workDeploymentTitle,jdbcType=VARCHAR}, #{workDeploymentContent,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{workDeploymentTitle,jdbcType=VARCHAR}, #{workDeploymentContent,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR},
       #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xr.model.PartyWorkArrangement">

@@ -92,10 +92,10 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, petition_id, petition_date, visiting_name, visiting_dept, visiting_joc, be_reflected_name, 
-    be_reflected_dept, be_reflected_joc, visiting_content, content_summary, monitor_opinion, 
-    monitor_opinio_dete, discipline_inspection_opinio, iscipline_inspection_opinio, bureau_opinio, 
-    bureau_opinio_date, transit_result, transit_result_date, self_result, self_date, 
+    id, petition_id, petition_date, visiting_name, visiting_dept, visiting_joc, be_reflected_name,
+    be_reflected_dept, be_reflected_joc, visiting_content, content_summary, monitor_opinion,
+    monitor_opinio_dete, discipline_inspection_opinio, iscipline_inspection_opinio, bureau_opinio,
+    bureau_opinio_date, transit_result, transit_result_date, self_result, self_date,
     create_date, create_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyReportExample" resultMap="BaseResultMap">
@@ -115,7 +115,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Report
     where id = #{id,jdbcType=INTEGER}
@@ -134,24 +134,24 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyReport">
     <!--@mbg.generated-->
-    insert into Party_Report (id, petition_id, petition_date, 
-      visiting_name, visiting_dept, visiting_joc, 
-      be_reflected_name, be_reflected_dept, be_reflected_joc, 
-      visiting_content, content_summary, monitor_opinion, 
-      monitor_opinio_dete, discipline_inspection_opinio, 
-      iscipline_inspection_opinio, bureau_opinio, 
-      bureau_opinio_date, transit_result, transit_result_date, 
-      self_result, self_date, create_date, 
+    insert into Party_Report (id, petition_id, petition_date,
+      visiting_name, visiting_dept, visiting_joc,
+      be_reflected_name, be_reflected_dept, be_reflected_joc,
+      visiting_content, content_summary, monitor_opinion,
+      monitor_opinio_dete, discipline_inspection_opinio,
+      iscipline_inspection_opinio, bureau_opinio,
+      bureau_opinio_date, transit_result, transit_result_date,
+      self_result, self_date, create_date,
       create_id, create_name, `status`
       )
-    values (#{id,jdbcType=INTEGER}, #{petitionId,jdbcType=VARCHAR}, #{petitionDate,jdbcType=TIMESTAMP}, 
-      #{visitingName,jdbcType=VARCHAR}, #{visitingDept,jdbcType=VARCHAR}, #{visitingJoc,jdbcType=VARCHAR}, 
-      #{beReflectedName,jdbcType=VARCHAR}, #{beReflectedDept,jdbcType=VARCHAR}, #{beReflectedJoc,jdbcType=VARCHAR}, 
-      #{visitingContent,jdbcType=VARCHAR}, #{contentSummary,jdbcType=VARCHAR}, #{monitorOpinion,jdbcType=VARCHAR}, 
-      #{monitorOpinioDete,jdbcType=TIMESTAMP}, #{disciplineInspectionOpinio,jdbcType=VARCHAR}, 
-      #{isciplineInspectionOpinio,jdbcType=TIMESTAMP}, #{bureauOpinio,jdbcType=VARCHAR}, 
-      #{bureauOpinioDate,jdbcType=TIMESTAMP}, #{transitResult,jdbcType=VARCHAR}, #{transitResultDate,jdbcType=TIMESTAMP}, 
-      #{selfResult,jdbcType=VARCHAR}, #{selfDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{petitionId,jdbcType=VARCHAR}, #{petitionDate,jdbcType=TIMESTAMP},
+      #{visitingName,jdbcType=VARCHAR}, #{visitingDept,jdbcType=VARCHAR}, #{visitingJoc,jdbcType=VARCHAR},
+      #{beReflectedName,jdbcType=VARCHAR}, #{beReflectedDept,jdbcType=VARCHAR}, #{beReflectedJoc,jdbcType=VARCHAR},
+      #{visitingContent,jdbcType=VARCHAR}, #{contentSummary,jdbcType=VARCHAR}, #{monitorOpinion,jdbcType=VARCHAR},
+      #{monitorOpinioDete,jdbcType=TIMESTAMP}, #{disciplineInspectionOpinio,jdbcType=VARCHAR},
+      #{isciplineInspectionOpinio,jdbcType=TIMESTAMP}, #{bureauOpinio,jdbcType=VARCHAR},
+      #{bureauOpinioDate,jdbcType=TIMESTAMP}, #{transitResult,jdbcType=VARCHAR}, #{transitResultDate,jdbcType=TIMESTAMP},
+      #{selfResult,jdbcType=VARCHAR}, #{selfDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP},
       #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
       )
   </insert>

@@ -5,54 +5,102 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value = "com-xr-model-SysEmp")
+@ApiModel(value="com-xr-model-SysEmp")
 @Data
 public class SysEmp {
-    @ApiModelProperty(value = "")
+    /**
+    * 编号
+    */
+    @ApiModelProperty(value="编号")
     private Integer id;
 
-    @ApiModelProperty(value = "")
+    /**
+    * 部门id
+    */
+    @ApiModelProperty(value="部门id")
     private String empId;
 
-    @ApiModelProperty(value = "")
-    private String name;
+    /**
+    * 员工姓名
+    */
+    @ApiModelProperty(value="员工姓名")
+    private String empName;
 
-    @ApiModelProperty(value = "")
-    private String gender;
+    /**
+    * 员工姓名
+    */
+    @ApiModelProperty(value="员工姓名")
+    private String empSex;
 
-    @ApiModelProperty(value = "")
-    private Integer age;
+    /**
+    * 员工年龄
+    */
+    @ApiModelProperty(value="员工年龄")
+    private Integer empAge;
 
-    @ApiModelProperty(value = "")
-    private String education;
+    /**
+    * 员工的学历
+    */
+    @ApiModelProperty(value="员工的学历")
+    private String empEducation;
 
-    @ApiModelProperty(value = "")
-    private String politics;
+    /**
+    * 政治面貌 党员、团员、无
+    */
+    @ApiModelProperty(value="政治面貌 党员、团员、无")
+    private String empPoliticalFace;
 
-    @ApiModelProperty(value = "")
-    private String phone;
+    /**
+    * 员工手机号
+    */
+    @ApiModelProperty(value="员工手机号")
+    private String empPhone;
 
-    @ApiModelProperty(value = "")
+    /**
+    * 部门id
+    */
+    @ApiModelProperty(value="部门id")
     private Integer deptId;
 
-    @ApiModelProperty(value = "")
+    /**
+    * 登录名
+    */
+    @ApiModelProperty(value="登录名")
     private String loginName;
 
-    @ApiModelProperty(value = "")
+    /**
+    * 登陆密码
+    */
+    @ApiModelProperty(value="登陆密码")
     private String loginPassword;
 
-    @ApiModelProperty(value = "")
-    private Integer positionId;
+    /**
+    * 岗位id
+    */
+    @ApiModelProperty(value="岗位id")
+    private Integer jobId;
 
-    @ApiModelProperty(value = "")
+    /**
+    * 创建时间
+    */
+    @ApiModelProperty(value="创建时间")
     private Date createTime;
 
-    @ApiModelProperty(value = "")
-    private String creator;
+    /**
+    * 创建者 当前登陆人的id
+    */
+    @ApiModelProperty(value="创建者 当前登陆人的id")
+    private Integer createId;
 
-    @ApiModelProperty(value = "")
+    /**
+    * 创建者姓名
+    */
+    @ApiModelProperty(value="创建者姓名")
     private String createName;
 
-    @ApiModelProperty(value = "")
+    /**
+    * 状态  0  正常、1  删除、2  离退、3 借调
+    */
+    @ApiModelProperty(value="状态  0  正常、1  删除、2  离退、3 借调")
     private Integer status;
 }

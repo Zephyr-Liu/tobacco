@@ -91,7 +91,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Credit_Rating
     where id = #{id,jdbcType=INTEGER}
@@ -110,9 +110,9 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyCreditRating" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into Party_Credit_Rating (createtime, createname, createusername, 
+    insert into Party_Credit_Rating (createtime, createname, createusername,
       `status`)
-    values (#{createtime,jdbcType=TIMESTAMP}, #{createname,jdbcType=VARCHAR}, #{createusername,jdbcType=VARCHAR}, 
+    values (#{createtime,jdbcType=TIMESTAMP}, #{createname,jdbcType=VARCHAR}, #{createusername,jdbcType=VARCHAR},
       #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyCreditRating" useGeneratedKeys="true">

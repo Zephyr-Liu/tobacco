@@ -6,18 +6,18 @@
     <!--@Table sys_emp-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="emp_id" jdbcType="VARCHAR" property="empId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="gender" jdbcType="VARCHAR" property="gender" />
-    <result column="age" jdbcType="INTEGER" property="age" />
-    <result column="education" jdbcType="VARCHAR" property="education" />
-    <result column="politics" jdbcType="VARCHAR" property="politics" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+    <result column="emp_sex" jdbcType="VARCHAR" property="empSex" />
+    <result column="emp_age" jdbcType="INTEGER" property="empAge" />
+    <result column="emp_education" jdbcType="VARCHAR" property="empEducation" />
+    <result column="emp_political_face" jdbcType="VARCHAR" property="empPoliticalFace" />
+    <result column="emp_phone" jdbcType="VARCHAR" property="empPhone" />
     <result column="dept_id" jdbcType="INTEGER" property="deptId" />
     <result column="login_name" jdbcType="VARCHAR" property="loginName" />
     <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
-    <result column="position_id" jdbcType="INTEGER" property="positionId" />
+    <result column="job_id" jdbcType="INTEGER" property="jobId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_id" jdbcType="INTEGER" property="createId" />
     <result column="create_name" jdbcType="VARCHAR" property="createName" />
     <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
@@ -83,8 +83,9 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, emp_id, `name`, gender, age, education, politics, phone, dept_id, login_name, 
-    login_password, position_id, create_time, creator, create_name, `status`
+    id, emp_id, emp_name, emp_sex, emp_age, emp_education, emp_political_face, emp_phone, 
+    dept_id, login_name, login_password, job_id, create_time, create_id, create_name, 
+    `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.SysEmpExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -122,17 +123,17 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysEmp" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into sys_emp (emp_id, `name`, gender, 
-      age, education, politics, 
-      phone, dept_id, login_name, 
-      login_password, position_id, create_time, 
-      creator, create_name, `status`
+    insert into sys_emp (emp_id, emp_name, emp_sex, 
+      emp_age, emp_education, emp_political_face, 
+      emp_phone, dept_id, login_name, 
+      login_password, job_id, create_time, 
+      create_id, create_name, `status`
       )
-    values (#{empId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
-      #{age,jdbcType=INTEGER}, #{education,jdbcType=VARCHAR}, #{politics,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
-      #{loginPassword,jdbcType=VARCHAR}, #{positionId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
+    values (#{empId,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=VARCHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empEducation,jdbcType=VARCHAR}, #{empPoliticalFace,jdbcType=VARCHAR}, 
+      #{empPhone,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
+      #{loginPassword,jdbcType=VARCHAR}, #{jobId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysEmp" useGeneratedKeys="true">
@@ -142,23 +143,23 @@
       <if test="empId != null">
         emp_id,
       </if>
-      <if test="name != null">
-        `name`,
+      <if test="empName != null">
+        emp_name,
       </if>
-      <if test="gender != null">
-        gender,
+      <if test="empSex != null">
+        emp_sex,
       </if>
-      <if test="age != null">
-        age,
+      <if test="empAge != null">
+        emp_age,
       </if>
-      <if test="education != null">
-        education,
+      <if test="empEducation != null">
+        emp_education,
       </if>
-      <if test="politics != null">
-        politics,
+      <if test="empPoliticalFace != null">
+        emp_political_face,
       </if>
-      <if test="phone != null">
-        phone,
+      <if test="empPhone != null">
+        emp_phone,
       </if>
       <if test="deptId != null">
         dept_id,
@@ -169,14 +170,14 @@
       <if test="loginPassword != null">
         login_password,
       </if>
-      <if test="positionId != null">
-        position_id,
+      <if test="jobId != null">
+        job_id,
       </if>
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="creator != null">
-        creator,
+      <if test="createId != null">
+        create_id,
       </if>
       <if test="createName != null">
         create_name,
@@ -189,23 +190,23 @@
       <if test="empId != null">
         #{empId,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
       </if>
-      <if test="gender != null">
-        #{gender,jdbcType=VARCHAR},
+      <if test="empSex != null">
+        #{empSex,jdbcType=VARCHAR},
       </if>
-      <if test="age != null">
-        #{age,jdbcType=INTEGER},
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
       </if>
-      <if test="education != null">
-        #{education,jdbcType=VARCHAR},
+      <if test="empEducation != null">
+        #{empEducation,jdbcType=VARCHAR},
       </if>
-      <if test="politics != null">
-        #{politics,jdbcType=VARCHAR},
+      <if test="empPoliticalFace != null">
+        #{empPoliticalFace,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
+      <if test="empPhone != null">
+        #{empPhone,jdbcType=VARCHAR},
       </if>
       <if test="deptId != null">
         #{deptId,jdbcType=INTEGER},
@@ -216,14 +217,14 @@
       <if test="loginPassword != null">
         #{loginPassword,jdbcType=VARCHAR},
       </if>
-      <if test="positionId != null">
-        #{positionId,jdbcType=INTEGER},
+      <if test="jobId != null">
+        #{jobId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="creator != null">
-        #{creator,jdbcType=VARCHAR},
+      <if test="createId != null">
+        #{createId,jdbcType=INTEGER},
       </if>
       <if test="createName != null">
         #{createName,jdbcType=VARCHAR},
@@ -250,23 +251,23 @@
       <if test="record.empId != null">
         emp_id = #{record.empId,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
+      <if test="record.empName != null">
+        emp_name = #{record.empName,jdbcType=VARCHAR},
       </if>
-      <if test="record.gender != null">
-        gender = #{record.gender,jdbcType=VARCHAR},
+      <if test="record.empSex != null">
+        emp_sex = #{record.empSex,jdbcType=VARCHAR},
       </if>
-      <if test="record.age != null">
-        age = #{record.age,jdbcType=INTEGER},
+      <if test="record.empAge != null">
+        emp_age = #{record.empAge,jdbcType=INTEGER},
       </if>
-      <if test="record.education != null">
-        education = #{record.education,jdbcType=VARCHAR},
+      <if test="record.empEducation != null">
+        emp_education = #{record.empEducation,jdbcType=VARCHAR},
       </if>
-      <if test="record.politics != null">
-        politics = #{record.politics,jdbcType=VARCHAR},
+      <if test="record.empPoliticalFace != null">
+        emp_political_face = #{record.empPoliticalFace,jdbcType=VARCHAR},
       </if>
-      <if test="record.phone != null">
-        phone = #{record.phone,jdbcType=VARCHAR},
+      <if test="record.empPhone != null">
+        emp_phone = #{record.empPhone,jdbcType=VARCHAR},
       </if>
       <if test="record.deptId != null">
         dept_id = #{record.deptId,jdbcType=INTEGER},
@@ -277,14 +278,14 @@
       <if test="record.loginPassword != null">
         login_password = #{record.loginPassword,jdbcType=VARCHAR},
       </if>
-      <if test="record.positionId != null">
-        position_id = #{record.positionId,jdbcType=INTEGER},
+      <if test="record.jobId != null">
+        job_id = #{record.jobId,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.creator != null">
-        creator = #{record.creator,jdbcType=VARCHAR},
+      <if test="record.createId != null">
+        create_id = #{record.createId,jdbcType=INTEGER},
       </if>
       <if test="record.createName != null">
         create_name = #{record.createName,jdbcType=VARCHAR},
@@ -302,18 +303,18 @@
     update sys_emp
     set id = #{record.id,jdbcType=INTEGER},
       emp_id = #{record.empId,jdbcType=VARCHAR},
-      `name` = #{record.name,jdbcType=VARCHAR},
-      gender = #{record.gender,jdbcType=VARCHAR},
-      age = #{record.age,jdbcType=INTEGER},
-      education = #{record.education,jdbcType=VARCHAR},
-      politics = #{record.politics,jdbcType=VARCHAR},
-      phone = #{record.phone,jdbcType=VARCHAR},
+      emp_name = #{record.empName,jdbcType=VARCHAR},
+      emp_sex = #{record.empSex,jdbcType=VARCHAR},
+      emp_age = #{record.empAge,jdbcType=INTEGER},
+      emp_education = #{record.empEducation,jdbcType=VARCHAR},
+      emp_political_face = #{record.empPoliticalFace,jdbcType=VARCHAR},
+      emp_phone = #{record.empPhone,jdbcType=VARCHAR},
       dept_id = #{record.deptId,jdbcType=INTEGER},
       login_name = #{record.loginName,jdbcType=VARCHAR},
       login_password = #{record.loginPassword,jdbcType=VARCHAR},
-      position_id = #{record.positionId,jdbcType=INTEGER},
+      job_id = #{record.jobId,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      creator = #{record.creator,jdbcType=VARCHAR},
+      create_id = #{record.createId,jdbcType=INTEGER},
       create_name = #{record.createName,jdbcType=VARCHAR},
       `status` = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null">
@@ -327,23 +328,23 @@
       <if test="empId != null">
         emp_id = #{empId,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
       </if>
-      <if test="gender != null">
-        gender = #{gender,jdbcType=VARCHAR},
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=VARCHAR},
       </if>
-      <if test="age != null">
-        age = #{age,jdbcType=INTEGER},
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
       </if>
-      <if test="education != null">
-        education = #{education,jdbcType=VARCHAR},
+      <if test="empEducation != null">
+        emp_education = #{empEducation,jdbcType=VARCHAR},
       </if>
-      <if test="politics != null">
-        politics = #{politics,jdbcType=VARCHAR},
+      <if test="empPoliticalFace != null">
+        emp_political_face = #{empPoliticalFace,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
+      <if test="empPhone != null">
+        emp_phone = #{empPhone,jdbcType=VARCHAR},
       </if>
       <if test="deptId != null">
         dept_id = #{deptId,jdbcType=INTEGER},
@@ -354,14 +355,14 @@
       <if test="loginPassword != null">
         login_password = #{loginPassword,jdbcType=VARCHAR},
       </if>
-      <if test="positionId != null">
-        position_id = #{positionId,jdbcType=INTEGER},
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="creator != null">
-        creator = #{creator,jdbcType=VARCHAR},
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=INTEGER},
       </if>
       <if test="createName != null">
         create_name = #{createName,jdbcType=VARCHAR},
@@ -376,18 +377,18 @@
     <!--@mbg.generated-->
     update sys_emp
     set emp_id = #{empId,jdbcType=VARCHAR},
-      `name` = #{name,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=VARCHAR},
-      age = #{age,jdbcType=INTEGER},
-      education = #{education,jdbcType=VARCHAR},
-      politics = #{politics,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=VARCHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_education = #{empEducation,jdbcType=VARCHAR},
+      emp_political_face = #{empPoliticalFace,jdbcType=VARCHAR},
+      emp_phone = #{empPhone,jdbcType=VARCHAR},
       dept_id = #{deptId,jdbcType=INTEGER},
       login_name = #{loginName,jdbcType=VARCHAR},
       login_password = #{loginPassword,jdbcType=VARCHAR},
-      position_id = #{positionId,jdbcType=INTEGER},
+      job_id = #{jobId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      creator = #{creator,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=INTEGER},
       create_name = #{createName,jdbcType=VARCHAR},
       `status` = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

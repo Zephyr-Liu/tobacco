@@ -1,18 +1,17 @@
 package com.xr.mapper;
 
-import com.xr.model.SysJoc;
-import com.xr.model.SysJocExample;
+import com.xr.model.SysJob;
+import com.xr.model.SysJobExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface SysJocMapper {
-    long countByExample(SysJocExample example);
+public interface SysJobMapper {
+    long countByExample(SysJobExample example);
 
-    int deleteByExample(SysJocExample example);
+    int deleteByExample(SysJobExample example);
 
     /**
      * delete by primary key
-     *
      * @param id primaryKey
      * @return deleteCount
      */
@@ -20,47 +19,42 @@ public interface SysJocMapper {
 
     /**
      * insert record to table
-     *
      * @param record the record
      * @return insert count
      */
-    int insert(SysJoc record);
+    int insert(SysJob record);
 
     /**
      * insert record to table selective
-     *
      * @param record the record
      * @return insert count
      */
-    int insertSelective(SysJoc record);
+    int insertSelective(SysJob record);
 
-    List<SysJoc> selectByExample(SysJocExample example);
+    List<SysJob> selectByExample(SysJobExample example);
 
     /**
      * select by primary key
-     *
      * @param id primary key
      * @return object by primary key
      */
-    SysJoc selectByPrimaryKey(Integer id);
+    SysJob selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") SysJoc record, @Param("example") SysJocExample example);
+    int updateByExampleSelective(@Param("record") SysJob record, @Param("example") SysJobExample example);
 
-    int updateByExample(@Param("record") SysJoc record, @Param("example") SysJocExample example);
+    int updateByExample(@Param("record") SysJob record, @Param("example") SysJobExample example);
 
     /**
      * update record selective
-     *
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKeySelective(SysJoc record);
+    int updateByPrimaryKeySelective(SysJob record);
 
     /**
      * update record
-     *
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKey(SysJoc record);
+    int updateByPrimaryKey(SysJob record);
 }

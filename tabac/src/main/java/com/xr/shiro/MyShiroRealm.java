@@ -82,10 +82,14 @@ public class MyShiroRealm extends AuthorizingRealm {
 //            throw new LockedAccountException();
 //        }
             SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                    username, //用户名
-                    sysUser.getPassword(), //密码
-                    ByteSource.Util.bytes(sysUser.getSalt()),//salt=username+salt密码加盐
-                    getName()  // 当前 realm对象的name.调用父类的getName()方法即可
+                    //用户名
+                    username,
+                    //密码
+                    sysUser.getPassword(),
+                    //salt=username+salt密码加盐
+                    ByteSource.Util.bytes(sysUser.getSalt()),
+                    // 当前 realm对象的name.调用父类的getName()方法即可
+                    getName()
             );
             // 将用户信息存入到session
             Session session = SecurityUtils.getSubject().getSession();

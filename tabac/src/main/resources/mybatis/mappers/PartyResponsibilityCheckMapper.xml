@@ -78,7 +78,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, duty_id, duty_type, Feedback_id, Feedback_content, dept_id, annex, create_date, 
+    id, duty_id, duty_type, Feedback_id, Feedback_content, dept_id, annex, create_date,
     create_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyResponsibilityCheckExample" resultMap="BaseResultMap">
@@ -105,13 +105,13 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyResponsibilityCheck">
     <!--@mbg.generated-->
-    insert into Party_Responsibility_Check (id, duty_id, duty_type, 
-      Feedback_id, Feedback_content, dept_id, 
-      annex, create_date, create_id, 
+    insert into Party_Responsibility_Check (id, duty_id, duty_type,
+      Feedback_id, Feedback_content, dept_id,
+      annex, create_date, create_id,
       create_name, `status`)
-    values (#{id,jdbcType=INTEGER}, #{dutyId,jdbcType=VARCHAR}, #{dutyType,jdbcType=TINYINT}, 
-      #{feedbackId,jdbcType=TINYINT}, #{feedbackContent,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, 
-      #{annex,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{dutyId,jdbcType=VARCHAR}, #{dutyType,jdbcType=TINYINT},
+      #{feedbackId,jdbcType=TINYINT}, #{feedbackContent,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER},
+      #{annex,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER},
       #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xr.model.PartyResponsibilityCheck">

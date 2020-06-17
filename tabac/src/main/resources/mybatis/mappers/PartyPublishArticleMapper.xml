@@ -100,11 +100,11 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyPublishArticle">
     <!--@mbg.generated-->
-    insert into Party_Publish_Article (id, Contribute_title, Contribute_content, 
-      create_date, create_id, create_name, 
+    insert into Party_Publish_Article (id, Contribute_title, Contribute_content,
+      create_date, create_id, create_name,
       `status`)
-    values (#{id,jdbcType=INTEGER}, #{contributeTitle,jdbcType=VARCHAR}, #{contributeContent,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{contributeTitle,jdbcType=VARCHAR}, #{contributeContent,jdbcType=VARCHAR},
+      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR},
       #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.xr.model.PartyPublishArticle">

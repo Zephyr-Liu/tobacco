@@ -79,7 +79,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, Itemsinthispaper, accessory, modeofexecution, cost, undertaker, undertakedept, 
+    id, Itemsinthispaper, accessory, modeofexecution, cost, undertaker, undertakedept,
     auditopinion, creationtime, creator, creatorname, `state`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartySuperviseExample" resultMap="BaseResultMap">
@@ -99,7 +99,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Supervise
     where id = #{id,jdbcType=INTEGER}
@@ -118,13 +118,13 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartySupervise" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into Party_Supervise (Itemsinthispaper, accessory, modeofexecution, 
-      cost, undertaker, undertakedept, 
-      auditopinion, creationtime, creator, 
+    insert into Party_Supervise (Itemsinthispaper, accessory, modeofexecution,
+      cost, undertaker, undertakedept,
+      auditopinion, creationtime, creator,
       creatorname, `state`)
-    values (#{itemsinthispaper,jdbcType=VARCHAR}, #{accessory,jdbcType=VARCHAR}, #{modeofexecution,jdbcType=VARCHAR}, 
-      #{cost,jdbcType=VARCHAR}, #{undertaker,jdbcType=VARCHAR}, #{undertakedept,jdbcType=VARCHAR}, 
-      #{auditopinion,jdbcType=VARCHAR}, #{creationtime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+    values (#{itemsinthispaper,jdbcType=VARCHAR}, #{accessory,jdbcType=VARCHAR}, #{modeofexecution,jdbcType=VARCHAR},
+      #{cost,jdbcType=VARCHAR}, #{undertaker,jdbcType=VARCHAR}, #{undertakedept,jdbcType=VARCHAR},
+      #{auditopinion,jdbcType=VARCHAR}, #{creationtime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR},
       #{creatorname,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartySupervise" useGeneratedKeys="true">

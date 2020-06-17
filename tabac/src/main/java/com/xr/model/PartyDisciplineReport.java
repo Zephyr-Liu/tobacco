@@ -8,24 +8,45 @@ import lombok.Data;
 @ApiModel(value = "com-xr-model-PartyDisciplineReport")
 @Data
 public class PartyDisciplineReport {
-    @ApiModelProperty(value = "")
+    /**
+     * id 主键生成
+     */
+    @ApiModelProperty(value = "id 主键生成")
     private Integer id;
 
-    @ApiModelProperty(value = "")
-    private String reporttype;
+    /**
+     * 月报、季报、半年报、及时报、重要节点报
+     */
+    @ApiModelProperty(value = "月报、季报、半年报、及时报、重要节点报")
+    private String reportType;
 
-    @ApiModelProperty(value = "")
-    private String reportfile;
+    /**
+     * 报表文件	要上传的文件
+     */
+    @ApiModelProperty(value = "报表文件	要上传的文件")
+    private String reportFile;
 
-    @ApiModelProperty(value = "")
-    private Date createtime;
+    /**
+     * 创建时间	系统当前时间
+     */
+    @ApiModelProperty(value = "创建时间	系统当前时间")
+    private Date createTime;
 
-    @ApiModelProperty(value = "")
-    private Integer cid;
+    /**
+     * 登陆id 当前登陆人id
+     */
+    @ApiModelProperty(value = "登陆id 当前登陆人id")
+    private Integer loginId;
 
-    @ApiModelProperty(value = "")
-    private String cname;
+    /**
+     * 创建者姓名	当前登录人姓名
+     */
+    @ApiModelProperty(value = "创建者姓名	当前登录人姓名")
+    private String createName;
 
-    @ApiModelProperty(value = "")
-    private Integer sid;
+    /**
+     * 状态	0 正常、1 删除
+     */
+    @ApiModelProperty(value = "状态	0 正常、1 删除")
+    private Boolean status;
 }

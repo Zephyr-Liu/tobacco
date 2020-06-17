@@ -31,6 +31,6 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         //页面标题
-        return new ApiInfoBuilder().title("Spring Boot中使用Swagger2构建RESTful APIs").description("物流BOS管理系统").termsOfServiceUrl("http://localhost/bos/swagger-ui.html").version("1.0").build();
+        return new ApiInfoBuilder().title("Spring Boot中使用Swagger2构建RESTful APIs").description("湖南省烟草公司长沙市公司 党风廉政建设工作平台").termsOfServiceUrl("http://localhost/tobacco/swagger-ui.html").version("1.0").build();
     }
 }

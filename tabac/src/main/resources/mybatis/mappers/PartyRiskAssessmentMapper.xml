@@ -76,7 +76,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, dept_info, first_risk_count, minor_risk_count, tertiary_risk_count, create_date, 
+    id, dept_info, first_risk_count, minor_risk_count, tertiary_risk_count, create_date,
     create_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyRiskAssessmentExample" resultMap="BaseResultMap">
@@ -96,7 +96,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Risk_Assessment
     where id = #{id,jdbcType=INTEGER}
@@ -115,12 +115,12 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyRiskAssessment">
     <!--@mbg.generated-->
-    insert into Party_Risk_Assessment (id, dept_info, first_risk_count, 
-      minor_risk_count, tertiary_risk_count, create_date, 
+    insert into Party_Risk_Assessment (id, dept_info, first_risk_count,
+      minor_risk_count, tertiary_risk_count, create_date,
       create_id, create_name, `status`
       )
-    values (#{id,jdbcType=INTEGER}, #{deptInfo,jdbcType=INTEGER}, #{firstRiskCount,jdbcType=INTEGER}, 
-      #{minorRiskCount,jdbcType=INTEGER}, #{tertiaryRiskCount,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{deptInfo,jdbcType=INTEGER}, #{firstRiskCount,jdbcType=INTEGER},
+      #{minorRiskCount,jdbcType=INTEGER}, #{tertiaryRiskCount,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP},
       #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
       )
   </insert>
