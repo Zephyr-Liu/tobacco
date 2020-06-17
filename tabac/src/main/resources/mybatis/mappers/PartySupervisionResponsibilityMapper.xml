@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xr.mapper.PartySupervisionResponsibilityMapper">
+  <resultMap id="BaseResultMap" type="com.xr.model.PartySupervisionResponsibility">
+    <!--@mbg.generated-->
+    <!--@Table Party_Supervision_Responsibility-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="responsibility_id" jdbcType="INTEGER" property="responsibilityId" />
+    <result column="duty_type" jdbcType="TINYINT" property="dutyType" />
+    <result column="duty_title" jdbcType="VARCHAR" property="dutyTitle" />
+    <result column="duty_content" jdbcType="VARCHAR" property="dutyContent" />
+    <result column="dept" jdbcType="INTEGER" property="dept" />
+    <result column="annex" jdbcType="VARCHAR" property="annex" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_id" jdbcType="VARCHAR" property="createId" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, responsibility_id, duty_type, duty_title, duty_content, dept, annex, create_date, 
+    create_id, create_name, `status`
+  </sql>
+  <select id="selectByExample" parameterType="com.xr.model.PartySupervisionResponsibilityExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Party_Supervision_Responsibility
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Party_Supervision_Responsibility
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from Party_Supervision_Responsibility
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xr.model.PartySupervisionResponsibilityExample">
+    <!--@mbg.generated-->
+    delete from Party_Supervision_Responsibility
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xr.model.PartySupervisionResponsibility">
+    <!--@mbg.generated-->
+    insert into Party_Supervision_Responsibility (id, responsibility_id, duty_type, 
+      duty_title, duty_content, dept, 
+      annex, create_date, create_id, 
+      create_name, `status`)
+    values (#{id,jdbcType=INTEGER}, #{responsibilityId,jdbcType=INTEGER}, #{dutyType,jdbcType=TINYINT}, 
+      #{dutyTitle,jdbcType=VARCHAR}, #{dutyContent,jdbcType=VARCHAR}, #{dept,jdbcType=INTEGER}, 
+      #{annex,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=VARCHAR}, 
+      #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xr.model.PartySupervisionResponsibility">
+    <!--@mbg.generated-->
+    insert into Party_Supervision_Responsibility
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="responsibilityId != null">
+        responsibility_id,
+      </if>
+      <if test="dutyType != null">
+        duty_type,
+      </if>
+      <if test="dutyTitle != null">
+        duty_title,
+      </if>
+      <if test="dutyContent != null">
+        duty_content,
+      </if>
+      <if test="dept != null">
+        dept,
+      </if>
+      <if test="annex != null">
+        annex,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="responsibilityId != null">
+        #{responsibilityId,jdbcType=INTEGER},
+      </if>
+      <if test="dutyType != null">
+        #{dutyType,jdbcType=TINYINT},
+      </if>
+      <if test="dutyTitle != null">
+        #{dutyTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyContent != null">
+        #{dutyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        #{dept,jdbcType=INTEGER},
+      </if>
+      <if test="annex != null">
+        #{annex,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xr.model.PartySupervisionResponsibilityExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from Party_Supervision_Responsibility
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update Party_Supervision_Responsibility
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.responsibilityId != null">
+        responsibility_id = #{record.responsibilityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dutyType != null">
+        duty_type = #{record.dutyType,jdbcType=TINYINT},
+      </if>
+      <if test="record.dutyTitle != null">
+        duty_title = #{record.dutyTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dutyContent != null">
+        duty_content = #{record.dutyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dept != null">
+        dept = #{record.dept,jdbcType=INTEGER},
+      </if>
+      <if test="record.annex != null">
+        annex = #{record.annex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createId != null">
+        create_id = #{record.createId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createName != null">
+        create_name = #{record.createName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        `status` = #{record.status,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update Party_Supervision_Responsibility
+    set id = #{record.id,jdbcType=INTEGER},
+      responsibility_id = #{record.responsibilityId,jdbcType=INTEGER},
+      duty_type = #{record.dutyType,jdbcType=TINYINT},
+      duty_title = #{record.dutyTitle,jdbcType=VARCHAR},
+      duty_content = #{record.dutyContent,jdbcType=VARCHAR},
+      dept = #{record.dept,jdbcType=INTEGER},
+      annex = #{record.annex,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      create_id = #{record.createId,jdbcType=VARCHAR},
+      create_name = #{record.createName,jdbcType=VARCHAR},
+      `status` = #{record.status,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.model.PartySupervisionResponsibility">
+    <!--@mbg.generated-->
+    update Party_Supervision_Responsibility
+    <set>
+      <if test="responsibilityId != null">
+        responsibility_id = #{responsibilityId,jdbcType=INTEGER},
+      </if>
+      <if test="dutyType != null">
+        duty_type = #{dutyType,jdbcType=TINYINT},
+      </if>
+      <if test="dutyTitle != null">
+        duty_title = #{dutyTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyContent != null">
+        duty_content = #{dutyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        dept = #{dept,jdbcType=INTEGER},
+      </if>
+      <if test="annex != null">
+        annex = #{annex,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.model.PartySupervisionResponsibility">
+    <!--@mbg.generated-->
+    update Party_Supervision_Responsibility
+    set responsibility_id = #{responsibilityId,jdbcType=INTEGER},
+      duty_type = #{dutyType,jdbcType=TINYINT},
+      duty_title = #{dutyTitle,jdbcType=VARCHAR},
+      duty_content = #{dutyContent,jdbcType=VARCHAR},
+      dept = #{dept,jdbcType=INTEGER},
+      annex = #{annex,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

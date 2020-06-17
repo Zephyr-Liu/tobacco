@@ -1,0 +1,15 @@
+server:
+  context-path: /tabac
+  port: 80
+#数据源
+spring:
+  datasource:
+    username: Zephyr
+    password: 8p6N7SXGd54CkFAJ
+    url: jdbc:mysql://47.105.77.234:3306/tobacco
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  # config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mappers/*.xml
+logging:
+  level: debug

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xr.mapper.PartySuperviseMapper">
+  <resultMap id="BaseResultMap" type="com.xr.model.PartySupervise">
+    <!--@mbg.generated-->
+    <!--@Table Party_Supervise-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="Itemsinthispaper" jdbcType="VARCHAR" property="itemsinthispaper" />
+    <result column="accessory" jdbcType="VARCHAR" property="accessory" />
+    <result column="modeofexecution" jdbcType="VARCHAR" property="modeofexecution" />
+    <result column="cost" jdbcType="VARCHAR" property="cost" />
+    <result column="undertaker" jdbcType="VARCHAR" property="undertaker" />
+    <result column="undertakedept" jdbcType="VARCHAR" property="undertakedept" />
+    <result column="auditopinion" jdbcType="VARCHAR" property="auditopinion" />
+    <result column="creationtime" jdbcType="TIMESTAMP" property="creationtime" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="creatorname" jdbcType="VARCHAR" property="creatorname" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, Itemsinthispaper, accessory, modeofexecution, cost, undertaker, undertakedept, 
+    auditopinion, creationtime, creator, creatorname, `state`
+  </sql>
+  <select id="selectByExample" parameterType="com.xr.model.PartySuperviseExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Party_Supervise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Party_Supervise
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from Party_Supervise
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xr.model.PartySuperviseExample">
+    <!--@mbg.generated-->
+    delete from Party_Supervise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartySupervise" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Party_Supervise (Itemsinthispaper, accessory, modeofexecution, 
+      cost, undertaker, undertakedept, 
+      auditopinion, creationtime, creator, 
+      creatorname, `state`)
+    values (#{itemsinthispaper,jdbcType=VARCHAR}, #{accessory,jdbcType=VARCHAR}, #{modeofexecution,jdbcType=VARCHAR}, 
+      #{cost,jdbcType=VARCHAR}, #{undertaker,jdbcType=VARCHAR}, #{undertakedept,jdbcType=VARCHAR}, 
+      #{auditopinion,jdbcType=VARCHAR}, #{creationtime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{creatorname,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartySupervise" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Party_Supervise
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemsinthispaper != null">
+        Itemsinthispaper,
+      </if>
+      <if test="accessory != null">
+        accessory,
+      </if>
+      <if test="modeofexecution != null">
+        modeofexecution,
+      </if>
+      <if test="cost != null">
+        cost,
+      </if>
+      <if test="undertaker != null">
+        undertaker,
+      </if>
+      <if test="undertakedept != null">
+        undertakedept,
+      </if>
+      <if test="auditopinion != null">
+        auditopinion,
+      </if>
+      <if test="creationtime != null">
+        creationtime,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="creatorname != null">
+        creatorname,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemsinthispaper != null">
+        #{itemsinthispaper,jdbcType=VARCHAR},
+      </if>
+      <if test="accessory != null">
+        #{accessory,jdbcType=VARCHAR},
+      </if>
+      <if test="modeofexecution != null">
+        #{modeofexecution,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null">
+        #{cost,jdbcType=VARCHAR},
+      </if>
+      <if test="undertaker != null">
+        #{undertaker,jdbcType=VARCHAR},
+      </if>
+      <if test="undertakedept != null">
+        #{undertakedept,jdbcType=VARCHAR},
+      </if>
+      <if test="auditopinion != null">
+        #{auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="creationtime != null">
+        #{creationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xr.model.PartySuperviseExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from Party_Supervise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update Party_Supervise
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.itemsinthispaper != null">
+        Itemsinthispaper = #{record.itemsinthispaper,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accessory != null">
+        accessory = #{record.accessory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modeofexecution != null">
+        modeofexecution = #{record.modeofexecution,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cost != null">
+        cost = #{record.cost,jdbcType=VARCHAR},
+      </if>
+      <if test="record.undertaker != null">
+        undertaker = #{record.undertaker,jdbcType=VARCHAR},
+      </if>
+      <if test="record.undertakedept != null">
+        undertakedept = #{record.undertakedept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditopinion != null">
+        auditopinion = #{record.auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationtime != null">
+        creationtime = #{record.creationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creator != null">
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorname != null">
+        creatorname = #{record.creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        `state` = #{record.state,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update Party_Supervise
+    set id = #{record.id,jdbcType=INTEGER},
+      Itemsinthispaper = #{record.itemsinthispaper,jdbcType=VARCHAR},
+      accessory = #{record.accessory,jdbcType=VARCHAR},
+      modeofexecution = #{record.modeofexecution,jdbcType=VARCHAR},
+      cost = #{record.cost,jdbcType=VARCHAR},
+      undertaker = #{record.undertaker,jdbcType=VARCHAR},
+      undertakedept = #{record.undertakedept,jdbcType=VARCHAR},
+      auditopinion = #{record.auditopinion,jdbcType=VARCHAR},
+      creationtime = #{record.creationtime,jdbcType=TIMESTAMP},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creatorname = #{record.creatorname,jdbcType=VARCHAR},
+      `state` = #{record.state,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.model.PartySupervise">
+    <!--@mbg.generated-->
+    update Party_Supervise
+    <set>
+      <if test="itemsinthispaper != null">
+        Itemsinthispaper = #{itemsinthispaper,jdbcType=VARCHAR},
+      </if>
+      <if test="accessory != null">
+        accessory = #{accessory,jdbcType=VARCHAR},
+      </if>
+      <if test="modeofexecution != null">
+        modeofexecution = #{modeofexecution,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null">
+        cost = #{cost,jdbcType=VARCHAR},
+      </if>
+      <if test="undertaker != null">
+        undertaker = #{undertaker,jdbcType=VARCHAR},
+      </if>
+      <if test="undertakedept != null">
+        undertakedept = #{undertakedept,jdbcType=VARCHAR},
+      </if>
+      <if test="auditopinion != null">
+        auditopinion = #{auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="creationtime != null">
+        creationtime = #{creationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        creatorname = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.model.PartySupervise">
+    <!--@mbg.generated-->
+    update Party_Supervise
+    set Itemsinthispaper = #{itemsinthispaper,jdbcType=VARCHAR},
+      accessory = #{accessory,jdbcType=VARCHAR},
+      modeofexecution = #{modeofexecution,jdbcType=VARCHAR},
+      cost = #{cost,jdbcType=VARCHAR},
+      undertaker = #{undertaker,jdbcType=VARCHAR},
+      undertakedept = #{undertakedept,jdbcType=VARCHAR},
+      auditopinion = #{auditopinion,jdbcType=VARCHAR},
+      creationtime = #{creationtime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      creatorname = #{creatorname,jdbcType=VARCHAR},
+      `state` = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

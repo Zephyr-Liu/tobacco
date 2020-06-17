@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xr.mapper.PartyReportMapper">
+  <resultMap id="BaseResultMap" type="com.xr.model.PartyReport">
+    <!--@mbg.generated-->
+    <!--@Table Party_Report-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="petition_id" jdbcType="VARCHAR" property="petitionId" />
+    <result column="petition_date" jdbcType="TIMESTAMP" property="petitionDate" />
+    <result column="visiting_name" jdbcType="VARCHAR" property="visitingName" />
+    <result column="visiting_dept" jdbcType="VARCHAR" property="visitingDept" />
+    <result column="visiting_joc" jdbcType="VARCHAR" property="visitingJoc" />
+    <result column="be_reflected_name" jdbcType="VARCHAR" property="beReflectedName" />
+    <result column="be_reflected_dept" jdbcType="VARCHAR" property="beReflectedDept" />
+    <result column="be_reflected_joc" jdbcType="VARCHAR" property="beReflectedJoc" />
+    <result column="visiting_content" jdbcType="VARCHAR" property="visitingContent" />
+    <result column="content_summary" jdbcType="VARCHAR" property="contentSummary" />
+    <result column="monitor_opinion" jdbcType="VARCHAR" property="monitorOpinion" />
+    <result column="monitor_opinio_dete" jdbcType="TIMESTAMP" property="monitorOpinioDete" />
+    <result column="discipline_inspection_opinio" jdbcType="VARCHAR" property="disciplineInspectionOpinio" />
+    <result column="iscipline_inspection_opinio" jdbcType="TIMESTAMP" property="isciplineInspectionOpinio" />
+    <result column="bureau_opinio" jdbcType="VARCHAR" property="bureauOpinio" />
+    <result column="bureau_opinio_date" jdbcType="TIMESTAMP" property="bureauOpinioDate" />
+    <result column="transit_result" jdbcType="VARCHAR" property="transitResult" />
+    <result column="transit_result_date" jdbcType="TIMESTAMP" property="transitResultDate" />
+    <result column="self_result" jdbcType="VARCHAR" property="selfResult" />
+    <result column="self_date" jdbcType="TIMESTAMP" property="selfDate" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_id" jdbcType="INTEGER" property="createId" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, petition_id, petition_date, visiting_name, visiting_dept, visiting_joc, be_reflected_name, 
+    be_reflected_dept, be_reflected_joc, visiting_content, content_summary, monitor_opinion, 
+    monitor_opinio_dete, discipline_inspection_opinio, iscipline_inspection_opinio, bureau_opinio, 
+    bureau_opinio_date, transit_result, transit_result_date, self_result, self_date, 
+    create_date, create_id, create_name, `status`
+  </sql>
+  <select id="selectByExample" parameterType="com.xr.model.PartyReportExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Party_Report
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Party_Report
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from Party_Report
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xr.model.PartyReportExample">
+    <!--@mbg.generated-->
+    delete from Party_Report
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xr.model.PartyReport">
+    <!--@mbg.generated-->
+    insert into Party_Report (id, petition_id, petition_date, 
+      visiting_name, visiting_dept, visiting_joc, 
+      be_reflected_name, be_reflected_dept, be_reflected_joc, 
+      visiting_content, content_summary, monitor_opinion, 
+      monitor_opinio_dete, discipline_inspection_opinio, 
+      iscipline_inspection_opinio, bureau_opinio, 
+      bureau_opinio_date, transit_result, transit_result_date, 
+      self_result, self_date, create_date, 
+      create_id, create_name, `status`
+      )
+    values (#{id,jdbcType=INTEGER}, #{petitionId,jdbcType=VARCHAR}, #{petitionDate,jdbcType=TIMESTAMP}, 
+      #{visitingName,jdbcType=VARCHAR}, #{visitingDept,jdbcType=VARCHAR}, #{visitingJoc,jdbcType=VARCHAR}, 
+      #{beReflectedName,jdbcType=VARCHAR}, #{beReflectedDept,jdbcType=VARCHAR}, #{beReflectedJoc,jdbcType=VARCHAR}, 
+      #{visitingContent,jdbcType=VARCHAR}, #{contentSummary,jdbcType=VARCHAR}, #{monitorOpinion,jdbcType=VARCHAR}, 
+      #{monitorOpinioDete,jdbcType=TIMESTAMP}, #{disciplineInspectionOpinio,jdbcType=VARCHAR}, 
+      #{isciplineInspectionOpinio,jdbcType=TIMESTAMP}, #{bureauOpinio,jdbcType=VARCHAR}, 
+      #{bureauOpinioDate,jdbcType=TIMESTAMP}, #{transitResult,jdbcType=VARCHAR}, #{transitResultDate,jdbcType=TIMESTAMP}, 
+      #{selfResult,jdbcType=VARCHAR}, #{selfDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xr.model.PartyReport">
+    <!--@mbg.generated-->
+    insert into Party_Report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="petitionId != null">
+        petition_id,
+      </if>
+      <if test="petitionDate != null">
+        petition_date,
+      </if>
+      <if test="visitingName != null">
+        visiting_name,
+      </if>
+      <if test="visitingDept != null">
+        visiting_dept,
+      </if>
+      <if test="visitingJoc != null">
+        visiting_joc,
+      </if>
+      <if test="beReflectedName != null">
+        be_reflected_name,
+      </if>
+      <if test="beReflectedDept != null">
+        be_reflected_dept,
+      </if>
+      <if test="beReflectedJoc != null">
+        be_reflected_joc,
+      </if>
+      <if test="visitingContent != null">
+        visiting_content,
+      </if>
+      <if test="contentSummary != null">
+        content_summary,
+      </if>
+      <if test="monitorOpinion != null">
+        monitor_opinion,
+      </if>
+      <if test="monitorOpinioDete != null">
+        monitor_opinio_dete,
+      </if>
+      <if test="disciplineInspectionOpinio != null">
+        discipline_inspection_opinio,
+      </if>
+      <if test="isciplineInspectionOpinio != null">
+        iscipline_inspection_opinio,
+      </if>
+      <if test="bureauOpinio != null">
+        bureau_opinio,
+      </if>
+      <if test="bureauOpinioDate != null">
+        bureau_opinio_date,
+      </if>
+      <if test="transitResult != null">
+        transit_result,
+      </if>
+      <if test="transitResultDate != null">
+        transit_result_date,
+      </if>
+      <if test="selfResult != null">
+        self_result,
+      </if>
+      <if test="selfDate != null">
+        self_date,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="petitionId != null">
+        #{petitionId,jdbcType=VARCHAR},
+      </if>
+      <if test="petitionDate != null">
+        #{petitionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitingName != null">
+        #{visitingName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitingDept != null">
+        #{visitingDept,jdbcType=VARCHAR},
+      </if>
+      <if test="visitingJoc != null">
+        #{visitingJoc,jdbcType=VARCHAR},
+      </if>
+      <if test="beReflectedName != null">
+        #{beReflectedName,jdbcType=VARCHAR},
+      </if>
+      <if test="beReflectedDept != null">
+        #{beReflectedDept,jdbcType=VARCHAR},
+      </if>
+      <if test="beReflectedJoc != null">
+        #{beReflectedJoc,jdbcType=VARCHAR},
+      </if>
+      <if test="visitingContent != null">
+        #{visitingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="contentSummary != null">
+        #{contentSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorOpinion != null">
+        #{monitorOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorOpinioDete != null">
+        #{monitorOpinioDete,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disciplineInspectionOpinio != null">
+        #{disciplineInspectionOpinio,jdbcType=VARCHAR},
+      </if>
+      <if test="isciplineInspectionOpinio != null">
+        #{isciplineInspectionOpinio,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bureauOpinio != null">
+        #{bureauOpinio,jdbcType=VARCHAR},
+      </if>
+      <if test="bureauOpinioDate != null">
+        #{bureauOpinioDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transitResult != null">
+        #{transitResult,jdbcType=VARCHAR},
+      </if>
+      <if test="transitResultDate != null">
+        #{transitResultDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="selfResult != null">
+        #{selfResult,jdbcType=VARCHAR},
+      </if>
+      <if test="selfDate != null">
+        #{selfDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xr.model.PartyReportExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from Party_Report
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update Party_Report
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.petitionId != null">
+        petition_id = #{record.petitionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.petitionDate != null">
+        petition_date = #{record.petitionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.visitingName != null">
+        visiting_name = #{record.visitingName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitingDept != null">
+        visiting_dept = #{record.visitingDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitingJoc != null">
+        visiting_joc = #{record.visitingJoc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.beReflectedName != null">
+        be_reflected_name = #{record.beReflectedName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.beReflectedDept != null">
+        be_reflected_dept = #{record.beReflectedDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.beReflectedJoc != null">
+        be_reflected_joc = #{record.beReflectedJoc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitingContent != null">
+        visiting_content = #{record.visitingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentSummary != null">
+        content_summary = #{record.contentSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monitorOpinion != null">
+        monitor_opinion = #{record.monitorOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monitorOpinioDete != null">
+        monitor_opinio_dete = #{record.monitorOpinioDete,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.disciplineInspectionOpinio != null">
+        discipline_inspection_opinio = #{record.disciplineInspectionOpinio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isciplineInspectionOpinio != null">
+        iscipline_inspection_opinio = #{record.isciplineInspectionOpinio,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bureauOpinio != null">
+        bureau_opinio = #{record.bureauOpinio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bureauOpinioDate != null">
+        bureau_opinio_date = #{record.bureauOpinioDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.transitResult != null">
+        transit_result = #{record.transitResult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transitResultDate != null">
+        transit_result_date = #{record.transitResultDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.selfResult != null">
+        self_result = #{record.selfResult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selfDate != null">
+        self_date = #{record.selfDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createId != null">
+        create_id = #{record.createId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createName != null">
+        create_name = #{record.createName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        `status` = #{record.status,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update Party_Report
+    set id = #{record.id,jdbcType=INTEGER},
+      petition_id = #{record.petitionId,jdbcType=VARCHAR},
+      petition_date = #{record.petitionDate,jdbcType=TIMESTAMP},
+      visiting_name = #{record.visitingName,jdbcType=VARCHAR},
+      visiting_dept = #{record.visitingDept,jdbcType=VARCHAR},
+      visiting_joc = #{record.visitingJoc,jdbcType=VARCHAR},
+      be_reflected_name = #{record.beReflectedName,jdbcType=VARCHAR},
+      be_reflected_dept = #{record.beReflectedDept,jdbcType=VARCHAR},
+      be_reflected_joc = #{record.beReflectedJoc,jdbcType=VARCHAR},
+      visiting_content = #{record.visitingContent,jdbcType=VARCHAR},
+      content_summary = #{record.contentSummary,jdbcType=VARCHAR},
+      monitor_opinion = #{record.monitorOpinion,jdbcType=VARCHAR},
+      monitor_opinio_dete = #{record.monitorOpinioDete,jdbcType=TIMESTAMP},
+      discipline_inspection_opinio = #{record.disciplineInspectionOpinio,jdbcType=VARCHAR},
+      iscipline_inspection_opinio = #{record.isciplineInspectionOpinio,jdbcType=TIMESTAMP},
+      bureau_opinio = #{record.bureauOpinio,jdbcType=VARCHAR},
+      bureau_opinio_date = #{record.bureauOpinioDate,jdbcType=TIMESTAMP},
+      transit_result = #{record.transitResult,jdbcType=VARCHAR},
+      transit_result_date = #{record.transitResultDate,jdbcType=TIMESTAMP},
+      self_result = #{record.selfResult,jdbcType=VARCHAR},
+      self_date = #{record.selfDate,jdbcType=TIMESTAMP},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      create_id = #{record.createId,jdbcType=INTEGER},
+      create_name = #{record.createName,jdbcType=VARCHAR},
+      `status` = #{record.status,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.model.PartyReport">
+    <!--@mbg.generated-->
+    update Party_Report
+    <set>
+      <if test="petitionId != null">
+        petition_id = #{petitionId,jdbcType=VARCHAR},
+      </if>
+      <if test="petitionDate != null">
+        petition_date = #{petitionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitingName != null">
+        visiting_name = #{visitingName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitingDept != null">
+        visiting_dept = #{visitingDept,jdbcType=VARCHAR},
+      </if>
+      <if test="visitingJoc != null">
+        visiting_joc = #{visitingJoc,jdbcType=VARCHAR},
+      </if>
+      <if test="beReflectedName != null">
+        be_reflected_name = #{beReflectedName,jdbcType=VARCHAR},
+      </if>
+      <if test="beReflectedDept != null">
+        be_reflected_dept = #{beReflectedDept,jdbcType=VARCHAR},
+      </if>
+      <if test="beReflectedJoc != null">
+        be_reflected_joc = #{beReflectedJoc,jdbcType=VARCHAR},
+      </if>
+      <if test="visitingContent != null">
+        visiting_content = #{visitingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="contentSummary != null">
+        content_summary = #{contentSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorOpinion != null">
+        monitor_opinion = #{monitorOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorOpinioDete != null">
+        monitor_opinio_dete = #{monitorOpinioDete,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disciplineInspectionOpinio != null">
+        discipline_inspection_opinio = #{disciplineInspectionOpinio,jdbcType=VARCHAR},
+      </if>
+      <if test="isciplineInspectionOpinio != null">
+        iscipline_inspection_opinio = #{isciplineInspectionOpinio,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bureauOpinio != null">
+        bureau_opinio = #{bureauOpinio,jdbcType=VARCHAR},
+      </if>
+      <if test="bureauOpinioDate != null">
+        bureau_opinio_date = #{bureauOpinioDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transitResult != null">
+        transit_result = #{transitResult,jdbcType=VARCHAR},
+      </if>
+      <if test="transitResultDate != null">
+        transit_result_date = #{transitResultDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="selfResult != null">
+        self_result = #{selfResult,jdbcType=VARCHAR},
+      </if>
+      <if test="selfDate != null">
+        self_date = #{selfDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.model.PartyReport">
+    <!--@mbg.generated-->
+    update Party_Report
+    set petition_id = #{petitionId,jdbcType=VARCHAR},
+      petition_date = #{petitionDate,jdbcType=TIMESTAMP},
+      visiting_name = #{visitingName,jdbcType=VARCHAR},
+      visiting_dept = #{visitingDept,jdbcType=VARCHAR},
+      visiting_joc = #{visitingJoc,jdbcType=VARCHAR},
+      be_reflected_name = #{beReflectedName,jdbcType=VARCHAR},
+      be_reflected_dept = #{beReflectedDept,jdbcType=VARCHAR},
+      be_reflected_joc = #{beReflectedJoc,jdbcType=VARCHAR},
+      visiting_content = #{visitingContent,jdbcType=VARCHAR},
+      content_summary = #{contentSummary,jdbcType=VARCHAR},
+      monitor_opinion = #{monitorOpinion,jdbcType=VARCHAR},
+      monitor_opinio_dete = #{monitorOpinioDete,jdbcType=TIMESTAMP},
+      discipline_inspection_opinio = #{disciplineInspectionOpinio,jdbcType=VARCHAR},
+      iscipline_inspection_opinio = #{isciplineInspectionOpinio,jdbcType=TIMESTAMP},
+      bureau_opinio = #{bureauOpinio,jdbcType=VARCHAR},
+      bureau_opinio_date = #{bureauOpinioDate,jdbcType=TIMESTAMP},
+      transit_result = #{transitResult,jdbcType=VARCHAR},
+      transit_result_date = #{transitResultDate,jdbcType=TIMESTAMP},
+      self_result = #{selfResult,jdbcType=VARCHAR},
+      self_date = #{selfDate,jdbcType=TIMESTAMP},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=INTEGER},
+      create_name = #{createName,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
