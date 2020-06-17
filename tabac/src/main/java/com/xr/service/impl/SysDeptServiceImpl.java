@@ -18,9 +18,13 @@ import java.util.List;
 @Service
 public class SysDeptServiceImpl implements SysDeptService {
 
-    @Autowired
+
     private SysDeptMapper sysDeptMapper;
 
+    @Autowired
+    public SysDeptServiceImpl(SysDeptMapper sysDeptMapper) {
+        this.sysDeptMapper = sysDeptMapper;
+    }
 
     @Override
     public List<SysDept> getGroupDept() {
@@ -37,6 +41,20 @@ public class SysDeptServiceImpl implements SysDeptService {
         return null;
     }
 
+    @Override
+    public void updateDept(SysDept sysDept) {
+        sysDeptMapper.updateByPrimaryKeySelective(sysDept);
+    }
+
+    @Override
+    public void addSysDept(SysDept sysDept) {
+        sysDeptMapper.insertSelective(sysDept);
+    }
+
+    @Override
+    public void deleteSysDeptById(Integer id) {
+
+    }
 
 
 }

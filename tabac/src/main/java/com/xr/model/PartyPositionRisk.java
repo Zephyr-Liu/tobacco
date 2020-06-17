@@ -1,11 +1,9 @@
 package com.xr.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @ApiModel(value="com-xr-model-PartyPositionRisk")
 @Data
@@ -26,8 +24,6 @@ public class PartyPositionRisk {
     * 风险信息录入、执行的年份，默认输入的年份
     */
     @ApiModelProperty(value="风险信息录入、执行的年份，默认输入的年份")
-    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
-    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date riskYears;
 
     /**
@@ -40,7 +36,7 @@ public class PartyPositionRisk {
     * 岗位信息id	岗位名称、岗位编号
     */
     @ApiModelProperty(value="岗位信息id	岗位名称、岗位编号")
-    private Integer jocId;
+    private Integer jobId;
 
     /**
     * 项目	风险项目名称
@@ -88,8 +84,6 @@ public class PartyPositionRisk {
     * 创建时间	系统当前时间
     */
     @ApiModelProperty(value="创建时间	系统当前时间")
-    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
-    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date createDate;
 
     /**

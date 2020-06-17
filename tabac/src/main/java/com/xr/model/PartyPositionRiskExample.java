@@ -345,63 +345,63 @@ public class PartyPositionRiskExample {
             return (Criteria) this;
         }
 
-        public Criteria andJocIdIsNull() {
-            addCriterion("joc_id is null");
+        public Criteria andJobIdIsNull() {
+            addCriterion("job_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdIsNotNull() {
-            addCriterion("joc_id is not null");
+        public Criteria andJobIdIsNotNull() {
+            addCriterion("job_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdEqualTo(Integer value) {
-            addCriterion("joc_id =", value, "jocId");
+        public Criteria andJobIdEqualTo(Integer value) {
+            addCriterion("job_id =", value, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdNotEqualTo(Integer value) {
-            addCriterion("joc_id <>", value, "jocId");
+        public Criteria andJobIdNotEqualTo(Integer value) {
+            addCriterion("job_id <>", value, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdGreaterThan(Integer value) {
-            addCriterion("joc_id >", value, "jocId");
+        public Criteria andJobIdGreaterThan(Integer value) {
+            addCriterion("job_id >", value, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("joc_id >=", value, "jocId");
+        public Criteria andJobIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("job_id >=", value, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdLessThan(Integer value) {
-            addCriterion("joc_id <", value, "jocId");
+        public Criteria andJobIdLessThan(Integer value) {
+            addCriterion("job_id <", value, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdLessThanOrEqualTo(Integer value) {
-            addCriterion("joc_id <=", value, "jocId");
+        public Criteria andJobIdLessThanOrEqualTo(Integer value) {
+            addCriterion("job_id <=", value, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdIn(List<Integer> values) {
-            addCriterion("joc_id in", values, "jocId");
+        public Criteria andJobIdIn(List<Integer> values) {
+            addCriterion("job_id in", values, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdNotIn(List<Integer> values) {
-            addCriterion("joc_id not in", values, "jocId");
+        public Criteria andJobIdNotIn(List<Integer> values) {
+            addCriterion("job_id not in", values, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdBetween(Integer value1, Integer value2) {
-            addCriterion("joc_id between", value1, value2, "jocId");
+        public Criteria andJobIdBetween(Integer value1, Integer value2) {
+            addCriterion("job_id between", value1, value2, "jobId");
             return (Criteria) this;
         }
 
-        public Criteria andJocIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("joc_id not between", value1, value2, "jocId");
+        public Criteria andJobIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("job_id not between", value1, value2, "jobId");
             return (Criteria) this;
         }
 

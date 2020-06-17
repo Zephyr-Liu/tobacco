@@ -8,7 +8,7 @@
     <result column="risk_id" jdbcType="INTEGER" property="riskId" />
     <result column="risk_years" jdbcType="TIMESTAMP" property="riskYears" />
     <result column="dept_id" jdbcType="INTEGER" property="deptId" />
-    <result column="joc_id" jdbcType="INTEGER" property="jocId" />
+    <result column="job_id" jdbcType="INTEGER" property="jobId" />
     <result column="risk_project" jdbcType="CHAR" property="riskProject" />
     <result column="risk_describe" jdbcType="VARCHAR" property="riskDescribe" />
     <result column="risk_may_value" jdbcType="VARCHAR" property="riskMayValue" />
@@ -83,7 +83,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, risk_id, risk_years, dept_id, joc_id, risk_project, risk_describe, risk_may_value, 
+    id, risk_id, risk_years, dept_id, job_id, risk_project, risk_describe, risk_may_value, 
     risk_result_value, risk_integrity_value, risk_grade, prevention, create_date, create_id, 
     create_name, `status`
   </sql>
@@ -124,13 +124,13 @@
   <insert id="insert" parameterType="com.xr.model.PartyPositionRisk">
     <!--@mbg.generated-->
     insert into Party_Position_Risk (id, risk_id, risk_years, 
-      dept_id, joc_id, risk_project, 
+      dept_id, job_id, risk_project, 
       risk_describe, risk_may_value, risk_result_value, 
       risk_integrity_value, risk_grade, prevention, 
       create_date, create_id, create_name, 
       `status`)
     values (#{id,jdbcType=INTEGER}, #{riskId,jdbcType=INTEGER}, #{riskYears,jdbcType=TIMESTAMP}, 
-      #{deptId,jdbcType=INTEGER}, #{jocId,jdbcType=INTEGER}, #{riskProject,jdbcType=CHAR}, 
+      #{deptId,jdbcType=INTEGER}, #{jobId,jdbcType=INTEGER}, #{riskProject,jdbcType=CHAR}, 
       #{riskDescribe,jdbcType=VARCHAR}, #{riskMayValue,jdbcType=VARCHAR}, #{riskResultValue,jdbcType=INTEGER}, 
       #{riskIntegrityValue,jdbcType=INTEGER}, #{riskGrade,jdbcType=INTEGER}, #{prevention,jdbcType=TINYINT}, 
       #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, 
@@ -152,8 +152,8 @@
       <if test="deptId != null">
         dept_id,
       </if>
-      <if test="jocId != null">
-        joc_id,
+      <if test="jobId != null">
+        job_id,
       </if>
       <if test="riskProject != null">
         risk_project,
@@ -202,8 +202,8 @@
       <if test="deptId != null">
         #{deptId,jdbcType=INTEGER},
       </if>
-      <if test="jocId != null">
-        #{jocId,jdbcType=INTEGER},
+      <if test="jobId != null">
+        #{jobId,jdbcType=INTEGER},
       </if>
       <if test="riskProject != null">
         #{riskProject,jdbcType=CHAR},
@@ -263,8 +263,8 @@
       <if test="record.deptId != null">
         dept_id = #{record.deptId,jdbcType=INTEGER},
       </if>
-      <if test="record.jocId != null">
-        joc_id = #{record.jocId,jdbcType=INTEGER},
+      <if test="record.jobId != null">
+        job_id = #{record.jobId,jdbcType=INTEGER},
       </if>
       <if test="record.riskProject != null">
         risk_project = #{record.riskProject,jdbcType=CHAR},
@@ -311,7 +311,7 @@
       risk_id = #{record.riskId,jdbcType=INTEGER},
       risk_years = #{record.riskYears,jdbcType=TIMESTAMP},
       dept_id = #{record.deptId,jdbcType=INTEGER},
-      joc_id = #{record.jocId,jdbcType=INTEGER},
+      job_id = #{record.jobId,jdbcType=INTEGER},
       risk_project = #{record.riskProject,jdbcType=CHAR},
       risk_describe = #{record.riskDescribe,jdbcType=VARCHAR},
       risk_may_value = #{record.riskMayValue,jdbcType=VARCHAR},
@@ -340,8 +340,8 @@
       <if test="deptId != null">
         dept_id = #{deptId,jdbcType=INTEGER},
       </if>
-      <if test="jocId != null">
-        joc_id = #{jocId,jdbcType=INTEGER},
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=INTEGER},
       </if>
       <if test="riskProject != null">
         risk_project = #{riskProject,jdbcType=CHAR},
@@ -385,7 +385,7 @@
     set risk_id = #{riskId,jdbcType=INTEGER},
       risk_years = #{riskYears,jdbcType=TIMESTAMP},
       dept_id = #{deptId,jdbcType=INTEGER},
-      joc_id = #{jocId,jdbcType=INTEGER},
+      job_id = #{jobId,jdbcType=INTEGER},
       risk_project = #{riskProject,jdbcType=CHAR},
       risk_describe = #{riskDescribe,jdbcType=VARCHAR},
       risk_may_value = #{riskMayValue,jdbcType=VARCHAR},

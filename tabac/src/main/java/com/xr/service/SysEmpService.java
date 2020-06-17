@@ -34,7 +34,8 @@ public interface SysEmpService {
 
     /**
      *  所有的状态为0 的员工 正常工作员工
-     * @return  List<SysEmp>
+     *  查询所有
+     * @return  List<SysEmp> 对象
      */
     List<SysEmp> selectAllByStatus(SysEmp sysEmp);
 }
