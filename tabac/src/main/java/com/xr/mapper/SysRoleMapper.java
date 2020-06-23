@@ -63,4 +63,8 @@ public interface SysRoleMapper {
      * @return update count
      */
     int updateByPrimaryKey(SysRole record);
+
+    int updateDelFlagById(@Param("updatedDelFlag")Byte updatedDelFlag,@Param("id") Integer id);
+
+
 }

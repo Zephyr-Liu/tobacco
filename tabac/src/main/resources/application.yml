@@ -13,3 +13,9 @@ mybatis:
   mapper-locations: classpath:mybatis/mappers/*.xml
 logging:
   level: debug
+# 分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

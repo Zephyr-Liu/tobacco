@@ -1,7 +1,9 @@
 package com.xr.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.xr.model.SysUser;
 import com.xr.service.SysUserService;
+import com.xr.util.GetUserTokenInfo;
 import com.xr.util.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,8 +27,14 @@ import java.util.List;
 @RequestMapping("user")
 @Api("用户管理相关接口")
 public class SysUserController {
+
     //依赖注入业务类
+
     @Autowired
+    public SysUserController(SysUserService sysUserService) {
+        this.sysUserService=sysUserService;
+    }
+
 
     private SysUserService sysUserService;
 
@@ -39,6 +47,8 @@ public class SysUserController {
         if (token.equals(subject.getSession().getId().toString())) {
             // 从shiro的session里获得保存的用户信息
             SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
+            GetUserTokenInfo userTokenInfo=new GetUserTokenInfo();
+            userTokenInfo.setSysUser(loginUser);
             // 获得角色字符串集合
             List<String> roles = (List<String>) session.getAttribute("roles");
             if (loginUser != null) {
@@ -58,7 +68,8 @@ public class SysUserController {
     @RequiresPermissions("user:list")
     @ApiOperation(value = "获得用户列表", notes = "获得用户列表")
     public ResponseResult list(SysUser sysUser, Integer page, Integer limit) {
-        List<SysUser> list = sysUserService.list(sysUser);
+        List<SysUser> list = sysUserService.list(sysUser,page,limit);
+        //PageInfo info=new PageInfo(list);
         ResponseResult result = new ResponseResult();
         result.getData().put("items", list);
         result.getData().put("total", list.size());
@@ -89,7 +100,7 @@ public class SysUserController {
     @ApiOperation(value = "用户的删除", notes = "删除的用户")
     @RequiresPermissions("user:delete")
     public ResponseResult add(Long id) {
-        sysUserService.deleteById(id);
+        sysUserService.deleteUserById(id);
         ResponseResult result = new ResponseResult();
         result.getData().put("message", "删除成功");
         return result;

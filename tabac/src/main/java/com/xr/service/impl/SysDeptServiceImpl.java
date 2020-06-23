@@ -28,15 +28,17 @@ public class SysDeptServiceImpl implements SysDeptService {
 
     @Override
     public List<SysDept> getGroupDept() {
+        // 查询出所有的部门信息
         SysDeptExample example = new SysDeptExample();
         SysDeptExample.Criteria criteria = example.createCriteria();
+        // 查询所有状态为0的
         criteria.andStatusEqualTo(new Byte("0"));
-        List<SysDept> deptList = sysDeptMapper.selectByExample(example);
-        if (deptList != null && deptList.size() > 0) {
-            // 进行递归分组
-            SysDeptGroupUtil groupUtil = new SysDeptGroupUtil();
-            deptList = groupUtil.getFirstDept(deptList);
-            return deptList;
+        List<SysDept> list = sysDeptMapper.selectByExample(example);
+        // 使用部门分组工具类来对所有部门进行分组
+        if (list != null && list.size() > 0) {
+            SysDeptGroupUtil util = new SysDeptGroupUtil();
+            list = util.getFirstDept(list);
+            return list;
         }
         return null;
     }
@@ -53,8 +55,29 @@ public class SysDeptServiceImpl implements SysDeptService {
 
     @Override
     public void deleteSysDeptById(Integer id) {
-
+        sysDeptMapper.updateStatusById((byte) 1,id);
     }
+
+    @Override
+    public List<SysDept> selectSysDept(SysDept sysDept) {
+        SysDeptExample sysDeptExample=new SysDeptExample();
+        SysDeptExample.Criteria criteria=sysDeptExample.createCriteria();
+        criteria.andStatusEqualTo((byte) 0);
+        if(sysDept!= null){
+            if (sysDept.getDeptName() !=null){
+                criteria.andDeptNameLike("%"+sysDept.getDeptName()+"%");
+            }
+            if (sysDept.getDutyPrincipal() !=null){
+                criteria.andDutyPrincipalLike("%"+sysDept.getDutyPrincipal()+"%");
+            }
+            if (sysDept.getStatus() !=null){
+                criteria.andStatusEqualTo(sysDept.getStatus());
+            }
+        }
+
+        return sysDeptMapper.selectByExample(sysDeptExample);
+    }
+
 
 
 }

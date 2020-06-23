@@ -1,5 +1,6 @@
 package com.xr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -8,7 +9,11 @@ import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
+/**
+ * @author Coisini
+ */
 @ApiModel(value="com-xr-model-SysDept")
 @Data
 public class SysDept {
@@ -34,7 +39,7 @@ public class SysDept {
     * 责任人
     */
     @ApiModelProperty(value="责任人")
-    private String dutyProson;
+    private String dutyPrincipal;
 
     /**
     * 父机构信息	有父机构的需要录入父机构信息
@@ -52,6 +57,8 @@ public class SysDept {
     * 创建时间
     */
     @ApiModelProperty(value="创建时间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date createTime;
 
     /**
@@ -75,5 +82,6 @@ public class SysDept {
     /**
      * 部门下的部门子集
      */
+
     private List<SysDept> items = new ArrayList<>();
 }

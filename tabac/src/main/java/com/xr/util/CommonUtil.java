@@ -39,7 +39,7 @@ public class CommonUtil {
         String salt = getSalt();
         System.out.println(salt);
         //将原始密码加盐（上面生成的盐），并且用md5算法加密三次，将最后结果存入数据库中
-        String pwd = getMD5Password("admin", salt, 2);
+        String pwd = getMD5Password("admin", salt, 1);
         System.out.println(pwd);
     }
 }

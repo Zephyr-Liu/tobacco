@@ -21,7 +21,8 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResponseResult defaultExceptionHandler(HttpServletRequest req, Exception e) {
         ResponseResult result = new ResponseResult();
-        result.setCode(20001); // 自定义错误编号，返回前台用
+        result.setCode(20001);
+        // 自定义错误编号，返回前台用
         // ResponseResult新增了message属性，用来统一向前台传递后台的处理消息
         result.setMessage("权限不足");
         return result;

@@ -1,5 +1,6 @@
 package com.xr.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.xr.mapper.SysUserMapper;
 import com.xr.model.SysUser;
 import com.xr.model.SysUserExample;
@@ -35,7 +36,7 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public List<SysUser> list(SysUser sysUser) {
+    public List<SysUser> list(SysUser sysUser, Integer page, Integer limit) {
         SysUserExample example = new SysUserExample();
         SysUserExample.Criteria criteria = example.createCriteria();
         if (sysUser != null) {
@@ -44,6 +45,7 @@ public class SysUserServiceImpl implements SysUserService {
             }
             // 还可以添加其他属性的条件
         }
+        //PageHelper.startPage(page,limit);
         List<SysUser> list = sysUserMapper.selectByExample(example);
         return list;
     }
@@ -89,6 +91,9 @@ public class SysUserServiceImpl implements SysUserService {
         return null;
     }
 
-
+    @Override
+    public void deleteUserById(Long id) {
+        sysUserMapper.updateStatusById((byte) 1,id);
+    }
 
 }

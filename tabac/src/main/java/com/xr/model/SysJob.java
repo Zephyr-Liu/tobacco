@@ -7,6 +7,9 @@ import java.util.Date;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+/**
+ * @author Coisini
+ */
 @ApiModel(value="com-xr-model-SysJob")
 @Data
 public class SysJob {

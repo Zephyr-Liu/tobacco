@@ -18,7 +18,7 @@ import java.util.List;
 public class SysEmpServiceImpl implements SysEmpService {
 
 
-    private final SysEmpMapper sysEmpMapper;
+    private  SysEmpMapper sysEmpMapper;
 
     @Autowired
     public  SysEmpServiceImpl(SysEmpMapper sysEmpMapper) {
@@ -28,21 +28,21 @@ public class SysEmpServiceImpl implements SysEmpService {
     @Override
     public void deleteSysEmpById(Integer id) {
         //实际上是修改状态
-
+        sysEmpMapper.updateStatusById(0,id);
     }
 
     @Override
-    public void updateRole(SysEmp sysEmp) {
+    public void updateEmp(SysEmp sysEmp) {
         sysEmpMapper.updateByPrimaryKeySelective(sysEmp);
     }
 
     @Override
-    public void addRole(SysEmp sysEmp) {
+    public void addEmp(SysEmp sysEmp) {
         sysEmpMapper.insertSelective(sysEmp);
     }
 
     @Override
-    public List<SysEmp> selectAllByStatus(SysEmp sysEmp) {
+    public List<SysEmp> selectAll(SysEmp sysEmp) {
         SysEmpExample sysEmpExample=new SysEmpExample();
         SysEmpExample.Criteria criteria=sysEmpExample.createCriteria();
         //查询状态为0的 正常的

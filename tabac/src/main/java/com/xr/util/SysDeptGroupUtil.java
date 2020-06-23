@@ -3,58 +3,51 @@ package com.xr.util;
 import com.xr.model.SysDept;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 /**
- * @author Zephyr.Liu
- * @date 2020/6/14 12:49
- * @Description
+ * 递归对部门进行分组
+ * @author Coisini
+ *     部门表的递归分组  分组
  */
 public class SysDeptGroupUtil {
 
     /**
-     * 查找一级部门
-     *
+     * 获得一级部门
      * @param list
      * @return
      */
-    public List<SysDept> getFirstDept(List<SysDept> list) {
-        //定义一个集合，放一级部门
-        List<SysDept> firstList = new ArrayList<SysDept>();
-        for (SysDept m : list) {
-            // 父级部门的id为0的是一级部门
-            if (m.getParentDeptId().longValue() == 0) {
-                //调用下面的递归方法查找所有的子部门
-                m.setItems(getItems(new Long(m.getId()), list));
-                //一级部门加入到集合
-                firstList.add(m);
+    public List<SysDept> getFirstDept(List<SysDept> list){
+        List<SysDept> firstDept = new ArrayList<>();
+        //查询所有的parentId为0的部门
+        for (SysDept dept:list){
+            if(dept.getParentDeptId() ==0){
+                dept.setItems(getChildrenDept(Long.valueOf(dept.getId()),list));
+                firstDept.add(dept);
             }
         }
-        return firstList;
+        return firstDept;
     }
 
     /**
-     * 根据一级部门的id查找里面所有的子部门，包含递归算法
-     *
-     * @param pid
+     * 递归调用获得所有部门的子集
+     * @param parentId    分组id
      * @param list
      * @return
      */
-    public List<SysDept> getItems(Long pid, List<SysDept> list) {
-        List<SysDept> secondList = new ArrayList<SysDept>();
-        for (SysDept m : list) {
-            //是一级部门，不需要加进去
-            if (m.getParentDeptId().longValue() == 0) {
+    public List<SysDept> getChildrenDept(Long parentId,List<SysDept> list){
+        List<SysDept> childrenDept = new ArrayList<>();
+        for (SysDept dept:list){
+            // 一级部门不需要加进去
+            if(dept.getParentDeptId() ==0){
                 continue;
             }
-            //如果当前部门的父id和传过来的一致，就可以直接加到集合里
-            //Long类型对象比较相等需要使用longValue获取之后再来比较
-            if (m.getParentDeptId().longValue() == pid.longValue()) {
-                m.setItems(getItems(m.getParentDeptId(), list));
-                secondList.add(m);
+            if(dept.getParentDeptId().longValue()==parentId){
+                dept.setItems(getChildrenDept(Long.valueOf(dept.getId()),list));
+
+                childrenDept.add(dept);
             }
         }
-        return secondList;
+        return childrenDept;
     }
 }

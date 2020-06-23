@@ -36,9 +36,13 @@ public interface SysUserService {
      * 根据条件查询用户
      *
      * @param sysUser
+     * @param page
+     * @param limit
      * @return
+     *
+     * 2020.6.22 添加需求  不容许 admin 看到自己 不允许删除自己
      */
-    public List<SysUser> list(SysUser sysUser);
+    public List<SysUser> list(SysUser sysUser, Integer page, Integer limit);
 
     /**
      * 用户登录
@@ -71,5 +75,11 @@ public interface SysUserService {
      */
     public SysUser findUserByNameAndRoleAndMenu(String username);
 
+
+    /**
+     * 假则删除 实则修改状态
+     * @param id
+     */
+    void deleteUserById(Long id);
 
 }

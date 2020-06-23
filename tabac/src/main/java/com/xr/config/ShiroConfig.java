@@ -56,8 +56,10 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/logout", "logout");
         // 配置不会被拦截的链接 顺序判断
         filterChainDefinitionMap.put("/static/**", "anon");
-        filterChainDefinitionMap.put("/user/login/**", "anon"); // 获得用户可以访问的路由
-        filterChainDefinitionMap.put("/user/info/**", "anon"); // 获得用户信息
+        // 获得用户可以访问的路由
+        filterChainDefinitionMap.put("/user/login/**", "anon");
+        // 获得用户信息
+        filterChainDefinitionMap.put("/user/info/**", "anon");
         // swagger的资源放行
         filterChainDefinitionMap.put("/swagger-ui.html", "anon");
         filterChainDefinitionMap.put("/swagger-resources/**", "anon");

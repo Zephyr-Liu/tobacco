@@ -35,7 +35,7 @@ public class PartyInformation {
      * 0 领导讲话、1 廉政要闻、2 文件制度、3 警钟长鸣
      */
     @ApiModelProperty(value = "0 领导讲话、1 廉政要闻、2 文件制度、3 警钟长鸣")
-    private Byte infoType;
+    private String infoType;
 
     /**
      * 能在线编辑，能上传图片、视频

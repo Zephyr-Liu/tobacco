@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * 用户
+ * @author Coisini
  */
 @ApiModel(value = "com-xr-model-SysUser")
 @Data
@@ -114,5 +115,6 @@ public class SysUser {
     /**
      * 角色集合
      */
+
     private List<SysRole> roles = new ArrayList<>();
 }

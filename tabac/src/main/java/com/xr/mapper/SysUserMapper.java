@@ -83,5 +83,13 @@ public interface SysUserMapper {
      */
     List<String> findUserRoles(String username);
 
+    /**
+     *  修改状态
+     * @param updatedStatus 状态
+     * @param id id
+     * @return
+     */
+     int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Long id);
+
 
 }

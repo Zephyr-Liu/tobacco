@@ -57,4 +57,8 @@ public interface SysJobMapper {
      * @return update count
      */
     int updateByPrimaryKey(SysJob record);
+
+    int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Integer id);
+
+
 }

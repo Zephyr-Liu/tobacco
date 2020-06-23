@@ -315,52 +315,62 @@ public class PartyInformationExample {
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeEqualTo(Byte value) {
+        public Criteria andInfoTypeEqualTo(String value) {
             addCriterion("info_type =", value, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeNotEqualTo(Byte value) {
+        public Criteria andInfoTypeNotEqualTo(String value) {
             addCriterion("info_type <>", value, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeGreaterThan(Byte value) {
+        public Criteria andInfoTypeGreaterThan(String value) {
             addCriterion("info_type >", value, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeGreaterThanOrEqualTo(Byte value) {
+        public Criteria andInfoTypeGreaterThanOrEqualTo(String value) {
             addCriterion("info_type >=", value, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeLessThan(Byte value) {
+        public Criteria andInfoTypeLessThan(String value) {
             addCriterion("info_type <", value, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeLessThanOrEqualTo(Byte value) {
+        public Criteria andInfoTypeLessThanOrEqualTo(String value) {
             addCriterion("info_type <=", value, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeIn(List<Byte> values) {
+        public Criteria andInfoTypeLike(String value) {
+            addCriterion("info_type like", value, "infoType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoTypeNotLike(String value) {
+            addCriterion("info_type not like", value, "infoType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoTypeIn(List<String> values) {
             addCriterion("info_type in", values, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeNotIn(List<Byte> values) {
+        public Criteria andInfoTypeNotIn(List<String> values) {
             addCriterion("info_type not in", values, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeBetween(Byte value1, Byte value2) {
+        public Criteria andInfoTypeBetween(String value1, String value2) {
             addCriterion("info_type between", value1, value2, "infoType");
             return (Criteria) this;
         }
 
-        public Criteria andInfoTypeNotBetween(Byte value1, Byte value2) {
+        public Criteria andInfoTypeNotBetween(String value1, String value2) {
             addCriterion("info_type not between", value1, value2, "infoType");
             return (Criteria) this;
         }

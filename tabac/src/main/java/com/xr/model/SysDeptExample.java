@@ -305,73 +305,73 @@ public class SysDeptExample {
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonIsNull() {
-            addCriterion("duty_proson is null");
+        public Criteria andDutyPrincipalIsNull() {
+            addCriterion("duty_principal is null");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonIsNotNull() {
-            addCriterion("duty_proson is not null");
+        public Criteria andDutyPrincipalIsNotNull() {
+            addCriterion("duty_principal is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonEqualTo(String value) {
-            addCriterion("duty_proson =", value, "dutyProson");
+        public Criteria andDutyPrincipalEqualTo(String value) {
+            addCriterion("duty_principal =", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonNotEqualTo(String value) {
-            addCriterion("duty_proson <>", value, "dutyProson");
+        public Criteria andDutyPrincipalNotEqualTo(String value) {
+            addCriterion("duty_principal <>", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonGreaterThan(String value) {
-            addCriterion("duty_proson >", value, "dutyProson");
+        public Criteria andDutyPrincipalGreaterThan(String value) {
+            addCriterion("duty_principal >", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonGreaterThanOrEqualTo(String value) {
-            addCriterion("duty_proson >=", value, "dutyProson");
+        public Criteria andDutyPrincipalGreaterThanOrEqualTo(String value) {
+            addCriterion("duty_principal >=", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonLessThan(String value) {
-            addCriterion("duty_proson <", value, "dutyProson");
+        public Criteria andDutyPrincipalLessThan(String value) {
+            addCriterion("duty_principal <", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonLessThanOrEqualTo(String value) {
-            addCriterion("duty_proson <=", value, "dutyProson");
+        public Criteria andDutyPrincipalLessThanOrEqualTo(String value) {
+            addCriterion("duty_principal <=", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonLike(String value) {
-            addCriterion("duty_proson like", value, "dutyProson");
+        public Criteria andDutyPrincipalLike(String value) {
+            addCriterion("duty_principal like", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonNotLike(String value) {
-            addCriterion("duty_proson not like", value, "dutyProson");
+        public Criteria andDutyPrincipalNotLike(String value) {
+            addCriterion("duty_principal not like", value, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonIn(List<String> values) {
-            addCriterion("duty_proson in", values, "dutyProson");
+        public Criteria andDutyPrincipalIn(List<String> values) {
+            addCriterion("duty_principal in", values, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonNotIn(List<String> values) {
-            addCriterion("duty_proson not in", values, "dutyProson");
+        public Criteria andDutyPrincipalNotIn(List<String> values) {
+            addCriterion("duty_principal not in", values, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonBetween(String value1, String value2) {
-            addCriterion("duty_proson between", value1, value2, "dutyProson");
+        public Criteria andDutyPrincipalBetween(String value1, String value2) {
+            addCriterion("duty_principal between", value1, value2, "dutyPrincipal");
             return (Criteria) this;
         }
 
-        public Criteria andDutyProsonNotBetween(String value1, String value2) {
-            addCriterion("duty_proson not between", value1, value2, "dutyProson");
+        public Criteria andDutyPrincipalNotBetween(String value1, String value2) {
+            addCriterion("duty_principal not between", value1, value2, "dutyPrincipal");
             return (Criteria) this;
         }
 

@@ -7,6 +7,9 @@ import java.util.Date;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+/**
+ * @author Coisini
+ */
 @ApiModel(value="com-xr-model-SysEmp")
 @Data
 public class SysEmp {
@@ -19,7 +22,7 @@ public class SysEmp {
     /**
     * 部门id
     */
-    @ApiModelProperty(value="部门id")
+    @ApiModelProperty(value="员工编号id")
     private String empId;
 
     /**
@@ -31,7 +34,7 @@ public class SysEmp {
     /**
     * 员工姓名
     */
-    @ApiModelProperty(value="员工姓名")
+    @ApiModelProperty(value="员工性别")
     private String empSex;
 
     /**
@@ -107,4 +110,14 @@ public class SysEmp {
     */
     @ApiModelProperty(value="状态  0  正常、1  删除、2  离退、3 借调")
     private Integer status;
+
+    /**
+     *  多表联查
+     */
+    private SysJob job;
+
+    /**
+     * 多表联查
+     */
+    private SysDept dept;
 }

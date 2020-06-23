@@ -12,6 +12,7 @@ public interface SysDeptMapper {
 
     /**
      * delete by primary key
+     *
      * @param id primaryKey
      * @return deleteCount
      */
@@ -19,6 +20,7 @@ public interface SysDeptMapper {
 
     /**
      * insert record to table
+     *
      * @param record the record
      * @return insert count
      */
@@ -26,6 +28,7 @@ public interface SysDeptMapper {
 
     /**
      * insert record to table selective
+     *
      * @param record the record
      * @return insert count
      */
@@ -35,6 +38,7 @@ public interface SysDeptMapper {
 
     /**
      * select by primary key
+     *
      * @param id primary key
      * @return object by primary key
      */
@@ -46,6 +50,7 @@ public interface SysDeptMapper {
 
     /**
      * update record selective
+     *
      * @param record the updated record
      * @return update count
      */
@@ -53,8 +58,19 @@ public interface SysDeptMapper {
 
     /**
      * update record
+     *
      * @param record the updated record
      * @return update count
      */
     int updateByPrimaryKey(SysDept record);
+
+    /**
+     *  修改id
+     * @param updatedStatus 修改状态
+     * @param id id
+     * @return 删除是否成功
+     */
+   int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Integer id);
+
+
 }

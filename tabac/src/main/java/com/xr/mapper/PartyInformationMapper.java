@@ -63,4 +63,12 @@ public interface PartyInformationMapper {
      * @return update count
      */
     int updateByPrimaryKey(PartyInformation record);
+
+    /**
+     * 修改状态
+     *
+     * @param updatedStatus 修改状态
+     * @param id            id
+     */
+    void updateStatusById(@Param("updatedStatus") Byte updatedStatus, @Param("id") Integer id);
 }

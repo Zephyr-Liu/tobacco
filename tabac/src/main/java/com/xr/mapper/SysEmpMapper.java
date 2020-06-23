@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface SysEmpMapper {
+
+
     long countByExample(SysEmpExample example);
 
     int deleteByExample(SysEmpExample example);
@@ -63,4 +65,20 @@ public interface SysEmpMapper {
      * @return update count
      */
     int updateByPrimaryKey(SysEmp record);
+
+    /**
+     * 修改状态
+     *
+     * @param updatedStatus 对象
+     * @param id            id
+     * @return 修改成功
+     */
+    int updateStatusById(@Param("updatedStatus") Integer updatedStatus, @Param("id") Integer id);
+
+
+    /**
+     *  自定义的查询方法 也是查询所有
+     * @return 集合数据
+     */
+    List<SysEmp> empAndDeptAndJob();
 }

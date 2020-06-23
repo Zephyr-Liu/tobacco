@@ -47,13 +47,10 @@ public class MyShiroRealm extends AuthorizingRealm {
         // 根据身份信息获取角色信息，权限信息
         for (SysRole role : sysUser.getRoles()) {
             simpleAuthorizationInfo.addRole(role.getName());
-            System.out.println("roleName:" + role.getName());
             // 根据身份信息获取权限信息
             for (SysMenu m : role.getMenus()) {
                 if (m.getPerms() != null) {
                     simpleAuthorizationInfo.addStringPermission(m.getPerms());
-
-                    System.out.println("menuName:" + m.getPerms());
                 }
             }
         }
