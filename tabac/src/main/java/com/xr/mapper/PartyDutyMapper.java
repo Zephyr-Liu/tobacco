@@ -1,8 +1,8 @@
 package com.xr.mapper;
 
-import com.xr.model.PartyDuty;
 import com.xr.model.PartyDutyExample;
 import java.util.List;
+import com.xr.model.PartyDuty;
 import org.apache.ibatis.annotations.Param;
 
 public interface PartyDutyMapper {
@@ -63,4 +63,6 @@ public interface PartyDutyMapper {
      * @return update count
      */
     int updateByPrimaryKey(PartyDuty record);
+
+    int updateByPrimaryKeyStatus(PartyDuty record);
 }

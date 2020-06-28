@@ -2,9 +2,8 @@ package com.xr.service;
 
 
 
-import com.xr.model.PartyDuty;
-
 import java.util.List;
+import com.xr.model.PartyDuty;
 
 public interface PartyDutyService {
 
