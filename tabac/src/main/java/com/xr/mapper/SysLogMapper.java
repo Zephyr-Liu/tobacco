@@ -1,14 +1,14 @@
 package com.xr.mapper;
 
-import com.xr.model.PartyDuty;
-import com.xr.model.PartyDutyExample;
+import com.xr.model.SysLog;
+import com.xr.model.SysLogExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface PartyDutyMapper {
-    long countByExample(PartyDutyExample example);
+public interface SysLogMapper {
+    long countByExample(SysLogExample example);
 
-    int deleteByExample(PartyDutyExample example);
+    int deleteByExample(SysLogExample example);
 
     /**
      * delete by primary key
@@ -24,7 +24,7 @@ public interface PartyDutyMapper {
      * @param record the record
      * @return insert count
      */
-    int insert(PartyDuty record);
+    int insert(SysLog record);
 
     /**
      * insert record to table selective
@@ -32,9 +32,9 @@ public interface PartyDutyMapper {
      * @param record the record
      * @return insert count
      */
-    int insertSelective(PartyDuty record);
+    int insertSelective(SysLog record);
 
-    List<PartyDuty> selectByExample(PartyDutyExample example);
+    List<SysLog> selectByExample(SysLogExample example);
 
     /**
      * select by primary key
@@ -42,11 +42,11 @@ public interface PartyDutyMapper {
      * @param id primary key
      * @return object by primary key
      */
-    PartyDuty selectByPrimaryKey(Integer id);
+    SysLog selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") PartyDuty record, @Param("example") PartyDutyExample example);
+    int updateByExampleSelective(@Param("record") SysLog record, @Param("example") SysLogExample example);
 
-    int updateByExample(@Param("record") PartyDuty record, @Param("example") PartyDutyExample example);
+    int updateByExample(@Param("record") SysLog record, @Param("example") SysLogExample example);
 
     /**
      * update record selective
@@ -54,7 +54,7 @@ public interface PartyDutyMapper {
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKeySelective(PartyDuty record);
+    int updateByPrimaryKeySelective(SysLog record);
 
     /**
      * update record
@@ -62,5 +62,5 @@ public interface PartyDutyMapper {
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKey(PartyDuty record);
+    int updateByPrimaryKey(SysLog record);
 }

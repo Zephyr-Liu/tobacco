@@ -63,6 +63,7 @@ public class SysDeptServiceImpl implements SysDeptService {
         SysDeptExample sysDeptExample=new SysDeptExample();
         SysDeptExample.Criteria criteria=sysDeptExample.createCriteria();
         criteria.andStatusEqualTo((byte) 0);
+        criteria.andParentDeptIdNotEqualTo((long) 0);
         if(sysDept!= null){
             if (sysDept.getDeptName() !=null){
                 criteria.andDeptNameLike("%"+sysDept.getDeptName()+"%");
@@ -77,6 +78,7 @@ public class SysDeptServiceImpl implements SysDeptService {
 
         return sysDeptMapper.selectByExample(sysDeptExample);
     }
+
 
 
 

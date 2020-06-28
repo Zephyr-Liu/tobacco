@@ -3,6 +3,7 @@ package com.xr.controller;
 import com.xr.model.SysRole;
 import com.xr.service.SysRoleService;
 import com.xr.util.ResponseResult;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,6 @@ import java.util.List;
 @RequestMapping("role")
 public class SysRoleController {
 
-
     private SysRoleService sysRoleService;
 
   @Autowired
@@ -27,6 +27,7 @@ public class SysRoleController {
   }
 
   @RequestMapping("list")
+  @RequiresPermissions("role:list")
   public ResponseResult list(SysRole sysRole,Integer page,Integer limit){
       ResponseResult result=new ResponseResult();
       List<SysRole> list = sysRoleService.listSysRole(sysRole,page,limit);
@@ -36,6 +37,7 @@ public class SysRoleController {
   }
 
   @RequestMapping("add")
+  @RequiresPermissions("role:add")
     public ResponseResult add(SysRole sysRole){
         ResponseResult result =new ResponseResult();
         sysRoleService.addSysRole(sysRole);
@@ -44,6 +46,7 @@ public class SysRoleController {
     }
 
     @RequestMapping("delete")
+    @RequiresPermissions("role:delete")
     public ResponseResult delete(Integer id){
       ResponseResult result=new ResponseResult();
       sysRoleService.deleteSysRoleById(id);
@@ -52,6 +55,7 @@ public class SysRoleController {
     }
 
     @RequestMapping("update")
+    @RequiresPermissions("role:update")
     public ResponseResult update(SysRole sysRole){
       sysRoleService.updateSysRole(sysRole);
         ResponseResult result=new ResponseResult();

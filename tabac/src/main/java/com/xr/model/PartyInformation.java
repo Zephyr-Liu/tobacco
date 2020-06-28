@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 纪检监察员在后台系统对廉政教育信息录入、修改、删除，普通用户在前台可以查看。
+ * @author Coisini
  */
 @ApiModel(value = "com-xr-model-PartyInformation")
 @Data
@@ -76,4 +77,23 @@ public class PartyInformation {
      */
     @ApiModelProperty(value = "0 正常、1 删除")
     private Byte status;
+
+    //自定义查询
+
+    /**
+    *   开始时间
+    */
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date startTime;
+
+    /**
+    *   结束时间
+    */
+
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date endTime;
 }

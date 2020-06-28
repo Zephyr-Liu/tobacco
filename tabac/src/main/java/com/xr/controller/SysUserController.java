@@ -31,12 +31,15 @@ public class SysUserController {
     //依赖注入业务类
 
     @Autowired
-    public SysUserController(SysUserService sysUserService) {
+    public SysUserController(SysUserService sysUserService, GetUserTokenInfo userTokenInfo) {
         this.sysUserService=sysUserService;
+        this.userTokenInfo = userTokenInfo;
     }
 
 
     private SysUserService sysUserService;
+
+    private GetUserTokenInfo userTokenInfo;
 
     @RequestMapping("info")
     @ApiOperation(value = "获得用户的信息", notes = "获取用户信息")
@@ -47,8 +50,8 @@ public class SysUserController {
         if (token.equals(subject.getSession().getId().toString())) {
             // 从shiro的session里获得保存的用户信息
             SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
-            GetUserTokenInfo userTokenInfo=new GetUserTokenInfo();
-            userTokenInfo.setSysUser(loginUser);
+            userTokenInfo.getData().put("id",loginUser.getId());
+            userTokenInfo.getData().put("createName",loginUser.getUsername());
             // 获得角色字符串集合
             List<String> roles = (List<String>) session.getAttribute("roles");
             if (loginUser != null) {

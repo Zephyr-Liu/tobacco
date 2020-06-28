@@ -46,7 +46,7 @@ public class SysEmpServiceImpl implements SysEmpService {
         SysEmpExample sysEmpExample=new SysEmpExample();
         SysEmpExample.Criteria criteria=sysEmpExample.createCriteria();
         //查询状态为0的 正常的
-        criteria.andStatusEqualTo(0);
+        //criteria.andStatusEqualTo(0);
         if (sysEmp != null){
             if(sysEmp.getEmpName() !=null){
                 criteria.andEmpNameEqualTo("%"+sysEmp.getEmpName()+"%");

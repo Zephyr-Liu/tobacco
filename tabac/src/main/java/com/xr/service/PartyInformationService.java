@@ -2,6 +2,7 @@ package com.xr.service;
 
 import com.xr.model.PartyInformation;
 
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public interface PartyInformationService {
      * 查询
      * @return 集合
      */
-    List<PartyInformation> selectPartyInformationList(PartyInformation partyInformation);
+    List<PartyInformation> selectPartyInformationList(PartyInformation partyInformation) ;
 
     /**
      * 删除 实际上是修改状态

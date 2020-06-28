@@ -7,6 +7,9 @@ import com.xr.service.PartyInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,7 +38,7 @@ public class PartyInformationServiceImpl implements PartyInformationService {
     }
 
     @Override
-    public List<PartyInformation> selectPartyInformationList(PartyInformation partyInformation) {
+    public List<PartyInformation> selectPartyInformationList(PartyInformation partyInformation)  {
         PartyInformationExample partyInformationExample=new PartyInformationExample();
         PartyInformationExample.Criteria criteria=partyInformationExample.createCriteria();
         criteria.andStatusEqualTo((byte) 0);
@@ -46,8 +49,9 @@ public class PartyInformationServiceImpl implements PartyInformationService {
             if (partyInformation.getInfoContent()!=null){
                 criteria.andInfoContentLike("%"+partyInformation.getInfoContent()+"%");
             }
-            if (partyInformation.getInfoIssueDate()!=null){
-                criteria.andInfoIssueDateEqualTo(partyInformation.getInfoIssueDate());
+            if (partyInformation.getStartTime()!=null&&partyInformation.getEndTime()!=null){
+
+                criteria.andInfoIssueDateBetween(partyInformation.getStartTime(),partyInformation.getEndTime());
             }
         }
         return partyInformationMapper.selectByExample(partyInformationExample);

@@ -8,6 +8,9 @@ spring:
     password: 8p6N7SXGd54CkFAJ
     url: jdbc:mysql://47.105.77.234:3306/tobacco
     driver-class-name: com.mysql.jdbc.Driver
+  #aop:
+    #auto: true  # Add @EnableAspectJAutoProxy.
+    #proxy-target-class: true # Whether subclass-based (CGLIB) proxies are to be created (true) as opposed to standard Java
 mybatis:
   # config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mappers/*.xml

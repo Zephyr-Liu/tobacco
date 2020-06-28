@@ -63,4 +63,14 @@ public interface SysMenuMapper {
      * @return update count
      */
     int updateByPrimaryKey(SysMenu record);
+
+    /**
+     *  修改状态
+     * @param updatedDelFlag 修改状态
+     * @param id id
+     */
+    void updateDelFlagById(@Param("updatedDelFlag")Byte updatedDelFlag,@Param("id")Long id);
+
+
+
 }

@@ -5,7 +5,7 @@
     <!--@mbg.generated-->
     <!--@Table Party_Duty-->
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="duty_itle" jdbcType="VARCHAR" property="dutyItle" />
+    <result column="duty_title" jdbcType="VARCHAR" property="dutyTitle" />
     <result column="duty_content" jdbcType="VARCHAR" property="dutyContent" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="create_id" jdbcType="INTEGER" property="createId" />
@@ -74,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, duty_itle, duty_content, create_date, create_id, create_name, `status`
+    id, duty_title, duty_content, create_date, create_id, create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyDutyExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -110,24 +110,21 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xr.model.PartyDuty">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyDuty" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into Party_Duty (id, duty_itle, duty_content, 
-      create_date, create_id, create_name, 
-      `status`)
-    values (#{id,jdbcType=INTEGER}, #{dutyItle,jdbcType=VARCHAR}, #{dutyContent,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT})
+    insert into Party_Duty (duty_title, duty_content, create_date, 
+      create_id, create_name, `status`
+      )
+    values (#{dutyTitle,jdbcType=VARCHAR}, #{dutyContent,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.xr.model.PartyDuty">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.PartyDuty" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into Party_Duty
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="dutyItle != null">
-        duty_itle,
+      <if test="dutyTitle != null">
+        duty_title,
       </if>
       <if test="dutyContent != null">
         duty_content,
@@ -146,11 +143,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="dutyItle != null">
-        #{dutyItle,jdbcType=VARCHAR},
+      <if test="dutyTitle != null">
+        #{dutyTitle,jdbcType=VARCHAR},
       </if>
       <if test="dutyContent != null">
         #{dutyContent,jdbcType=VARCHAR},
@@ -183,8 +177,8 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.dutyItle != null">
-        duty_itle = #{record.dutyItle,jdbcType=VARCHAR},
+      <if test="record.dutyTitle != null">
+        duty_title = #{record.dutyTitle,jdbcType=VARCHAR},
       </if>
       <if test="record.dutyContent != null">
         duty_content = #{record.dutyContent,jdbcType=VARCHAR},
@@ -210,7 +204,7 @@
     <!--@mbg.generated-->
     update Party_Duty
     set id = #{record.id,jdbcType=INTEGER},
-      duty_itle = #{record.dutyItle,jdbcType=VARCHAR},
+      duty_title = #{record.dutyTitle,jdbcType=VARCHAR},
       duty_content = #{record.dutyContent,jdbcType=VARCHAR},
       create_date = #{record.createDate,jdbcType=TIMESTAMP},
       create_id = #{record.createId,jdbcType=INTEGER},
@@ -224,8 +218,8 @@
     <!--@mbg.generated-->
     update Party_Duty
     <set>
-      <if test="dutyItle != null">
-        duty_itle = #{dutyItle,jdbcType=VARCHAR},
+      <if test="dutyTitle != null">
+        duty_title = #{dutyTitle,jdbcType=VARCHAR},
       </if>
       <if test="dutyContent != null">
         duty_content = #{dutyContent,jdbcType=VARCHAR},
@@ -248,7 +242,7 @@
   <update id="updateByPrimaryKey" parameterType="com.xr.model.PartyDuty">
     <!--@mbg.generated-->
     update Party_Duty
-    set duty_itle = #{dutyItle,jdbcType=VARCHAR},
+    set duty_title = #{dutyTitle,jdbcType=VARCHAR},
       duty_content = #{dutyContent,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       create_id = #{createId,jdbcType=INTEGER},

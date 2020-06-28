@@ -303,5 +303,16 @@
     update sys_dept
     set `status`=#{updatedStatus,jdbcType=TINYINT}
     where id=#{id,jdbcType=INTEGER}
-  </update>
+   </update>
+
+<resultMap id="selectMultilistMenuMap" type="com.xr.model.SysDept" extends="BaseResultMap">
+<association property="deptName" javaType="java.lang.String" column=""/>
+</resultMap>
+
+ <select    id="selectMultilistMenu" resultMap="BaseResultMap" parameterType="com.xr.model.SysDept">
+    select t1.*,t2.dept_name as 'parentName' from sys_dept t1 LEFT JOIN sys_dept t2 on t1.parent_dept_id=t2.id
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
 </mapper>

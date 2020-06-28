@@ -42,4 +42,6 @@ public interface SysDeptService {
      * @return
      */
     List<SysDept> selectSysDept(SysDept sysDept);
+
+
 }
