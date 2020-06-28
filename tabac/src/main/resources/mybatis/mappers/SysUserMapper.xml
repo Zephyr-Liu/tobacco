@@ -407,7 +407,11 @@
   </collection>
 </resultMap>
 
-
+<!-- 根据用户名查询角色集合 -->
+  <select id="findUserRolesId" resultType="string" parameterType="string">
+    SELECT r.id from sys_user u,sys_role r,sys_user_role ur
+    where r.id = ur.role_id and u.username=#{username} and ur.user_id=u.id
+  </select>
 <!--  根据用户名查询角色和角色对应的权限-->
   <select id="findUserByNameAndRoleAndMenu" parameterType="string" resultMap="userAndRoleAndMenuResultMap">
    select u.id uid,introduction,avatar,username,password,salt,email,mobile,status,dept_id,u.del_flag udelFlag

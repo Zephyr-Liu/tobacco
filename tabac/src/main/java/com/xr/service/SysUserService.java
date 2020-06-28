@@ -82,4 +82,10 @@ public interface SysUserService {
      */
     void deleteUserById(Long id);
 
+
+    /*
+    根据用户名来查角色Id
+     */
+    public List<Long> findUserRolesId(String username);
+
 }

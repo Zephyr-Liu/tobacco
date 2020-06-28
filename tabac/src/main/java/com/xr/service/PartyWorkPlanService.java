@@ -19,4 +19,7 @@ public interface PartyWorkPlanService {
      * @param partyWorkPlan 对象
      */
     void updateWorkPlan(PartyWorkPlan partyWorkPlan);
+
+
+
 }

@@ -92,4 +92,9 @@ public interface SysUserMapper {
      int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Long id);
 
 
+    /*
+ 根据用户名来查角色Id
+  */
+    public List<Long> findUserRolesId(String username);
+
 }
