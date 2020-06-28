@@ -165,73 +165,73 @@ public class PartyDutyExample {
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleIsNull() {
-            addCriterion("duty_itle is null");
+        public Criteria andDutyTitleIsNull() {
+            addCriterion("duty_title is null");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleIsNotNull() {
-            addCriterion("duty_itle is not null");
+        public Criteria andDutyTitleIsNotNull() {
+            addCriterion("duty_title is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleEqualTo(String value) {
-            addCriterion("duty_itle =", value, "dutyItle");
+        public Criteria andDutyTitleEqualTo(String value) {
+            addCriterion("duty_title =", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleNotEqualTo(String value) {
-            addCriterion("duty_itle <>", value, "dutyItle");
+        public Criteria andDutyTitleNotEqualTo(String value) {
+            addCriterion("duty_title <>", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleGreaterThan(String value) {
-            addCriterion("duty_itle >", value, "dutyItle");
+        public Criteria andDutyTitleGreaterThan(String value) {
+            addCriterion("duty_title >", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleGreaterThanOrEqualTo(String value) {
-            addCriterion("duty_itle >=", value, "dutyItle");
+        public Criteria andDutyTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("duty_title >=", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleLessThan(String value) {
-            addCriterion("duty_itle <", value, "dutyItle");
+        public Criteria andDutyTitleLessThan(String value) {
+            addCriterion("duty_title <", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleLessThanOrEqualTo(String value) {
-            addCriterion("duty_itle <=", value, "dutyItle");
+        public Criteria andDutyTitleLessThanOrEqualTo(String value) {
+            addCriterion("duty_title <=", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleLike(String value) {
-            addCriterion("duty_itle like", value, "dutyItle");
+        public Criteria andDutyTitleLike(String value) {
+            addCriterion("duty_title like", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleNotLike(String value) {
-            addCriterion("duty_itle not like", value, "dutyItle");
+        public Criteria andDutyTitleNotLike(String value) {
+            addCriterion("duty_title not like", value, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleIn(List<String> values) {
-            addCriterion("duty_itle in", values, "dutyItle");
+        public Criteria andDutyTitleIn(List<String> values) {
+            addCriterion("duty_title in", values, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleNotIn(List<String> values) {
-            addCriterion("duty_itle not in", values, "dutyItle");
+        public Criteria andDutyTitleNotIn(List<String> values) {
+            addCriterion("duty_title not in", values, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleBetween(String value1, String value2) {
-            addCriterion("duty_itle between", value1, value2, "dutyItle");
+        public Criteria andDutyTitleBetween(String value1, String value2) {
+            addCriterion("duty_title between", value1, value2, "dutyTitle");
             return (Criteria) this;
         }
 
-        public Criteria andDutyItleNotBetween(String value1, String value2) {
-            addCriterion("duty_itle not between", value1, value2, "dutyItle");
+        public Criteria andDutyTitleNotBetween(String value1, String value2) {
+            addCriterion("duty_title not between", value1, value2, "dutyTitle");
             return (Criteria) this;
         }
 

@@ -13,7 +13,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 使用者
   部门负责人，纪检检查科长，局领导
                               -&#&
-    */
+ * @author Coisini
+ */
 @ApiModel(value="com-xr-model-PartyDuty")
 @Data
 public class PartyDuty {
@@ -27,7 +28,7 @@ public class PartyDuty {
     * 标题
     */
     @ApiModelProperty(value="标题")
-    private String dutyItle;
+    private String dutyTitle;
 
     /**
     * 内容
@@ -39,8 +40,8 @@ public class PartyDuty {
     * 创建时间
     */
     @ApiModelProperty(value="创建时间")
-    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
-    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
     private Date createDate;
 
     /**
