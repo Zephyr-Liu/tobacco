@@ -31,4 +31,8 @@ public interface PartyWorkArrangementMapper {
     int updateByExampleSelective(@Param("record") PartyWorkArrangement record, @Param("example") PartyWorkArrangementExample example);
 
     int updateByExample(@Param("record") PartyWorkArrangement record, @Param("example") PartyWorkArrangementExample example);
+
+    int updateByPrimaryKeySelective(PartyWorkArrangement record);
+
+    int updateByPrimaryKey(PartyWorkArrangement partyWorkAarrangement);
 }

@@ -19,17 +19,29 @@ public  class PartyDutyServiceImpl implements PartyDutyService {
 
 
     @Override
-    public List<PartyDuty> listpartyDuty(PartyDuty partyDuty) {
+    public List<PartyDuty> listpartyDuty(PartyDuty partyDuty,String rids,String username) {
             PartyDutyExample example=new PartyDutyExample();
 
         PartyDutyExample.Criteria criteria = example.createCriteria();
+        System.out.println("登录人角色"+rids);
+        System.out.println();
+        if (rids.trim().equals('2')){
+            System.out.println(rids);
+            System.out.println("登录人姓名"+username);
+            criteria.andCreateNameEqualTo(username);
+        }
+        criteria.andStatusNotEqualTo((byte) 3);
         if(partyDuty!=null){
             if(partyDuty.getDutyTitle()!=null){
                 criteria.andDutyTitleLike("%"+partyDuty.getDutyTitle()+"%");
             }
             // 还可以添加其他属性的条件
-            if(partyDuty.getDutyContent()!=null){
-                criteria.andDutyContentLike("%"+partyDuty.getDutyContent()+"%");
+            if(partyDuty.getCreateName()!=null){
+                criteria.andCreateNameLike("%"+partyDuty.getCreateName()+"%");
+            }
+            if (partyDuty.getStartTime()!=null&&partyDuty.getEndTime()!=null){
+
+                criteria.andCreateDateBetween(partyDuty.getStartTime(),partyDuty.getEndTime());
             }
         }
         List<PartyDuty> list =  partyDutyMapper.selectByExample(example);
@@ -55,6 +67,6 @@ public  class PartyDutyServiceImpl implements PartyDutyService {
 
     @Override
     public int updateByPrimaryKeyStatus(PartyDuty record) {
-        return partyDutyMapper.updateByPrimaryKeyStatus(record);
+        return partyDutyMapper.updateByPrimaryKeySelective(record);
     }
 }

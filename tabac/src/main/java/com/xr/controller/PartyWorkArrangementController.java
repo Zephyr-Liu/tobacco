@@ -1,8 +1,8 @@
 package com.xr.controller;
 
-import com.xr.model.PartyDuty;
+import com.xr.model.PartyWorkArrangement;
 import com.xr.model.SysUser;
-import com.xr.service.PartyDutyService;
+import com.xr.service.PartyWorkAarrangementService;
 import com.xr.service.SysUserService;
 import com.xr.util.ResponseResult;
 import io.swagger.annotations.ApiOperation;
@@ -18,25 +18,28 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("PartyDuty")
-public class PartyDutyController {
+@RequestMapping("partyArrangement")
+public class PartyWorkArrangementController {
+
 
     @Autowired
-    private PartyDutyService partyDutyService;
+    PartyWorkAarrangementService partyWorkAarrangementService;
     @Autowired
-    private SysUserService sysUserService;
+    SysUserService sysUserService;
 
 
     @RequestMapping("list")
-    @RequiresPermissions("PartyDuty:list")
+    @RequiresPermissions("partyArrangement:list")
     @ApiOperation(value = "获得用户列表",notes = "获得用户列表")
-    public ResponseResult list(PartyDuty partyDuty, Integer page, Integer limit, String token){
+    public ResponseResult list(PartyWorkArrangement partyWorkAarrangement, Integer page, Integer limit, String token){
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
+
         List<Long> userRoles = sysUserService.findUserRolesId(loginUser.getUsername());
         String rid=userRoles.get(0)+"  ";
-        List<PartyDuty> list = partyDutyService.listpartyDuty(partyDuty,rid,loginUser.getUsername());
+
+        List<PartyWorkArrangement> list = partyWorkAarrangementService.listpartyWorkAarrangement(partyWorkAarrangement,rid,loginUser.getUsername());
 
         ResponseResult result = new ResponseResult();
         result.getData().put("items",list);
@@ -47,20 +50,19 @@ public class PartyDutyController {
 
 
 
-
     @RequestMapping("add")
-    @RequiresPermissions("partyduty:add")
+    @RequiresPermissions("partyArrangement:add")
     @ApiOperation(value = "添加用户",notes = "添加用户")
-    public ResponseResult add(PartyDuty partyDuty){
+    public ResponseResult add(PartyWorkArrangement partyWorkAarrangement){
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
-        partyDuty.setCreateDate(new Date());
-        partyDuty.setCreateId(Integer.parseInt(loginUser.getId().toString()));
-        partyDuty.setCreateName(loginUser.getUsername());
-        byte b=1;
-        partyDuty.setStatus(b);
-        partyDutyService.insertSelective(partyDuty);
+        partyWorkAarrangement.setCreateDate(new Date());
+        partyWorkAarrangement.setCreateId(Integer.parseInt(loginUser.getId().toString()));
+        partyWorkAarrangement.setCreateName(loginUser.getUsername());
+        byte b=0;
+        partyWorkAarrangement.setStatus(b);
+        partyWorkAarrangementService.insertSelective(partyWorkAarrangement);
         ResponseResult result = new ResponseResult();
         result.getData().put("message","添加成功");
         return result;
@@ -69,47 +71,45 @@ public class PartyDutyController {
 
 
     @RequestMapping("updateStatus")
-    @RequiresPermissions("partyduty:updateStatus")
+    @RequiresPermissions("partyArrangement:updateStatus")
     @ApiOperation(value = "修改用户",notes = "修改用户")
     public ResponseResult updateStatus(Long id){
-        PartyDuty partyDuty = new PartyDuty();
+        PartyWorkArrangement partyWorkAarrangement = new PartyWorkArrangement();
         byte b=2;
-        partyDuty.setStatus(b);
-        partyDuty.setId(Integer.parseInt(id.toString()));
-        partyDutyService.updateByPrimaryKeyStatus(partyDuty);
+        partyWorkAarrangement.setStatus(b);
+        partyWorkAarrangement.setId(Integer.parseInt(id.toString()));
+        partyWorkAarrangementService.updateByPrimaryKeyStatus(partyWorkAarrangement);
         ResponseResult result = new ResponseResult();
         result.getData().put("message","修改成功");
         return result;
     }
 
     @RequestMapping("update")
-    @RequiresPermissions("partyduty:update")
+    @RequiresPermissions("partyArrangement:update")
     @ApiOperation(value = "修改用户",notes = "修改用户")
-    public ResponseResult update(PartyDuty partyDuty){
-        System.out.println(partyDuty.getStatus());
-        if(partyDuty.getStatus()==0){
-            partyDuty.setStatus((byte) 1);
+    public ResponseResult update(PartyWorkArrangement partyWorkAarrangement){
+        if (partyWorkAarrangement.getStatus()==0){
+            partyWorkAarrangement.setStatus((byte) 1);
         }
-        partyDutyService.update(partyDuty);
+        partyWorkAarrangementService.update(partyWorkAarrangement);
         ResponseResult result = new ResponseResult();
         result.getData().put("message","修改成功");
         return result;
     }
 
     @RequestMapping("delete")
-    @RequiresPermissions("partyduty:delete")
+    @RequiresPermissions("partyArrangement:delete")
     @ApiOperation(value = "删除用户",notes = "删除用户")
     public ResponseResult delete(Long id){
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
-        PartyDuty partyDuty = new PartyDuty();
-        byte b=3;
-        partyDuty.setStatus(b);
-        partyDuty.setId(Integer.parseInt(id.toString()));
-        partyDutyService.updateByPrimaryKeyStatus(partyDuty);
-        ResponseResult result = new ResponseResult();
+        PartyWorkArrangement partyWorkArrangement=new PartyWorkArrangement();
+        partyWorkArrangement.setId(Integer.parseInt(id.toString()));
+        partyWorkArrangement.setStatus((byte) 3);
 
+        partyWorkAarrangementService.deleteById(partyWorkArrangement);
+        ResponseResult result = new ResponseResult();
         result.getData().put("message","删除成功");
         return result;
     }
