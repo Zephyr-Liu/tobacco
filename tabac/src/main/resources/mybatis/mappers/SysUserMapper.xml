@@ -5,17 +5,20 @@
     <!--@mbg.generated-->
     <!--@Table sys_user-->
     <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="emp_id" jdbcType="VARCHAR" property="empId" />
+    <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+    <result column="emp_sex" jdbcType="INTEGER" property="empSex" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="politics" jdbcType="VARCHAR" property="politics" />
+    <result column="create_id" jdbcType="VARCHAR" property="createId" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="salt" jdbcType="VARCHAR" property="salt" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="mobile" jdbcType="VARCHAR" property="mobile" />
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="dept_id" jdbcType="BIGINT" property="deptId" />
     <result column="create_by" jdbcType="VARCHAR" property="createBy" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="last_update_by" jdbcType="VARCHAR" property="lastUpdateBy" />
-    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
     <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
     <result column="introduction" jdbcType="VARCHAR" property="introduction" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
@@ -82,8 +85,9 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, username, `password`, salt, email, mobile, `status`, dept_id, create_by, create_time,
-    last_update_by, last_update_time, del_flag, introduction, avatar
+    id, emp_id, emp_name, emp_sex, education, politics, create_id, username, `password`,
+    salt, mobile, `status`, dept_id, create_by, create_time, del_flag, introduction,
+    avatar
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.SysUserExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -121,21 +125,41 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysUser" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into sys_user (username, `password`, salt,
-      email, mobile, `status`,
-      dept_id, create_by, create_time,
-      last_update_by, last_update_time, del_flag,
+    insert into sys_user (emp_id, emp_name, emp_sex,
+      education, politics, create_id,
+      username, `password`, salt,
+      mobile, `status`, dept_id,
+      create_by, create_time, del_flag,
       introduction, avatar)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR},
-      #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT},
-      #{deptId,jdbcType=BIGINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
-      #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=TINYINT},
+    values (#{empId,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=INTEGER},
+      #{education,jdbcType=VARCHAR}, #{politics,jdbcType=VARCHAR}, #{createId,jdbcType=VARCHAR},
+      #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR},
+      #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{deptId,jdbcType=BIGINT},
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=TINYINT},
       #{introduction,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xr.model.SysUser" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="politics != null">
+        politics,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
       <if test="username != null">
         username,
       </if>
@@ -144,9 +168,6 @@
       </if>
       <if test="salt != null">
         salt,
-      </if>
-      <if test="email != null">
-        email,
       </if>
       <if test="mobile != null">
         mobile,
@@ -163,12 +184,6 @@
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="lastUpdateBy != null">
-        last_update_by,
-      </if>
-      <if test="lastUpdateTime != null">
-        last_update_time,
-      </if>
       <if test="delFlag != null">
         del_flag,
       </if>
@@ -180,6 +195,24 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=INTEGER},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="politics != null">
+        #{politics,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=VARCHAR},
+      </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
       </if>
@@ -188,9 +221,6 @@
       </if>
       <if test="salt != null">
         #{salt,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
       </if>
       <if test="mobile != null">
         #{mobile,jdbcType=VARCHAR},
@@ -206,12 +236,6 @@
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lastUpdateBy != null">
-        #{lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateTime != null">
-        #{lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="delFlag != null">
         #{delFlag,jdbcType=TINYINT},
@@ -238,6 +262,24 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.empId != null">
+        emp_id = #{record.empId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empName != null">
+        emp_name = #{record.empName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empSex != null">
+        emp_sex = #{record.empSex,jdbcType=INTEGER},
+      </if>
+      <if test="record.education != null">
+        education = #{record.education,jdbcType=VARCHAR},
+      </if>
+      <if test="record.politics != null">
+        politics = #{record.politics,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createId != null">
+        create_id = #{record.createId,jdbcType=VARCHAR},
+      </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
       </if>
@@ -246,9 +288,6 @@
       </if>
       <if test="record.salt != null">
         salt = #{record.salt,jdbcType=VARCHAR},
-      </if>
-      <if test="record.email != null">
-        email = #{record.email,jdbcType=VARCHAR},
       </if>
       <if test="record.mobile != null">
         mobile = #{record.mobile,jdbcType=VARCHAR},
@@ -264,12 +303,6 @@
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.lastUpdateBy != null">
-        last_update_by = #{record.lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="record.lastUpdateTime != null">
-        last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.delFlag != null">
         del_flag = #{record.delFlag,jdbcType=TINYINT},
@@ -289,17 +322,20 @@
     <!--@mbg.generated-->
     update sys_user
     set id = #{record.id,jdbcType=BIGINT},
+      emp_id = #{record.empId,jdbcType=VARCHAR},
+      emp_name = #{record.empName,jdbcType=VARCHAR},
+      emp_sex = #{record.empSex,jdbcType=INTEGER},
+      education = #{record.education,jdbcType=VARCHAR},
+      politics = #{record.politics,jdbcType=VARCHAR},
+      create_id = #{record.createId,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       `password` = #{record.password,jdbcType=VARCHAR},
       salt = #{record.salt,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR},
       mobile = #{record.mobile,jdbcType=VARCHAR},
       `status` = #{record.status,jdbcType=TINYINT},
       dept_id = #{record.deptId,jdbcType=BIGINT},
       create_by = #{record.createBy,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      last_update_by = #{record.lastUpdateBy,jdbcType=VARCHAR},
-      last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
       del_flag = #{record.delFlag,jdbcType=TINYINT},
       introduction = #{record.introduction,jdbcType=VARCHAR},
       avatar = #{record.avatar,jdbcType=VARCHAR}
@@ -311,6 +347,24 @@
     <!--@mbg.generated-->
     update sys_user
     <set>
+      <if test="empId != null">
+        emp_id = #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=INTEGER},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="politics != null">
+        politics = #{politics,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=VARCHAR},
+      </if>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
       </if>
@@ -319,9 +373,6 @@
       </if>
       <if test="salt != null">
         salt = #{salt,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="mobile != null">
         mobile = #{mobile,jdbcType=VARCHAR},
@@ -338,12 +389,6 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastUpdateBy != null">
-        last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateTime != null">
-        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="delFlag != null">
         del_flag = #{delFlag,jdbcType=TINYINT},
       </if>
@@ -359,17 +404,20 @@
   <update id="updateByPrimaryKey" parameterType="com.xr.model.SysUser">
     <!--@mbg.generated-->
     update sys_user
-    set username = #{username,jdbcType=VARCHAR},
+    set emp_id = #{empId,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=INTEGER},
+      education = #{education,jdbcType=VARCHAR},
+      politics = #{politics,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
       `password` = #{password,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
       `status` = #{status,jdbcType=TINYINT},
       dept_id = #{deptId,jdbcType=BIGINT},
       create_by = #{createBy,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
-      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
       del_flag = #{delFlag,jdbcType=TINYINT},
       introduction = #{introduction,jdbcType=VARCHAR},
       avatar = #{avatar,jdbcType=VARCHAR}
@@ -408,13 +456,13 @@
 </resultMap>
 
 <!-- 根据用户名查询角色集合 -->
-  <select id="findUserRolesId" resultType="string" parameterType="string">
+  <select id="findUserRolesId" parameterType="Long" resultType="Long">
     SELECT r.id from sys_user u,sys_role r,sys_user_role ur
     where r.id = ur.role_id and u.username=#{username} and ur.user_id=u.id
   </select>
 <!--  根据用户名查询角色和角色对应的权限-->
   <select id="findUserByNameAndRoleAndMenu" parameterType="string" resultMap="userAndRoleAndMenuResultMap">
-   select u.id uid,introduction,avatar,username,password,salt,email,mobile,status,dept_id,u.del_flag udelFlag
+   select u.id uid,introduction,avatar,username,password,salt,mobile,status,dept_id,u.del_flag udelFlag
     ,r.id rid,r.name rname,r.remark
     ,m.id mid,m.name mname,m.parent_id,m.url,m.perms,m.type,m.icon,m.order_num
     from sys_user u

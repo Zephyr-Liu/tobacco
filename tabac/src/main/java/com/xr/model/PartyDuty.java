@@ -17,7 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @ApiModel(value="com-xr-model-PartyDuty")
 @Data
-public class PartyDuty {
+public class  PartyDuty {
     /**
     * 主键 编号
     */

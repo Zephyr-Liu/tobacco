@@ -11,5 +11,6 @@
     <!-- 只需要 artifactId就可以了-->
     <artifactId>tabac</artifactId>
     <!-- 有额外的依赖可以在这里再写，默认直接从父工程中拿 -->
+   <!-- 推荐在父类工程写 -->
 
 </project>

@@ -83,9 +83,16 @@ public interface SysUserService {
     void deleteUserById(Long id);
 
 
-    /*
-    根据用户名来查角色Id
-     */
-    public List<Long> findUserRolesId(String username);
+    /**
+    *根据用户名来查角色Id
+     **/
+     List<Long> findUserRolesId(String username);
 
+
+    /**
+     *  判断是否 拥有一样的用户名
+     * @param username 用户名
+     * @return 用户名
+     */
+     int checkname(String username);
 }

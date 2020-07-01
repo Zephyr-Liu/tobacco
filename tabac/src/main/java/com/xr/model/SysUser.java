@@ -3,16 +3,12 @@ package com.xr.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 /**
  * 用户
- * @author Coisini
  */
 @ApiModel(value = "com-xr-model-SysUser")
 @Data
@@ -23,6 +19,42 @@ public class SysUser {
      */
     @ApiModelProperty(value = "编号")
     private Long id;
+
+    /**
+     * 员工编号
+     */
+    @ApiModelProperty(value = "员工编号")
+    private String empId;
+
+    /**
+     * 员工姓名
+     */
+    @ApiModelProperty(value = "员工姓名")
+    private String empName;
+
+    /**
+     * 0--男，1--女
+     */
+    @ApiModelProperty(value = "0--男，1--女")
+    private Integer empSex;
+
+    /**
+     * 学历
+     */
+    @ApiModelProperty(value = "学历")
+    private String education;
+
+    /**
+     * 政治面貌
+     */
+    @ApiModelProperty(value = "政治面貌")
+    private String politics;
+
+    /**
+     * 创建人Id
+     */
+    @ApiModelProperty(value = "创建人Id")
+    private String createId;
 
     /**
      * 用户名
@@ -41,12 +73,6 @@ public class SysUser {
      */
     @ApiModelProperty(value = "盐")
     private String salt;
-
-    /**
-     * 邮箱
-     */
-    @ApiModelProperty(value = "邮箱")
-    private String email;
 
     /**
      * 手机号
@@ -81,20 +107,6 @@ public class SysUser {
     private Date createTime;
 
     /**
-     * 更新人
-     */
-    @ApiModelProperty(value = "更新人")
-    private String lastUpdateBy;
-
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty(value = "最后更新时间")
-    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
-    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
-    private Date lastUpdateTime;
-
-    /**
      * 是否删除  -1：已删除  0：正常
      */
     @ApiModelProperty(value = "是否删除  -1：已删除  0：正常")
@@ -111,10 +123,4 @@ public class SysUser {
      */
     @ApiModelProperty(value = "头像")
     private String avatar;
-
-    /**
-     * 角色集合
-     */
-
-    private List<SysRole> roles = new ArrayList<>();
 }

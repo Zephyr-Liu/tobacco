@@ -59,4 +59,16 @@ public class SysJob {
     */
     @ApiModelProperty(value="岗位状态	0 正常、1 删除")
     private Byte status;
+
+
+    // 多表联查
+    /**
+     *     dept部门名字
+     */
+    //private String deptName;
+
+
+
+    private SysDept dept;
+
 }

@@ -5,6 +5,9 @@ import org.apache.shiro.spring.config.ShiroAnnotationProcessorConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+/**
+ * @author Coisini
+ */
 @SpringBootApplication
 @MapperScan(value = "com.xr.mapper")
 public class TabacApplication {

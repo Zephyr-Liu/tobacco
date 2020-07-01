@@ -306,7 +306,7 @@
    </update>
 
 <resultMap id="selectMultilistMenuMap" type="com.xr.model.SysDept" extends="BaseResultMap">
-<association property="deptName" javaType="java.lang.String" column=""/>
+<association property="deptName" javaType="java.lang.String" column="parentName"/>
 </resultMap>
 
  <select    id="selectMultilistMenu" resultMap="BaseResultMap" parameterType="com.xr.model.SysDept">

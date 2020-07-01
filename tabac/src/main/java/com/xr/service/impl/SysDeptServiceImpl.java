@@ -62,7 +62,9 @@ public class SysDeptServiceImpl implements SysDeptService {
     public List<SysDept> selectSysDept(SysDept sysDept) {
         SysDeptExample sysDeptExample=new SysDeptExample();
         SysDeptExample.Criteria criteria=sysDeptExample.createCriteria();
-        criteria.andStatusEqualTo((byte) 0);
+        if (sysDept.getStatus() == null) {
+            criteria.andStatusEqualTo((byte) 0);
+        }
         criteria.andParentDeptIdNotEqualTo((long) 0);
         if(sysDept!= null){
             if (sysDept.getDeptName() !=null){

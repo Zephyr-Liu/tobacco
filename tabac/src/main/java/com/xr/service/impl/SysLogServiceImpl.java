@@ -30,7 +30,9 @@ public class SysLogServiceImpl implements SysLogService {
     @Override
     public void addLog(SysLog sysLog) {
 
-
+        /*
+            判断 当前是不是 登陆时间  因为登陆事件还未登陆成功 所以肯定不知道 当前登陆的id和用户名
+         */
         if (getUserTokenInfo.getData().get("createName")!=null) {
             sysLog.setLoginId(Math.toIntExact(Long.parseLong(String.valueOf(getUserTokenInfo.getData().get("id")))));
             sysLog.setLoginUsername((String) getUserTokenInfo.getData().get("createName"));
@@ -53,6 +55,8 @@ public class SysLogServiceImpl implements SysLogService {
                 criteria.andUrlLike("%"+sysLog.getUrl()+"%");
             }
         }
+        //默认最新内容排序
+        sysLogExample.setOrderByClause("id DESC");
         return sysLogMapper.selectByExample(sysLogExample);
     }
 }

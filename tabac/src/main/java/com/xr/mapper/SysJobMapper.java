@@ -3,15 +3,27 @@ package com.xr.mapper;
 import com.xr.model.SysJob;
 import com.xr.model.SysJobExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
-public interface SysJobMapper {
+public interface SysJobMapper<updateStatusById> {
+
+    /**
+     *  自定义的map 查询所有方法 由唐文超 编写
+     * @
+     * @return 返回
+     */
+    List<Map<String, Object>> joblist(SysJob sysJob);
+
+
     long countByExample(SysJobExample example);
 
     int deleteByExample(SysJobExample example);
 
     /**
      * delete by primary key
+     *
      * @param id primaryKey
      * @return deleteCount
      */
@@ -19,6 +31,7 @@ public interface SysJobMapper {
 
     /**
      * insert record to table
+     *
      * @param record the record
      * @return insert count
      */
@@ -26,6 +39,7 @@ public interface SysJobMapper {
 
     /**
      * insert record to table selective
+     *
      * @param record the record
      * @return insert count
      */
@@ -35,6 +49,7 @@ public interface SysJobMapper {
 
     /**
      * select by primary key
+     *
      * @param id primary key
      * @return object by primary key
      */
@@ -46,6 +61,7 @@ public interface SysJobMapper {
 
     /**
      * update record selective
+     *
      * @param record the updated record
      * @return update count
      */
@@ -53,12 +69,23 @@ public interface SysJobMapper {
 
     /**
      * update record
+     *
      * @param record the updated record
      * @return update count
      */
     int updateByPrimaryKey(SysJob record);
 
-    int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Integer id);
+    int updateStatusById(@Param("updatedStatus") Byte updatedStatus, @Param("id") Integer id);
+
+
+    /**]
+     *  多表联查
+     * @return 集合
+     * @return 集合
+     */
+    List<SysJob> selectByJobAndDept(SysJobExample sysJobExample);
+
+
 
 
 }

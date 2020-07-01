@@ -3,11 +3,8 @@ package com.xr.mapper;
 import com.xr.model.SysUser;
 import com.xr.model.SysUserExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;import org.apache.ibatis.annotations.Select;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-@Mapper
 public interface SysUserMapper {
     long countByExample(SysUserExample example);
 
@@ -84,17 +81,24 @@ public interface SysUserMapper {
     List<String> findUserRoles(String username);
 
     /**
-     *  修改状态
+     * 修改状态
+     *
      * @param updatedStatus 状态
-     * @param id id
+     * @param id            id
      * @return
      */
-     int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Long id);
+    int updateStatusById(@Param("updatedStatus") Byte updatedStatus, @Param("id") Long id);
 
+    /**
+     * 根据用户名来查角色Id
+     */
+    List<Long> findUserRolesId(String username);
 
-    /*
- 根据用户名来查角色Id
-  */
-    public List<Long> findUserRolesId(String username);
-
+    @Select("SELECT COUNT(*) FROM sys_user WHERE username=#{username}")
+    /**
+     * 判断 用户是否唯一
+     * @param username
+     * @return
+     */
+    int checkname(String username);
 }

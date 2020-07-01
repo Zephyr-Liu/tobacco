@@ -101,4 +101,9 @@ public class SysUserServiceImpl implements SysUserService {
         return sysUserMapper.findUserRolesId(username);
     }
 
+    @Override
+    public int checkname(String username) {
+    return sysUserMapper.checkname(username);
+    }
+
 }
