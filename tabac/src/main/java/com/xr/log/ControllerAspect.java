@@ -41,7 +41,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class ControllerAspect {
 
-
+    /**
+     *  service 接口  我自己 自定义
+     */
     private SysLogService sysLogService;
 
     @Autowired
@@ -59,7 +61,7 @@ public class ControllerAspect {
     /**
      * 装载数据 到controller 操作  这个log层 不做增加操作
      */
-    private Map<String, Object> map=new HashMap<>();
+   // private Map<String, Object> map=new HashMap<>();
 
     /**
      * 创建一个局部线程
@@ -71,7 +73,7 @@ public class ControllerAspect {
     ThreadLocal<Long> startTime=new ThreadLocal<>();
 
     /**
-     *  切面方法
+     *  切面方法  切入所有的controller的方法
      */
     @Pointcut("execution(public * com.xr.controller.*.*(..))")
     public void setLogger(){
@@ -101,13 +103,13 @@ public class ControllerAspect {
     }*/
 
 
-    public Map<String, Object> getMap() {
+    /*public Map<String, Object> getMap() {
         return map;
     }
 
     public void setMap(Map<String, Object> map) {
         this.map = map;
-    }
+    }*/
 
     @Before("setLogger()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {

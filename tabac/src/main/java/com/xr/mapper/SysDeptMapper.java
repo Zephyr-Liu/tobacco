@@ -3,10 +3,14 @@ package com.xr.mapper;
 import com.xr.model.SysDept;
 import com.xr.model.SysDeptExample;
 import java.util.List;
+import java.util.Map;
 
 import com.xr.model.SysMenu;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author Coisini
+ */
 public interface SysDeptMapper {
   long countByExample(SysDeptExample example);
 
@@ -77,6 +81,8 @@ public interface SysDeptMapper {
   int updateStatusById(@Param("updatedStatus") Byte updatedStatus, @Param("id") Integer id);
 
   List<SysDept> selectMultilistMenu(SysDept sysDept);
+
+  List<Map<String, Object>> selectDeptAll(SysDept sysDept);
 
 
 }

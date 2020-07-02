@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -22,6 +23,14 @@ public class SysJobServiceImpl implements SysJobService {
     @Autowired
     public SysJobServiceImpl(SysJobMapper sysJobMapper) {
         this.sysJobMapper = sysJobMapper;
+    }
+
+    @Override
+    public List<Map<String, Object>> joblist(SysJob sysJob) {
+        if (sysJob.getStatus() == null) {
+            sysJob.setStatus((byte) 0);
+        }
+        return sysJobMapper.joblist(sysJob);
     }
 
     @Override
@@ -44,7 +53,7 @@ public class SysJobServiceImpl implements SysJobService {
     public List<SysJob> query(SysJob sysJob) {
         SysJobExample sysJobExample=new SysJobExample();
         SysJobExample.Criteria criteria=sysJobExample.createCriteria();
-       criteria.andStatusEqualTo((byte) 0);
+        //criteria.andStatusEqualTo((byte) 0);
         if (sysJob != null) {
             if (sysJob.getJobName() != null) {
                 criteria.andJobNameLike("%"+sysJob.getJobName()+"%");
@@ -53,6 +62,6 @@ public class SysJobServiceImpl implements SysJobService {
                 criteria.andJobDescLike("%"+sysJob.getJobDesc()+"%");
             }
         }
-        return null;
+        return sysJobMapper.selectByJobAndDept(sysJobExample);
     }
 }

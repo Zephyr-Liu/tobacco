@@ -7,8 +7,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author Coisini
+ */
 @Mapper
-public interface SysUserMapper {
+public interface SysUserMapper<countByUsername> {
     long countByExample(SysUserExample example);
 
     int deleteByExample(SysUserExample example);
@@ -89,12 +92,17 @@ public interface SysUserMapper {
      * @param id id
      * @return
      */
-     int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Long id);
+    int updateStatusById(@Param("updatedStatus")Byte updatedStatus,@Param("id")Long id);
 
 
-    /*
- 根据用户名来查角色Id
-  */
-    public List<Long> findUserRolesId(String username);
+    /**
+    根据用户名来查角色Id
+    */
+     List<Long> findUserRolesId(String username);
+
+
+     Long countByUsername(@Param("username")String username);
+
+
 
 }

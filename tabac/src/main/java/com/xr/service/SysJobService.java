@@ -3,6 +3,7 @@ package com.xr.service;
 import com.xr.model.SysJob;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -11,6 +12,10 @@ import java.util.List;
  * 岗位的管理
  */
 public interface SysJobService {
+    /**
+     * 工作部门查询
+     */
+    List<Map<String, Object>> joblist(SysJob job);
 
     /**
      *  添加岗位

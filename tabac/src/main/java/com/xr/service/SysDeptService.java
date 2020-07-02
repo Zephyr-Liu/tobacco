@@ -3,6 +3,7 @@ package com.xr.service;
 import com.xr.model.SysDept;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -44,4 +45,10 @@ public interface SysDeptService {
     List<SysDept> selectSysDept(SysDept sysDept);
 
 
+    /**
+     *  查询部门
+     * @param sysDept 部门
+     * @return 多表联查自己
+     */
+    List<Map<String, Object>> query(SysDept sysDept);
 }

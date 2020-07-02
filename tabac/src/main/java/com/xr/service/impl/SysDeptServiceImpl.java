@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -62,8 +63,10 @@ public class SysDeptServiceImpl implements SysDeptService {
     public List<SysDept> selectSysDept(SysDept sysDept) {
         SysDeptExample sysDeptExample=new SysDeptExample();
         SysDeptExample.Criteria criteria=sysDeptExample.createCriteria();
-        criteria.andStatusEqualTo((byte) 0);
-//        criteria.andParentDeptIdNotEqualTo((long) 0);
+        if (sysDept.getStatus() == null) {
+            criteria.andStatusEqualTo((byte) 0);
+        }
+        criteria.andParentDeptIdNotEqualTo((long) 0);
         if(sysDept!= null){
             if (sysDept.getDeptName() !=null){
                 criteria.andDeptNameLike("%"+sysDept.getDeptName()+"%");
@@ -79,7 +82,13 @@ public class SysDeptServiceImpl implements SysDeptService {
         return sysDeptMapper.selectByExample(sysDeptExample);
     }
 
-
+    @Override
+    public List<Map<String, Object>> query(SysDept sysDept) {
+        if (sysDept.getStatus() == null) {
+            sysDept.setStatus((byte) 0);
+        }
+        return sysDeptMapper.selectDeptAll(sysDept);
+    }
 
 
 }

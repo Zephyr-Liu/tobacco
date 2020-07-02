@@ -163,4 +163,12 @@ public class SysUserController {
         subject.logout();
         return result;
     }
+
+    @RequestMapping("check")
+    public ResponseResult check(String username){
+        int number= Math.toIntExact(sysUserService.checkname(username));
+        ResponseResult result=new ResponseResult();
+        result.getData().put("number",number);
+        return result;
+    }
 }

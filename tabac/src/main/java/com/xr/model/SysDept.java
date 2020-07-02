@@ -85,9 +85,8 @@ public class SysDept {
 
     private List<SysDept> items = new ArrayList<>();
 
-
     /**
-     * 父ID 信息
+     * 父亲id信息
      */
     private String parentName;
 }

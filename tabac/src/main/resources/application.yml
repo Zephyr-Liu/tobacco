@@ -4,9 +4,9 @@ server:
 #数据源
 spring:
   datasource:
-    username: Zephyr
-    password: 8p6N7SXGd54CkFAJ
-    url: jdbc:mysql://47.105.77.234:3306/tobacco
+    username: gonzalo
+    password: Zephyr_Liu
+    url: jdbc:mysql://rm-bp1yvk095h1x7m53n6o.mysql.rds.aliyuncs.com:3306/tobacco
     driver-class-name: com.mysql.jdbc.Driver
   #aop:
     #auto: true  # Add @EnableAspectJAutoProxy.
