@@ -8,7 +8,7 @@ import com.xr.model.PartyDuty;
 public interface PartyDutyService {
 
 
-    public List<PartyDuty> listpartyDuty(PartyDuty partyDuty);
+    public List<PartyDuty> listpartyDuty(PartyDuty partyDuty,String rids,String username);
 
 
     /**

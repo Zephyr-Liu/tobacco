@@ -61,4 +61,21 @@ public class  PartyDuty {
     */
     @ApiModelProperty(value="状态")
     private Byte status;
+
+    /**
+     *   开始时间
+     */
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date startTime;
+
+    /**
+     *   结束时间
+     */
+
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date endTime;
 }

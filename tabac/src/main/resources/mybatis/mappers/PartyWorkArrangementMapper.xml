@@ -209,4 +209,38 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.model.PartyWorkArrangement">
+    update party_work_arrangement
+    set work_deployment_title = #{workDeploymentTitle,jdbcType=VARCHAR},
+      work_deployment_content = #{workDeploymentContent,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=INTEGER},
+      create_name = #{createName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.model.PartyWorkArrangement">
+    update party_work_arrangement
+    <set>
+      <if test="workDeploymentTitle != null">
+        work_deployment_title = #{workDeploymentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeploymentContent != null">
+        work_deployment_content = #{workDeploymentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

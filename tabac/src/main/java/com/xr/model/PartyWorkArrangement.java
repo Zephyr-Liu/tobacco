@@ -58,6 +58,23 @@ public class PartyWorkArrangement {
     /**
      * 0 创建、 1 待审、2 已审核
      */
-    @ApiModelProperty(value = "0 创建、 1 待审、2 已审核")
+    @ApiModelProperty(value = "0 创建、 1 待审、2 已审核，3删除")
     private Byte status;
+
+    /**
+     *   开始时间
+     */
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date startTime;
+
+    /**
+     *   结束时间
+     */
+
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date endTime;
 }
