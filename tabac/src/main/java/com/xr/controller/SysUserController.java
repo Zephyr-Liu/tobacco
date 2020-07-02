@@ -135,7 +135,7 @@ public class SysUserController {
 
     @RequestMapping("check")
     public ResponseResult check(String username){
-        int number=sysUserService.checkname(username);
+        int number= Math.toIntExact(sysUserService.checkname(username));
         ResponseResult result=new ResponseResult();
         result.getData().put("number",number);
         return result;

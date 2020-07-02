@@ -314,5 +314,18 @@
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-  </select>
+ </select>
+ <select id="selectDeptAll" resultType="HashMap" parameterType="com.xr.model.SysDept">
+     select t1.id,t1.dept_name deptName,t1.status,t1.in_charge_lead inChargeLead,t1.duty_principal dutyPrincipal,t2.dept_name as 'parentName' from sys_dept t1 LEFT JOIN sys_dept t2 on t1.parent_dept_id=t2.id
+     where 1=1
+      <if test="status != null">
+        and t1.status=#{status,jdbcType=TINYINT}
+    </if>
+    <if test="deptName !=null">
+        and t1.dept_name like concat('%',#{deptName,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="parentName !=null ">
+        and t2.dept_name like  concat('%',#{parentName},'%')
+    </if>
+ </select>
 </mapper>

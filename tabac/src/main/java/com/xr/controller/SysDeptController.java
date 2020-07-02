@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -71,7 +72,7 @@ public class SysDeptController {
     @RequiresPermissions("dept:list")
     public ResponseResult list(SysDept sysDept,Integer page,Integer limit){
         ResponseResult result=new ResponseResult();
-        List<SysDept> list = sysDeptService.selectSysDept(sysDept);
+        List<Map<String, Object>> list = sysDeptService.query(sysDept);
         result.getData().put("items",list);
         result.getData().put("total",list.size());
         return result;

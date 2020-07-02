@@ -94,5 +94,5 @@ public interface SysUserService {
      * @param username 用户名
      * @return 用户名
      */
-     int checkname(String username);
+     Long checkname(String username);
 }

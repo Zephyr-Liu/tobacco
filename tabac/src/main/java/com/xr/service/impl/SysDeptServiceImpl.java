@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -81,7 +82,13 @@ public class SysDeptServiceImpl implements SysDeptService {
         return sysDeptMapper.selectByExample(sysDeptExample);
     }
 
-
+    @Override
+    public List<Map<String, Object>> query(SysDept sysDept) {
+        if (sysDept.getStatus() == null) {
+            sysDept.setStatus((byte) 0);
+        }
+        return sysDeptMapper.selectDeptAll(sysDept);
+    }
 
 
 }

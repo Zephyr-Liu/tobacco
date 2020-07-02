@@ -1,6 +1,5 @@
 package com.xr.service.impl;
 
-import com.github.pagehelper.PageHelper;
 import com.xr.mapper.SysUserMapper;
 import com.xr.model.SysUser;
 import com.xr.model.SysUserExample;
@@ -102,8 +101,8 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public int checkname(String username) {
-    return sysUserMapper.checkname(username);
+    public Long checkname(String username) {
+    return sysUserMapper.countByUsername(username);
     }
 
 }

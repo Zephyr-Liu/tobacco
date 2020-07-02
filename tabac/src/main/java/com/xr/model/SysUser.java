@@ -3,124 +3,87 @@ package com.xr.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 /**
  * 用户
+ *
+ * @author Coisini
  */
 @ApiModel(value = "com-xr-model-SysUser")
 @Data
 public class SysUser {
-    private static final long serialVersionUID = 1L;
-    /**
-     * 编号
-     */
-    @ApiModelProperty(value = "编号")
-    private Long id;
+  private static final long serialVersionUID = 1L;
+  /** 编号 */
+  @ApiModelProperty(value = "编号")
+  private Long id;
 
-    /**
-     * 员工编号
-     */
-    @ApiModelProperty(value = "员工编号")
-    private String empId;
+  /** 用户名 */
+  @ApiModelProperty(value = "用户名")
+  private String username;
 
-    /**
-     * 员工姓名
-     */
-    @ApiModelProperty(value = "员工姓名")
-    private String empName;
+  /** 密码 */
+  @ApiModelProperty(value = "密码")
+  private String password;
 
-    /**
-     * 0--男，1--女
-     */
-    @ApiModelProperty(value = "0--男，1--女")
-    private Integer empSex;
+  /** 盐 */
+  @ApiModelProperty(value = "盐")
+  private String salt;
 
-    /**
-     * 学历
-     */
-    @ApiModelProperty(value = "学历")
-    private String education;
+  /** 邮箱 */
+  @ApiModelProperty(value = "邮箱")
+  private String email;
 
-    /**
-     * 政治面貌
-     */
-    @ApiModelProperty(value = "政治面貌")
-    private String politics;
+  /** 手机号 */
+  @ApiModelProperty(value = "手机号")
+  private String mobile;
 
-    /**
-     * 创建人Id
-     */
-    @ApiModelProperty(value = "创建人Id")
-    private String createId;
+  /** 状态 0：禁用 1：正常 */
+  @ApiModelProperty(value = "状态  0：禁用   1：正常")
+  private Byte status;
 
-    /**
-     * 用户名
-     */
-    @ApiModelProperty(value = "用户名")
-    private String username;
+  /** 机构ID */
+  @ApiModelProperty(value = "机构ID")
+  private Long deptId;
 
-    /**
-     * 密码
-     */
-    @ApiModelProperty(value = "密码")
-    private String password;
+  /** 创建人 */
+  @ApiModelProperty(value = "创建人")
+  private String createBy;
 
-    /**
-     * 盐
-     */
-    @ApiModelProperty(value = "盐")
-    private String salt;
+  /** 创建时间 */
+  @ApiModelProperty(value = "创建时间")
+  @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+  @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
+  private Date createTime;
 
-    /**
-     * 手机号
-     */
-    @ApiModelProperty(value = "手机号")
-    private String mobile;
+  /** 更新人 */
+  @ApiModelProperty(value = "更新人")
+  private String lastUpdateBy;
 
-    /**
-     * 状态  0：禁用   1：正常
-     */
-    @ApiModelProperty(value = "状态  0：禁用   1：正常")
-    private Byte status;
+  /** 更新时间 */
+  @ApiModelProperty(value = "最后更新时间")
+  @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+  @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
+  private Date lastUpdateTime;
 
-    /**
-     * 机构ID
-     */
-    @ApiModelProperty(value = "机构ID")
-    private Long deptId;
+  /** 是否删除 -1：已删除 0：正常 */
+  @ApiModelProperty(value = "是否删除  -1：已删除  0：正常")
+  private Byte delFlag;
 
-    /**
-     * 创建人
-     */
-    @ApiModelProperty(value = "创建人")
-    private String createBy;
+  /** 个人介绍 */
+  @ApiModelProperty(value = "个人介绍")
+  private String introduction;
 
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty(value = "创建时间")
-    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
-    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
-    private Date createTime;
+  /** 头像 */
+  @ApiModelProperty(value = "头像")
+  private String avatar;
 
-    /**
-     * 是否删除  -1：已删除  0：正常
-     */
-    @ApiModelProperty(value = "是否删除  -1：已删除  0：正常")
-    private Byte delFlag;
+  /** 角色集合 */
+  private List<SysRole> roles = new ArrayList<>();
 
-    /**
-     * 个人介绍
-     */
-    @ApiModelProperty(value = "个人介绍")
-    private String introduction;
-
-    /**
-     * 头像
-     */
-    @ApiModelProperty(value = "头像")
-    private String avatar;
-}
+  }
