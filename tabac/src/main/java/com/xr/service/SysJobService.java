@@ -36,10 +36,5 @@ public interface SysJobService {
     void deleteJob(Integer id);
 
 
-    /**
-     * 查询所有  根据条件查询
-     * @param sysJob 对象 根据条件查询
-     * @return  集合
-     */
-    List<SysJob> query(SysJob sysJob);
+
 }

@@ -3,6 +3,7 @@ package com.xr.service;
 import com.xr.model.SysMenu;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -32,5 +33,7 @@ public interface SysMenuService {
      * @param sysMenu 条件
      * @return 集合
      */
-    List<SysMenu> listMenu(SysMenu sysMenu);
+    List<Map<String, Object>> listMenu(SysMenu sysMenu);
+
+
 }

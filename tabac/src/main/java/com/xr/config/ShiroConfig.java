@@ -45,9 +45,10 @@ public class ShiroConfig {
     /**
      * 权限管理，主要是Realm的认证
      */
-    @Bean
+    @Bean("securityManager")
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        //关联UserRealm
         securityManager.setRealm(myShiroRealm());
         return securityManager;
     }
@@ -87,18 +88,22 @@ public class ShiroConfig {
     }
 
     /**
-     * 凭证匹配器，自定义加密规则
-     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了）
-     *
-     * @return
+     * 替换当前 Realm 的 credentialsMatcher 属性.
+     * 直接使用 HashedCredentialsMatcher 对象, 并设置加密算法即可.
+     * 密码校验规则HashedCredentialsMatcher
+     * 这个类是为了对密码进行编码的
+     * 防止密码在数据库中明码表示,当然在登录认证的时候,
+     * 这个类也负责对form里输入的密码进行编码
+     * 处理认证匹配处理器
      */
-    @Bean
+    @Bean("hashedCredentialsMatcher")
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
-        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        //散列算法:这里使用MD5算法;
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");
-        //散列的次数，比如散列两次，相当于 md5(md5(""));
-        return hashedCredentialsMatcher;
+        HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher();
+        //指定加密方式为MD5
+        credentialsMatcher.setHashAlgorithmName("MD5");
+        //加密次数
+        credentialsMatcher.setHashIterations(2);
+        return credentialsMatcher;
     }
 
     /**

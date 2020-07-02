@@ -3,6 +3,9 @@ package com.xr.mapper;
 import com.xr.model.SysMenu;
 import com.xr.model.SysMenuExample;
 import java.util.List;
+
+import com.xr.model.SysRoleMenu;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 
 public interface SysMenuMapper {
@@ -72,5 +75,10 @@ public interface SysMenuMapper {
     void updateDelFlagById(@Param("updatedDelFlag")Byte updatedDelFlag,@Param("id")Long id);
 
 
-
+    /**
+     *  添加 角色和菜单的关系
+     * @param sysRoleMenu sys_role_menu
+     */
+    @Insert("insert INTO sys_role_menu(role_id,menu_id) VALUES(#{rid},#{mid})")
+     void addRoleMenuRelation(SysRoleMenu sysRoleMenu);
 }

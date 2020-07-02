@@ -350,7 +350,7 @@
     update sys_menu
     set del_flag=#{updatedDelFlag,jdbcType=TINYINT}
     where id=#{id,jdbcType=BIGINT}
-  </update>
+</update>
 
 
 

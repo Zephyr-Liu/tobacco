@@ -288,16 +288,6 @@
     <association property="status" javaType="java.lang.Byte" resultMap="com.xr.mapper.SysDeptMapper.BaseResultMap" columnPrefix="d_"/>
 </resultMap>
 
-<select id="selectByJobAndDept" resultMap="selectJobAndDeptList" parameterType="com.xr.model.SysJobExample">
-   SELECT j.id, j.job_name, j.emp_in_dept_id, j.job_desc, j.create_time
-   ,d.dept_name from sys_job j inner JOIN sys_dept d on j.emp_in_dept_id=d.id
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}xc
-    </if>
-</select>
 
 <select id="joblist" resultType="HashMap" parameterType="com.xr.model.SysJob">
     select j.id ,j.job_name as  jobName,d.dept_name as deptName ,j.job_desc jobDesc from sys_job j inner join sys_dept d on j.emp_in_dept_id=d.id

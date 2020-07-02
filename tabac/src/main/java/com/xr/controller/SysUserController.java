@@ -10,6 +10,8 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +85,14 @@ public class SysUserController {
     @RequiresPermissions("user:add")
     @ApiOperation(value = "用户的添加", notes = "用户的添加")
     public ResponseResult add(SysUser sysUser) {
+
+        //生成盐（部分，需要存入数据库中）
+        String salt=new SecureRandomNumberGenerator().nextBytes().toHex();
+        //将原始密码加盐（上面生成的盐），并且用md5算法加密两次，将最后结果存入数据库中
+        String password = new Md5Hash(sysUser.getPassword(),salt,2).toString();
+        sysUser.setSalt(salt);
+        sysUser.setPassword(password);
+
         sysUserService.add(sysUser);
         ResponseResult result = new ResponseResult();
         result.getData().put("message", "添加成功");
