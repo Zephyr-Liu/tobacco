@@ -45,7 +45,7 @@ public class PartyDialogue {
     * 谈话对象职务
     */
     @ApiModelProperty(value="谈话对象职务")
-    private String otherSideJoc;
+    private Integer otherSideJoc;
 
     /**
     * 谈话类型	0 廉政谈话、1  任前廉政谈话、2  提醒谈话  三选一
@@ -57,6 +57,8 @@ public class PartyDialogue {
     * 谈话时间	廉政谈话时间，精确到年月日
     */
     @ApiModelProperty(value="谈话时间	廉政谈话时间，精确到年月日")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 前台传过来的日期格式转换
+    @JsonFormat(pattern = "yyyy-MM-dd") // 后台传到前台的日期格式转换
     private Date talkDate;
 
     /**
@@ -109,4 +111,27 @@ public class PartyDialogue {
     */
     @ApiModelProperty(value="0 创建、1 待审、2 已审核")
     private Byte status;
+
+
+
+    /**
+     *   开始时间
+     */
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date startTime;
+
+    /**
+     *   结束时间
+     */
+
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //入参
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") //出参
+    private Date endTime;
+
+
+    private  String deptname;
+    private String jobname;
 }

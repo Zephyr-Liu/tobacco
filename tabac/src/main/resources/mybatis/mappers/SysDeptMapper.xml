@@ -306,13 +306,12 @@
    </update>
 
 <resultMap id="selectMultilistMenuMap" type="com.xr.model.SysDept" extends="BaseResultMap">
-<association property="deptName" javaType="java.lang.String" column=""/>
+<association property="deptName" javaType="java.lang.String" column="parentName"/>
 </resultMap>
 
- <select    id="selectMultilistMenu" resultMap="BaseResultMap" parameterType="com.xr.model.SysDept">
-    select t1.*,t2.dept_name as 'parentName' from sys_dept t1 LEFT JOIN sys_dept t2 on t1.parent_dept_id=t2.id
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
+ <select  id="selectMultilistMenu" resultMap="selectMultilistMenuMap" parameterType="com.xr.model.SysDept">
+   select t1.id, t1.dept_id, t1.dept_name, t1.duty_principal,t1.parent_dept_id,t1.in_charge_lead,t1.creat_id, t2.dept_name as create_name
+        from sys_dept t1
+        LEFT JOIN sys_dept t2 on t1.parent_dept_id=t2.id
   </select>
 </mapper>

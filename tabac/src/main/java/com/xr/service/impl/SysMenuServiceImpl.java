@@ -52,4 +52,13 @@ public class SysMenuServiceImpl implements SysMenuService {
         }
         return  sysMenuMapper.selectByExample(sysMenuExample);
     }
+
+    @Override
+    public List<SysMenu> listPermissions(String username, long parentid) {
+        return sysMenuMapper.listPermissions(username,parentid);
+    }
+   /* @Override
+    public List<SysMenu> listPermissions(String username) {
+        return sysMenuMapper.listPermissions(username);
+    }*/
 }

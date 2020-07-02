@@ -1,7 +1,8 @@
 package com.xr.controller;
 
-import com.github.pagehelper.PageInfo;
+import com.xr.model.SysMenu;
 import com.xr.model.SysUser;
+import com.xr.service.SysMenuService;
 import com.xr.service.SysUserService;
 import com.xr.util.GetUserTokenInfo;
 import com.xr.util.ResponseResult;
@@ -35,6 +36,8 @@ public class SysUserController {
         this.sysUserService=sysUserService;
         this.userTokenInfo = userTokenInfo;
     }
+    @Autowired
+    SysMenuService sysMenuService;
 
 
     private SysUserService sysUserService;
@@ -76,6 +79,34 @@ public class SysUserController {
         ResponseResult result = new ResponseResult();
         result.getData().put("items", list);
         result.getData().put("total", list.size());
+        return result;
+    }
+
+
+    @RequestMapping("menus")
+    public ResponseResult menu(String token) {
+        Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        ResponseResult result = new ResponseResult();
+        SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
+        List<String> roles = sysUserService.findUserRoles(loginUser.getUsername());
+        List<SysMenu> menus = (List<SysMenu>) session.getAttribute("menus");
+        if (roles != null) {
+            for (String role : roles) {
+                long id = Long.parseLong("0");
+                //父菜单
+                menus = sysMenuService.listPermissions(role, id);
+                for (SysMenu menu : menus) {
+                    System.out.println("id" + menu.getId());
+                    //子菜单
+                    List<SysMenu> menuss = sysMenuService.listPermissions(role, menu.getId());
+                    menu.setChildren(menuss);
+                }
+
+                result.getData().put("menuList", menus);
+                return result;
+            }
+        }
         return result;
     }
 

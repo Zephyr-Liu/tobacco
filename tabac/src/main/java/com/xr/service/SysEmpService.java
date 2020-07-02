@@ -38,4 +38,12 @@ public interface SysEmpService {
      * @return  List<SysEmp> 对象
      */
     List<SysEmp> selectAll(SysEmp sysEmp);
+
+    /**
+     * 根据用户名查找用户信息（角色，权限）
+     *
+     * @param
+     * @return
+     */
+    public SysEmp findUserByNameAndRoleAndMenu(String empname);
 }

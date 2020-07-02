@@ -54,4 +54,11 @@ public class SysEmpServiceImpl implements SysEmpService {
         }
         return sysEmpMapper.selectByExample(sysEmpExample);
     }
+
+    @Override
+    public SysEmp findUserByNameAndRoleAndMenu(String empname) {
+        SysEmp userByNameAndRoleAndMenu = sysEmpMapper.findUserByNameAndRoleAndMenu(empname);
+
+        return userByNameAndRoleAndMenu;
+    }
 }

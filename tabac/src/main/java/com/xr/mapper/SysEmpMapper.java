@@ -81,4 +81,6 @@ public interface SysEmpMapper {
      * @return 集合数据
      */
     List<SysEmp> empAndDeptAndJob();
+
+    public SysEmp findUserByNameAndRoleAndMenu(String empname);
 }
