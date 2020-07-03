@@ -8,11 +8,11 @@
     <result column="other_side_name" jdbcType="VARCHAR" property="otherSideName" />
     <result column="other_side_dept" jdbcType="INTEGER" property="otherSideDept" />
     <result column="other_side_face" jdbcType="VARCHAR" property="otherSideFace" />
-    <result column="other_side_joc" jdbcType="VARCHAR" property="otherSideJoc" />
+    <result column="other_side_joc" jdbcType="INTEGER" property="otherSideJoc" />
     <result column="talk_type" jdbcType="TINYINT" property="talkType" />
     <result column="talk_date" jdbcType="TIMESTAMP" property="talkDate" />
     <result column="talk_site" jdbcType="VARCHAR" property="talkSite" />
-    <result column="record_proson" jdbcType="VARCHAR" property="recordProson" />
+    <result column="record_person" jdbcType="VARCHAR" property="recordProson" />
     <result column="talk_outline" jdbcType="VARCHAR" property="talkOutline" />
     <result column="talk_content" jdbcType="VARCHAR" property="talkContent" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
@@ -82,8 +82,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, other_side_name, other_side_dept, other_side_face, other_side_joc, talk_type, 
-    talk_date, talk_site, record_proson, talk_outline, talk_content, create_date, create_id, 
+    id, other_side_name, other_side_dept, other_side_face, other_side_joc, talk_type,
+    talk_date, talk_site, record_person, talk_outline, talk_content, create_date, create_id,
     create_name, `status`
   </sql>
   <select id="selectByExample" parameterType="com.xr.model.PartyDialogueExample" resultMap="BaseResultMap">
@@ -103,7 +103,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from Party_Dialogue
     where id = #{id,jdbcType=INTEGER}
@@ -122,16 +122,16 @@
   </delete>
   <insert id="insert" parameterType="com.xr.model.PartyDialogue">
     <!--@mbg.generated-->
-    insert into Party_Dialogue (id, other_side_name, other_side_dept, 
-      other_side_face, other_side_joc, talk_type, 
-      talk_date, talk_site, record_proson, 
-      talk_outline, talk_content, create_date, 
+    insert into Party_Dialogue (id, other_side_name, other_side_dept,
+      other_side_face, other_side_joc, talk_type,
+      talk_date, talk_site, record_person,
+      talk_outline, talk_content, create_date,
       create_id, create_name, `status`
       )
-    values (#{id,jdbcType=INTEGER}, #{otherSideName,jdbcType=VARCHAR}, #{otherSideDept,jdbcType=INTEGER}, 
-      #{otherSideFace,jdbcType=VARCHAR}, #{otherSideJoc,jdbcType=VARCHAR}, #{talkType,jdbcType=TINYINT}, 
-      #{talkDate,jdbcType=TIMESTAMP}, #{talkSite,jdbcType=VARCHAR}, #{recordProson,jdbcType=VARCHAR}, 
-      #{talkOutline,jdbcType=VARCHAR}, #{talkContent,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{otherSideName,jdbcType=VARCHAR}, #{otherSideDept,jdbcType=INTEGER},
+      #{otherSideFace,jdbcType=VARCHAR}, #{otherSideJoc,jdbcType=INTEGER}, #{talkType,jdbcType=TINYINT},
+      #{talkDate,jdbcType=TIMESTAMP}, #{talkSite,jdbcType=VARCHAR}, #{recordProson,jdbcType=VARCHAR},
+      #{talkOutline,jdbcType=VARCHAR}, #{talkContent,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
       #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
       )
   </insert>
@@ -164,7 +164,7 @@
         talk_site,
       </if>
       <if test="recordProson != null">
-        record_proson,
+        record_person,
       </if>
       <if test="talkOutline != null">
         talk_outline,
@@ -257,7 +257,7 @@
         other_side_face = #{record.otherSideFace,jdbcType=VARCHAR},
       </if>
       <if test="record.otherSideJoc != null">
-        other_side_joc = #{record.otherSideJoc,jdbcType=VARCHAR},
+        other_side_joc = #{record.otherSideJoc,jdbcType=INTEGER},
       </if>
       <if test="record.talkType != null">
         talk_type = #{record.talkType,jdbcType=TINYINT},
@@ -269,7 +269,7 @@
         talk_site = #{record.talkSite,jdbcType=VARCHAR},
       </if>
       <if test="record.recordProson != null">
-        record_proson = #{record.recordProson,jdbcType=VARCHAR},
+        record_person = #{record.recordProson,jdbcType=VARCHAR},
       </if>
       <if test="record.talkOutline != null">
         talk_outline = #{record.talkOutline,jdbcType=VARCHAR},
@@ -301,11 +301,11 @@
       other_side_name = #{record.otherSideName,jdbcType=VARCHAR},
       other_side_dept = #{record.otherSideDept,jdbcType=INTEGER},
       other_side_face = #{record.otherSideFace,jdbcType=VARCHAR},
-      other_side_joc = #{record.otherSideJoc,jdbcType=VARCHAR},
+      other_side_joc = #{record.otherSideJoc,jdbcType=INTEGER},
       talk_type = #{record.talkType,jdbcType=TINYINT},
       talk_date = #{record.talkDate,jdbcType=TIMESTAMP},
       talk_site = #{record.talkSite,jdbcType=VARCHAR},
-      record_proson = #{record.recordProson,jdbcType=VARCHAR},
+    record_person = #{record.recordProson,jdbcType=VARCHAR},
       talk_outline = #{record.talkOutline,jdbcType=VARCHAR},
       talk_content = #{record.talkContent,jdbcType=VARCHAR},
       create_date = #{record.createDate,jdbcType=TIMESTAMP},
@@ -330,7 +330,7 @@
         other_side_face = #{otherSideFace,jdbcType=VARCHAR},
       </if>
       <if test="otherSideJoc != null">
-        other_side_joc = #{otherSideJoc,jdbcType=VARCHAR},
+        other_side_joc = #{otherSideJoc,jdbcType=INTEGER},
       </if>
       <if test="talkType != null">
         talk_type = #{talkType,jdbcType=TINYINT},
@@ -342,7 +342,7 @@
         talk_site = #{talkSite,jdbcType=VARCHAR},
       </if>
       <if test="recordProson != null">
-        record_proson = #{recordProson,jdbcType=VARCHAR},
+        record_person = #{recordProson,jdbcType=VARCHAR},
       </if>
       <if test="talkOutline != null">
         talk_outline = #{talkOutline,jdbcType=VARCHAR},
@@ -371,11 +371,11 @@
     set other_side_name = #{otherSideName,jdbcType=VARCHAR},
       other_side_dept = #{otherSideDept,jdbcType=INTEGER},
       other_side_face = #{otherSideFace,jdbcType=VARCHAR},
-      other_side_joc = #{otherSideJoc,jdbcType=VARCHAR},
+      other_side_joc = #{otherSideJoc,jdbcType=INTEGER},
       talk_type = #{talkType,jdbcType=TINYINT},
       talk_date = #{talkDate,jdbcType=TIMESTAMP},
       talk_site = #{talkSite,jdbcType=VARCHAR},
-      record_proson = #{recordProson,jdbcType=VARCHAR},
+    record_person = #{recordProson,jdbcType=VARCHAR},
       talk_outline = #{talkOutline,jdbcType=VARCHAR},
       talk_content = #{talkContent,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},

@@ -20,7 +20,7 @@ public  class PartyDutyServiceImpl implements PartyDutyService {
 
     @Override
     public List<PartyDuty> listpartyDuty(PartyDuty partyDuty,String rids,String username) {
-            PartyDutyExample example=new PartyDutyExample();
+        PartyDutyExample example=new PartyDutyExample();
 
         PartyDutyExample.Criteria criteria = example.createCriteria();
         System.out.println("登录人角色"+rids);

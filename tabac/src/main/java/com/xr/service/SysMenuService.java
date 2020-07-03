@@ -5,7 +5,6 @@ import com.xr.model.SysRoleMenu;
 
 import java.util.List;
 import java.util.Map;
-
 /**
  * @author Zephyr.Liu
  * @create 2020/6/23 11:17
@@ -59,4 +58,5 @@ public interface SysMenuService {
      */
     void addRoleMenuRelation(SysRoleMenu sysRoleMenu);
 
+    List<SysMenu> listMenu(SysMenu sysMenu);
 }

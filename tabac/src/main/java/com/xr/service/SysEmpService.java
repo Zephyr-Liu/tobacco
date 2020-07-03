@@ -41,6 +41,14 @@ public interface SysEmpService {
     List<SysEmp> selectAll(SysEmp sysEmp);
 
     /**
+     * 根据用户名查找用户信息（角色，权限）
+     *
+     * @param
+     * @return
+     */
+    public SysEmp findUserByNameAndRoleAndMenu(String empname);
+
+    /**
      *  查询 员工信息 详细看mapper 注释
      * @return map
      */

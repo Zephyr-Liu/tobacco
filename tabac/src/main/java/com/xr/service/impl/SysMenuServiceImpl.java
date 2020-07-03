@@ -72,4 +72,13 @@ public class SysMenuServiceImpl implements SysMenuService {
     public void addRoleMenuRelation(SysRoleMenu sysRoleMenu) {
         sysMenuMapper.addRoleMenuRelation(sysRoleMenu);
     }
+
+    @Override
+    public List<SysMenu> listPermissions(String username, long parentid) {
+        return sysMenuMapper.listPermissions(username,parentid);
+    }
+   /* @Override
+    public List<SysMenu> listPermissions(String username) {
+        return sysMenuMapper.listPermissions(username);
+    }*/
 }

@@ -91,4 +91,6 @@ public interface SysEmpMapper {
      */
   @Select("select id,emp_name as empName from sys_emp")
   List<Map<String, Object>> listEmpResultPrincipal();
+
+    public SysEmp findUserByNameAndRoleAndMenu(String empname);
 }
