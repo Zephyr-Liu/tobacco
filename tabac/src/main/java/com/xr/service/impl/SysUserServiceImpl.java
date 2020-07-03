@@ -1,6 +1,7 @@
 package com.xr.service.impl;
 
 import com.xr.mapper.SysUserMapper;
+import com.xr.model.SysRole;
 import com.xr.model.SysUser;
 import com.xr.model.SysUserExample;
 import com.xr.service.SysUserService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -103,6 +105,31 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public Long checkname(String username) {
     return sysUserMapper.countByUsername(username);
+    }
+
+    @Override
+    public List<SysRole> selectRoleOrUser(Integer id) {
+        return sysUserMapper.selectRoleOrUser(id);
+    }
+
+    @Override
+    public List<SysRole> selectRole() {
+        return sysUserMapper.selectRole();
+    }
+
+    @Override
+    public List<SysRole> selectNotExits(String name) {
+        return sysUserMapper.selectNotExits(name);
+    }
+
+    @Override
+    public void addRoleGetUserByUserIdAndRoleId(Long a, Long getUserId) {
+        sysUserMapper.addRoleGetUserByUserIdAndRoleId(a,getUserId);
+    }
+
+    @Override
+    public Map<String, String> listById(String username) {
+        return sysUserMapper.listById(username);
     }
 
 }

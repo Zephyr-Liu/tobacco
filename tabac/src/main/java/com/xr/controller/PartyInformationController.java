@@ -35,7 +35,6 @@ public class PartyInformationController {
 
 
     @RequestMapping("list")
-    @RequiresPermissions("information:list")
     public ResponseResult list(PartyInformation partyInformation, Integer page, Integer limit)   {
         List<PartyInformation> list = partyInformationService.selectPartyInformationList(partyInformation);
         ResponseResult result=new ResponseResult();
@@ -45,7 +44,6 @@ public class PartyInformationController {
     }
 
     @RequestMapping("update")
-    @RequiresPermissions("information:update")
     public ResponseResult updateParty(PartyInformation partyInformation){
         partyInformationService.updatePartyInformation(partyInformation);
         ResponseResult result= new ResponseResult();
@@ -54,7 +52,6 @@ public class PartyInformationController {
     }
 
     @RequestMapping("add")
-    @RequiresPermissions("information:add")
     public ResponseResult addParty(PartyInformation partyInformation){
 
         System.out.println(userTokenInfo);
@@ -67,7 +64,6 @@ public class PartyInformationController {
     }
 
     @RequestMapping("delete")
-    @RequiresPermissions("information:delete")
     public ResponseResult deleteInfo(Integer id){
         partyInformationService.deletePartyInformationById(id);
         ResponseResult result= new ResponseResult();

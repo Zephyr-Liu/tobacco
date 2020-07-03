@@ -4,6 +4,7 @@ import com.xr.model.SysEmp;
 import com.xr.model.SysRole;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -38,4 +39,10 @@ public interface SysEmpService {
      * @return  List<SysEmp> 对象
      */
     List<SysEmp> selectAll(SysEmp sysEmp);
+
+    /**
+     *  查询 员工信息 详细看mapper 注释
+     * @return map
+     */
+    List<Map<String, Object>> listEmpResultPrincipal();
 }

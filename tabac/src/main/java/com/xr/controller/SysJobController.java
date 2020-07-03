@@ -48,4 +48,20 @@ public class SysJobController {
         result.getData().put("message","删除成功");
         return result;
     }
+
+    @RequestMapping("add")
+    public ResponseResult add(SysJob sysJob){
+        sysJobService.addJob(sysJob);
+        ResponseResult result=new ResponseResult();
+        result.getData().put("message","添加成功");
+        return result;
+    }
+
+    @RequestMapping("update")
+    public ResponseResult update(SysJob sysJob){
+        sysJobService.updateJob(sysJob);
+        ResponseResult result=new ResponseResult();
+        result.getData().put("message","修改成功");
+        return result;
+    }
 }

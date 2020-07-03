@@ -3,7 +3,10 @@ package com.xr.mapper;
 import com.xr.model.SysEmp;
 import com.xr.model.SysEmpExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface SysEmpMapper {
 
@@ -81,4 +84,11 @@ public interface SysEmpMapper {
      * @return 集合数据
      */
     List<SysEmp> empAndDeptAndJob();
+
+    /**
+     *  查询 所有的 员工 信息 放到 部门vue的添加负责人里面
+     * @return map
+     */
+  @Select("select id,emp_name as empName from sys_emp")
+  List<Map<String, Object>> listEmpResultPrincipal();
 }

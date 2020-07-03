@@ -77,4 +77,11 @@ public class SysDeptController {
         result.getData().put("total",list.size());
         return result;
     }
+
+    @RequestMapping("inEmpFaceDeptDataNeatenData")
+    public ResponseResult inEmpFaceDeptDataNeatenData() {
+        ResponseResult result = new ResponseResult();
+        result.getData().put("deptList", sysDeptService.inEmpFaceDeptDataNeatenData());
+        return result;
+    }
 }

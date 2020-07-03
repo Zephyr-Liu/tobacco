@@ -4,6 +4,7 @@ import com.xr.model.SysRole;
 import com.xr.model.SysRoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface SysRoleMapper {
     long countByExample(SysRoleExample example);

@@ -1,6 +1,7 @@
 package com.xr.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.xr.model.SysRole;
 import com.xr.model.SysUser;
 import com.xr.service.SysUserService;
 import com.xr.util.GetUserTokenInfo;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -148,6 +150,49 @@ public class SysUserController {
         int number= Math.toIntExact(sysUserService.checkname(username));
         ResponseResult result=new ResponseResult();
         result.getData().put("number",number);
+        return result;
+    }
+
+    @RequestMapping("getRoleUserByRole")
+    public ResponseResult getRoleUserList(Integer id){
+        List<SysRole> list = sysUserService.selectRoleOrUser(id);
+    System.out.println(list);
+        ResponseResult result= new ResponseResult();
+        if (list.size() ==0) {
+            result.getData().put("roleList",sysUserService.selectRole());
+
+        }else{
+            StringBuffer name= new StringBuffer();
+
+          for (SysRole sysRole : list) {
+            name.append(","+sysRole.getName());
+          }
+            String s = name.deleteCharAt(0).toString();
+            List<SysRole> roleList = sysUserService.selectNotExits(s);
+            result.getData().put("roleList",roleList);
+        }
+
+            return result;
+    }
+
+    @RequestMapping("addUserConcernRole")
+    public ResponseResult addRoleUserRelation(Long [] a,Long getUserId){
+        for(long b:a)
+        {
+            System.out.println(b);
+            sysUserService.addRoleGetUserByUserIdAndRoleId(b,getUserId);
+        }
+        ResponseResult result=new ResponseResult();
+        result.getData().put("message","分配成功");
+        return result;
+    }
+
+
+    @RequestMapping("listById")
+    public ResponseResult listByLoginId(){
+        Map<String, String> map = sysUserService.listById((String) userTokenInfo.getData().get("createName"));
+        ResponseResult result=new ResponseResult();
+        result.getData().put("items",map);
         return result;
     }
 }

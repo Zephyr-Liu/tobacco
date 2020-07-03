@@ -5,6 +5,7 @@ import com.xr.model.SysJobExample;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 
 public interface SysJobMapper<updateStatusById> {
@@ -77,6 +78,7 @@ public interface SysJobMapper<updateStatusById> {
      * @return 返回
      */
     List<Map<String, Object>> joblist(SysJob sysJob);
+
 
 
 }

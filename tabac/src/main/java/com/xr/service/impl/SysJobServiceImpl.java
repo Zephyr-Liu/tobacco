@@ -4,6 +4,7 @@ import com.xr.mapper.SysJobMapper;
 import com.xr.model.SysJob;
 import com.xr.model.SysJobExample;
 import com.xr.service.SysJobService;
+import com.xr.util.GetUserTokenInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class SysJobServiceImpl implements SysJobService {
         this.sysJobMapper = sysJobMapper;
     }
 
+    @Autowired
+    private GetUserTokenInfo getUserTokenInfo;
+
     @Override
     public List<Map<String, Object>> joblist(SysJob sysJob) {
         if (sysJob.getStatus() == null) {
@@ -35,6 +39,10 @@ public class SysJobServiceImpl implements SysJobService {
 
     @Override
     public void addJob(SysJob sysJob) {
+        if (getUserTokenInfo.getData().get("createName")!=null) {
+            sysJob.setCreateId(String.valueOf(getUserTokenInfo.getData().get("id")));
+            sysJob.setCreateName((String) getUserTokenInfo.getData().get("createName"));
+        }
         sysJobMapper.insertSelective(sysJob);
     }
 
