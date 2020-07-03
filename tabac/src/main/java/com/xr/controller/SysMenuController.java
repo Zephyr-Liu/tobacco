@@ -1,6 +1,7 @@
 package com.xr.controller;
 
 import com.xr.model.SysMenu;
+import com.xr.model.SysRoleMenu;
 import com.xr.service.SysMenuService;
 import com.xr.util.ResponseResult;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -29,7 +31,7 @@ public class SysMenuController {
     @RequestMapping("list")
     @RequiresPermissions("menu:list")
     public ResponseResult list(SysMenu sysMenu,Integer page,Integer limit){
-        List<SysMenu> list = sysMenuService.listMenu(sysMenu);
+        List<Map<String, Object>> list = sysMenuService.listMenu(sysMenu);
         ResponseResult result=new ResponseResult();
         result.getData().put("items",list);
         result.getData().put("total",list.size());

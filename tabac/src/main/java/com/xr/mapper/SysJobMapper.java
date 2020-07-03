@@ -9,13 +9,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface SysJobMapper<updateStatusById> {
 
-    /**
-     *  自定义的map 查询所有方法 由唐文超 编写
-     * @
-     * @return 返回
-     */
-    List<Map<String, Object>> joblist(SysJob sysJob);
-
 
     long countByExample(SysJobExample example);
 
@@ -78,14 +71,12 @@ public interface SysJobMapper<updateStatusById> {
     int updateStatusById(@Param("updatedStatus") Byte updatedStatus, @Param("id") Integer id);
 
 
-    /**]
-     *  多表联查
-     * @return 集合
-     * @return 集合
+    /**
+     *  自定义的map 查询所有方法 由唐文超 编写
+     * @
+     * @return 返回
      */
-    List<SysJob> selectByJobAndDept(SysJobExample sysJobExample);
-
-
+    List<Map<String, Object>> joblist(SysJob sysJob);
 
 
 }

@@ -36,7 +36,7 @@ public class MyShiroRealm extends AuthorizingRealm {
      *
      * @param principal
      * @return
-     * @RequiresPermissions这个注解起始就是在执行SecurityUtils.getSubject().isPermitted（）
+     * @RequiresPermissions 这个注解起始就是在执行SecurityUtils.getSubject().isPermitted（）
      */
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         // 从session中获取 user 对象

@@ -49,19 +49,4 @@ public class SysJobServiceImpl implements SysJobService {
         sysJobMapper.updateStatusById((byte) 1,id);
     }
 
-    @Override
-    public List<SysJob> query(SysJob sysJob) {
-        SysJobExample sysJobExample=new SysJobExample();
-        SysJobExample.Criteria criteria=sysJobExample.createCriteria();
-        //criteria.andStatusEqualTo((byte) 0);
-        if (sysJob != null) {
-            if (sysJob.getJobName() != null) {
-                criteria.andJobNameLike("%"+sysJob.getJobName()+"%");
-            }
-            if (sysJob.getJobDesc() != null) {
-                criteria.andJobDescLike("%"+sysJob.getJobDesc()+"%");
-            }
-        }
-        return sysJobMapper.selectByJobAndDept(sysJobExample);
-    }
 }

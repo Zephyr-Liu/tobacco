@@ -33,8 +33,4 @@ public interface SysMenuService {
      * @return 集合
      */
     List<SysMenu> listMenu(SysMenu sysMenu);
-
-    List<SysMenu> listPermissions(String username, long parentid);
-
-//    List<SysMenu> listPermissions(String username);
 }
