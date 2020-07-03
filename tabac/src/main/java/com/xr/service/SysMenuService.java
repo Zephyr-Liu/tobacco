@@ -33,7 +33,7 @@ public interface SysMenuService {
      *  查询所有 根据条件查询
      * @return 集合
      */
-    List<Map<String, Object>> listMenu();
+    List<Map<String, Object>> listMenuAll();
 
 
 
