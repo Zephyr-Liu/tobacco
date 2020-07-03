@@ -45,4 +45,21 @@ public class PartyDialogueServiceImpl implements PartyDialogueService {
         List<PartyDialogue> list =  partyDialogueMapper.selectByExample(example);
         return list;
     }
+
+    @Override
+    public int insert(PartyDialogue record) {
+        return partyDialogueMapper.insert(record);
+    }
+
+    @Override
+    public int updateByPrimaryKey(PartyDialogue record) {
+        return partyDialogueMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(PartyDialogue record) {
+        return partyDialogueMapper.updateByPrimaryKeySelective(record);
+    }
+
+
 }

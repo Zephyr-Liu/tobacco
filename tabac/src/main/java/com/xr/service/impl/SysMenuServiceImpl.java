@@ -74,6 +74,12 @@ public class SysMenuServiceImpl implements SysMenuService {
     }
 
     @Override
+    public List<Map<String, Object>> listMenu(SysMenu sysMenu) {
+        return null;
+    }
+
+
+    @Override
     public List<SysMenu> listPermissions(String username, long parentid) {
         return sysMenuMapper.listPermissions(username,parentid);
     }

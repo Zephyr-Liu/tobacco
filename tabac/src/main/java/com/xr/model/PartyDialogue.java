@@ -45,7 +45,7 @@ public class PartyDialogue {
     * 谈话对象职务
     */
     @ApiModelProperty(value="谈话对象职务")
-    private Integer otherSideJoc;
+    private String otherSideJoc;
 
     /**
     * 谈话类型	0 廉政谈话、1  任前廉政谈话、2  提醒谈话  三选一
@@ -109,7 +109,7 @@ public class PartyDialogue {
     /**
     * 0 创建、1 待审、2 已审核
     */
-    @ApiModelProperty(value="0 创建、1 待审、2 已审核")
+    @ApiModelProperty(value="0 创建、1 待审、2 已审核， 3 删除")
     private Byte status;
 
 
@@ -133,5 +133,4 @@ public class PartyDialogue {
 
 
     private  String deptname;
-    private String jobname;
 }

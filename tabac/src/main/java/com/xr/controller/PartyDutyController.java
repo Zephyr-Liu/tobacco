@@ -35,7 +35,7 @@ public class PartyDutyController {
         Session session = subject.getSession();
         SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
         List<Long> userRoles = sysUserService.findUserRolesId(loginUser.getUsername());
-        String rid=userRoles.get(0)+"  ";
+        String rid=userRoles.get(0).toString();
         List<PartyDuty> list = partyDutyService.listpartyDuty(partyDuty,rid,loginUser.getUsername());
 
         ResponseResult result = new ResponseResult();

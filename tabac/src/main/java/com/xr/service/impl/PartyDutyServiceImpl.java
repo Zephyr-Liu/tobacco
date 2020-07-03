@@ -24,8 +24,7 @@ public  class PartyDutyServiceImpl implements PartyDutyService {
 
         PartyDutyExample.Criteria criteria = example.createCriteria();
         System.out.println("登录人角色"+rids);
-        System.out.println();
-        if (rids.trim().equals('2')){
+        if (rids.equals('2')){
             System.out.println(rids);
             System.out.println("登录人姓名"+username);
             criteria.andCreateNameEqualTo(username);

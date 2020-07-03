@@ -8,7 +8,7 @@
     <result column="other_side_name" jdbcType="VARCHAR" property="otherSideName" />
     <result column="other_side_dept" jdbcType="INTEGER" property="otherSideDept" />
     <result column="other_side_face" jdbcType="VARCHAR" property="otherSideFace" />
-    <result column="other_side_joc" jdbcType="INTEGER" property="otherSideJoc" />
+    <result column="other_side_joc" jdbcType="VARCHAR" property="otherSideJoc" />
     <result column="talk_type" jdbcType="TINYINT" property="talkType" />
     <result column="talk_date" jdbcType="TIMESTAMP" property="talkDate" />
     <result column="talk_site" jdbcType="VARCHAR" property="talkSite" />
@@ -19,6 +19,7 @@
     <result column="create_id" jdbcType="INTEGER" property="createId" />
     <result column="create_name" jdbcType="VARCHAR" property="createName" />
     <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptname" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -129,7 +130,7 @@
       create_id, create_name, `status`
       )
     values (#{id,jdbcType=INTEGER}, #{otherSideName,jdbcType=VARCHAR}, #{otherSideDept,jdbcType=INTEGER},
-      #{otherSideFace,jdbcType=VARCHAR}, #{otherSideJoc,jdbcType=INTEGER}, #{talkType,jdbcType=TINYINT},
+      #{otherSideFace,jdbcType=VARCHAR}, #{otherSideJoc,jdbcType=VARCHAR}, #{talkType,jdbcType=TINYINT},
       #{talkDate,jdbcType=TIMESTAMP}, #{talkSite,jdbcType=VARCHAR}, #{recordProson,jdbcType=VARCHAR},
       #{talkOutline,jdbcType=VARCHAR}, #{talkContent,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
       #{createId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
@@ -257,7 +258,7 @@
         other_side_face = #{record.otherSideFace,jdbcType=VARCHAR},
       </if>
       <if test="record.otherSideJoc != null">
-        other_side_joc = #{record.otherSideJoc,jdbcType=INTEGER},
+        other_side_joc = #{record.otherSideJoc,jdbcType=VARCHAR},
       </if>
       <if test="record.talkType != null">
         talk_type = #{record.talkType,jdbcType=TINYINT},
@@ -301,7 +302,7 @@
       other_side_name = #{record.otherSideName,jdbcType=VARCHAR},
       other_side_dept = #{record.otherSideDept,jdbcType=INTEGER},
       other_side_face = #{record.otherSideFace,jdbcType=VARCHAR},
-      other_side_joc = #{record.otherSideJoc,jdbcType=INTEGER},
+      other_side_joc = #{record.otherSideJoc,jdbcType=VARCHAR},
       talk_type = #{record.talkType,jdbcType=TINYINT},
       talk_date = #{record.talkDate,jdbcType=TIMESTAMP},
       talk_site = #{record.talkSite,jdbcType=VARCHAR},
@@ -330,7 +331,7 @@
         other_side_face = #{otherSideFace,jdbcType=VARCHAR},
       </if>
       <if test="otherSideJoc != null">
-        other_side_joc = #{otherSideJoc,jdbcType=INTEGER},
+        other_side_joc = #{otherSideJoc,jdbcType=VARCHAR},
       </if>
       <if test="talkType != null">
         talk_type = #{talkType,jdbcType=TINYINT},
@@ -371,7 +372,7 @@
     set other_side_name = #{otherSideName,jdbcType=VARCHAR},
       other_side_dept = #{otherSideDept,jdbcType=INTEGER},
       other_side_face = #{otherSideFace,jdbcType=VARCHAR},
-      other_side_joc = #{otherSideJoc,jdbcType=INTEGER},
+      other_side_joc = #{otherSideJoc,jdbcType=VARCHAR},
       talk_type = #{talkType,jdbcType=TINYINT},
       talk_date = #{talkDate,jdbcType=TIMESTAMP},
       talk_site = #{talkSite,jdbcType=VARCHAR},
