@@ -1,17 +1,21 @@
 package com.xr.mapper;
 
+import com.xr.model.SysRole;
 import com.xr.model.SysUser;
 import com.xr.model.SysUserExample;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * @author Coisini
  */
 @Mapper
-public interface SysUserMapper<countByUsername> {
+public interface SysUserMapper<countByUsername, selectByIdQueryUserRoleRelationExist> {
     long countByExample(SysUserExample example);
 
     int deleteByExample(SysUserExample example);
@@ -101,8 +105,31 @@ public interface SysUserMapper<countByUsername> {
      List<Long> findUserRolesId(String username);
 
 
+    /**
+     *  查询 username 是否存在
+     * @param username  查询
+     * @return 是否存在
+     */
      Long countByUsername(@Param("username")String username);
 
 
+     @Select("select * from sys_user u inner join sys_user_role sur on u.id=sur.user_id inner  join  sys_role r on r.id=sur.role_id")
+     List<Map<String, Object>> selectByIdQueryUserRoleRelationExist(Integer id);
 
+
+     @Select("select  * from sys_role r , sys_user_role ur ,sys_user u where  u.id=#{id} and u.id=ur.user_id and r.id=ur.role_id")
+     List<SysRole>  selectRoleOrUser(Integer id);
+
+     @Select("select  * from sys_role where del_flag=0 ")
+     List<SysRole> selectRole();
+
+
+     @Select("select * from sys_role where not FIND_IN_SET(`name`,#{name})")
+     List<SysRole> selectNotExits(String name);
+
+     @Insert("insert into sys_user_role(user_id,role_id) values(#{getUserId},#{a})")
+     void addRoleGetUserByUserIdAndRoleId(@Param("a") Long a,@Param("getUserId") Long getUserId);
+
+     @Select("select  avatar from sys_user where username=#{username}")
+     Map<String, String> listById(@Param("username") String username);
 }

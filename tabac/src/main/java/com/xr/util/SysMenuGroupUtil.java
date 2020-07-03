@@ -21,6 +21,8 @@ public class SysMenuGroupUtil {
         Map<String, Object> getMap = new HashMap();
         getMap.put("id", menu.getId());
         getMap.put("label", menu.getName());
+//        getMap.put("field", menu.getSuperior());
+//        getMap.put("checked", false);
         List<Map<String, Object>> node = getChildrenNode(menu.getId(), list);
         if (node.size() > 0 && node != null) {
           getMap.put("children", node);
@@ -29,6 +31,8 @@ public class SysMenuGroupUtil {
 
       }
     }
+
+
 
     return map;
 
@@ -43,8 +47,11 @@ public class SysMenuGroupUtil {
       if (menu.getParentId() == mid) {
         Map<String, Object> tempMap = new HashMap();
 
+        // 这是树形控件tree的
         tempMap.put("id", menu.getId());
+        //这是Cascader 级联选择器
         tempMap.put("label", menu.getName());
+
         List<Map<String, Object>> node = getChildrenNode(menu.getId(), list);
         if (node!=null){
           tempMap.put("children",node);

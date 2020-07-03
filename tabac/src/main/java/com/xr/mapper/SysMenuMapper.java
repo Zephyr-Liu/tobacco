@@ -3,7 +3,12 @@ package com.xr.mapper;
 import com.xr.model.SysMenu;
 import com.xr.model.SysMenuExample;
 import java.util.List;
+
+import com.xr.model.SysRoleMenu;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface SysMenuMapper {
     long countByExample(SysMenuExample example);
@@ -73,4 +78,32 @@ public interface SysMenuMapper {
 
 
 
+    /**
+     *  添加 角色和菜单的关系
+     * @param sysRoleMenu sys_role_menu
+     */
+    @Insert("insert INTO sys_role_menu(role_id,menu_id) VALUES(#{rid},#{mid})")
+     void addRoleMenuRelation(SysRoleMenu sysRoleMenu);
+
+    @Select(
+            "SELECT m.id\n"
+                    + "    from sys_user u\n"
+                    + "    INNER JOIN sys_user_role ur\n"
+                    + "    ON u.id = ur.user_id\n"
+                    + "    INNER JOIN sys_role r\n"
+                    + "    ON ur.role_id = r.id\n"
+                    + "    INNER JOIN sys_role_menu rm\n"
+                    + "    ON r.id = rm.role_id\n"
+                    + "    INNER JOIN sys_menu m\n"
+                    + "    ON m.id = rm.menu_id\n"
+                    + "\twhere r.id=#{id} GROUP BY m.id")
+    Long[] selectMenuById(Long id);
+
+    /**
+     * 物理删除
+     * @param roleId 传来的id
+     * @return
+     */
+    @Delete("delete from sys_role_menu where role_id=#{roleId} ")
+    int delete(@Param("roleId") Long roleId);
 }

@@ -1,9 +1,10 @@
 package com.xr.service;
 
 import com.xr.model.SysMenu;
+import com.xr.model.SysRoleMenu;
 
 import java.util.List;
-
+import java.util.Map;
 /**
  * @author Zephyr.Liu
  * @create 2020/6/23 11:17
@@ -29,8 +30,33 @@ public interface SysMenuService {
 
     /**
      *  查询所有 根据条件查询
-     * @param sysMenu 条件
      * @return 集合
      */
+    List<Map<String, Object>> listMenu();
+
+
+
+    /**
+     *  查询所有的权限 根据角色id
+     * @param id id
+     * @return 数组
+     */
+    Long[] selectMenuById(Long id);
+
+
+    /**
+     * 真正删除
+     * @param roleId id
+     * @return
+     */
+    int delete( Long roleId);
+
+
+    /**
+     *  菜单权限
+     * @param sysRoleMenu 对象
+     */
+    void addRoleMenuRelation(SysRoleMenu sysRoleMenu);
+
     List<SysMenu> listMenu(SysMenu sysMenu);
 }

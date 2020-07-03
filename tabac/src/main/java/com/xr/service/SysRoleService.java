@@ -47,4 +47,6 @@ public interface SysRoleService {
      * @return 集合数据
      */
     List<SysRole> listSysRole (SysRole sysRole,Integer page,Integer limit);
+
+
 }

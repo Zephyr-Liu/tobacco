@@ -35,6 +35,7 @@ public class SysMenu {
     @ApiModelProperty(value = "父菜单ID，一级菜单为0")
     private Long parentId;
 
+
     private String parentName;
 
     /**

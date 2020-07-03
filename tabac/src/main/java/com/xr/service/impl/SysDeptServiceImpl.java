@@ -4,7 +4,9 @@ import com.xr.mapper.SysDeptMapper;
 import com.xr.model.SysDept;
 import com.xr.model.SysDeptExample;
 import com.xr.service.SysDeptService;
+import com.xr.util.SysDeptCascadeTransformGroupUtil;
 import com.xr.util.SysDeptGroupUtil;
+import com.xr.util.SysMenuGroupUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -88,6 +90,19 @@ public class SysDeptServiceImpl implements SysDeptService {
             sysDept.setStatus((byte) 0);
         }
         return sysDeptMapper.selectDeptAll(sysDept);
+    }
+
+    @Override
+    public List<Map<String, Object>> inEmpFaceDeptDataNeatenData() {
+        SysDeptExample example = new SysDeptExample();
+        SysDeptExample.Criteria criteria = example.createCriteria();
+        criteria.andStatusEqualTo(new Byte("0"));
+        List<SysDept> list = sysDeptMapper.selectByExample(example);
+        if(list!=null && list.size()>0){
+            SysDeptCascadeTransformGroupUtil groupUtil=new SysDeptCascadeTransformGroupUtil();
+            return groupUtil.getFaterNodes(list);
+        }
+        return null;
     }
 
 

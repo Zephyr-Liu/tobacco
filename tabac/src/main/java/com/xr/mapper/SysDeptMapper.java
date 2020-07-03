@@ -80,8 +80,13 @@ public interface SysDeptMapper {
    */
   int updateStatusById(@Param("updatedStatus") Byte updatedStatus, @Param("id") Integer id);
 
-  List<SysDept> selectMultilistMenu(SysDept sysDept);
 
+
+  /**
+   *  查询所有的id
+   * @param sysDept
+   * @return
+   */
   List<Map<String, Object>> selectDeptAll(SysDept sysDept);
 
 

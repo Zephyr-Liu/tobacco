@@ -51,4 +51,10 @@ public interface SysDeptService {
      * @return 多表联查自己
      */
     List<Map<String, Object>> query(SysDept sysDept);
+
+    /**
+     *  在emp表中对部门表进行级联数据整理
+     * @return
+     */
+    List<Map<String, Object>> inEmpFaceDeptDataNeatenData();
 }

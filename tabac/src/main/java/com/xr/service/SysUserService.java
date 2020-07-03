@@ -1,8 +1,11 @@
 package com.xr.service;
 
+import com.xr.model.SysRole;
 import com.xr.model.SysUser;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -95,4 +98,36 @@ public interface SysUserService {
      * @return 用户名
      */
      Long checkname(String username);
+
+
+    List<SysRole>  selectRoleOrUser(Integer id);
+
+    /**
+     * 查询所有的角色
+     * @return
+     */
+    List<SysRole> selectRole();
+
+
+    /**
+     *  查询所有不存在的 role
+     * @param name
+     * @return
+     */
+    List<SysRole> selectNotExits(String name);
+
+    /**
+     *  循环添加
+     * @param a roleId
+     * @param getUserId UserId
+     */
+    void addRoleGetUserByUserIdAndRoleId(Long a,Long getUserId);
+
+    /**
+     *
+     * @param username 根据当前登陆的人查询头像
+     * @return 头像
+     */
+    Map<String, String> listById(String username);
+
 }

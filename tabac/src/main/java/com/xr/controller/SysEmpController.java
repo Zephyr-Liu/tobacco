@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Zephyr.Liu
@@ -65,5 +66,12 @@ public class SysEmpController {
         return result;
     }
 
+    @RequestMapping("listEmpResultPrincipal")
+    public ResponseResult listEmpResultPrincipal(){
+        List<Map<String, Object>> list = sysEmpService.listEmpResultPrincipal();
+        ResponseResult result=new ResponseResult();
+        result.getData().put("items",list);
+        return result;
+    }
 
 }
