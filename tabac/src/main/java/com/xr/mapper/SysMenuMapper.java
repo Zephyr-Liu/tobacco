@@ -101,6 +101,11 @@ public interface SysMenuMapper {
     @Insert("insert INTO sys_role_menu(role_id,menu_id) VALUES(#{rid},#{mid})")
      void addRoleMenuRelation(SysRoleMenu sysRoleMenu);
 
+    /**
+     *  根据id 查询所有的 菜单信息 从而取得权限
+     * @param id 角色id
+     * @return long id的数组
+     */
     @Select(
             "SELECT m.id\n"
                     + "    from sys_user u\n"
@@ -118,7 +123,7 @@ public interface SysMenuMapper {
     /**
      * 物理删除
      * @param roleId 传来的id
-     * @return
+     * @return 是否删除成功
      */
     @Delete("delete from sys_role_menu where role_id=#{roleId} ")
     int delete(@Param("roleId") Long roleId);

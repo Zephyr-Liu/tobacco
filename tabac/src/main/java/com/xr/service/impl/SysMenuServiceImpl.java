@@ -44,7 +44,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 
 
     @Override
-    public List<Map<String, Object>> listMenu() {
+    public List<Map<String, Object>> listMenuAll() {
         SysMenuExample sysMenuExample=new SysMenuExample();
         List<SysMenu> sysMenus=sysMenuMapper.selectByExample(sysMenuExample);
     for (SysMenu sysMenu : sysMenus) {

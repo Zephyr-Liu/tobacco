@@ -31,7 +31,7 @@ public class SysMenuController {
     @RequestMapping("list")
     public ResponseResult list(){
         ResponseResult result = new ResponseResult();
-        result.getData().put("menuList", sysMenuService.listMenu());
+        result.getData().put("menuList", sysMenuService.listMenuAll());
         return result;
     }
 
